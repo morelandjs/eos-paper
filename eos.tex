@@ -10,7 +10,7 @@
 
 \begin{document}
 
-\title{Model-to-data analysis of the lattice equation of state}
+\title{Hydrodynamic simulations of heavy-ion collisions with different equations of state}
 
 \author{J.\ Scott Moreland}
 \affiliation{Department of Physics, Duke University, Durham, NC 27708-0305}
@@ -19,12 +19,37 @@
 
 \date{\today}
 
-\begin{abstract}
-  P
+\begin{abstract} 
+   The QCD Equation of State (EoS) is an essential ingredient for the hydrodynamic models used to study heavy ion collisions.  
+   Recent results by the HotQCD and Wuppertal-Budapest collaborations lattice gauge calculations of the QCD EoS at the continuum 
+   limit show good agreement within errors.  However it is unknown whether current errors are sufficient for current simulations 
+   or whether further improvements are needed.  We explore this question by performing hydrodynamic calculations with the VISHNU 2+1D 
+   hydrodynamic code with fluctuating initial conditions and UrQMD cascade code for the two EoS calculations and a sampling of EoS curves 
+   within the given errors.  Comparisons are made to spectra ($\pi$, K, p), flow ($v_2, v_3$), and azimuthally averaged HBT radii for 
+   200~GeV Au+Au collisions.
 \end{abstract}
 
-
 \maketitle
+
+\section{Introduction}
+At temperatures exceeding two trillion Kelvin, quantum chromodynamics predicts a nuclear phase transition  from bound states of colorless hadrons
+to a deconfined soup of quarks and gluons known as a quark-gluon plasma (QGP). QGP is produced and studied in the laboratory by colliding nuclei at 
+ultrarelativistic energies to excite matter beyond the predicted phase transition temperature and produce a droplet of QGP which quickly cools and freezes into 
+hadrons.
+
+
+
+on the order of $\sim 10^{-23}$ s, cannot be observed directly and is typically
+studied using computer simulations to reconstruct the full spacetime evolution of the collision.
+
+Viscous relativistic fluid dynamics is a popular theoretical framework to describe the transport dynamics of the liquid-like QGP produced in each collision,
+
+
+
+and match the hot and dense early phases of the collision to later times where it can be matched to experimental observables.
+
+
+
 
 \section{Introduction}
 
