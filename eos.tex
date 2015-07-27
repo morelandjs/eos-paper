@@ -10,7 +10,7 @@
 
 \begin{document}
 
-\title{Hydrodynamic simulations of heavy-ion collisions with different equations of state}
+\title{Quantifying uncertainty in hydrodyamic simulations of heavy-ion collisions attributable to imperfect knowledge of the QCD equation of state}
 
 \author{J.\ Scott Moreland}
 \affiliation{Department of Physics, Duke University, Durham, NC 27708-0305}
@@ -42,22 +42,90 @@ to constrain its functional form \cite{Novak:2013bqa}.
 
 Uncertainties in the equation of state have been studied both at low temperature, by comparing lattice predictions to results from a hadron resonance gas model
 \cite{Huovinen:2009yb}, and at high temperature by comparing hydrodynamic predictions obtained using different parameterizations of the QCD trace anomaly 
-\cite{Huovinen:2005gy, Huovinen:2009yb}. Large differences in the flows and spectra are observed when switching from a bag model equation of state with a first-order 
-phase transition to a lattice equation of state exhibiting a smooth crossover, but only mild sensitivity is observed to different parametric forms of the lattice 
-calculations \cite{Huovinen:2009yb}.
+\cite{Huovinen:2005gy, Huovinen:2009yb}. Large differences in the flows and spectra were observed when switching from a bag model equation of state with a first-order 
+phase transition to a lattice equation of state exhibiting a smooth crossover, but only mild variations were observed when switching between different lattice 
+parameterizations with a smooth crossover \cite{Huovinen:2009yb}.
 
-In this work we study the lattest HotQCD and Wuppertal-Budapest 
+Recent calculations by the HotQCD and Wuppertal-Budapest collaborations of the QCD trace anomaly in the continuum limit now show good agreement within errors. This signals an important
+convergence in lattice descriptions of the QCD equation of state which previously exhibited a tension in the peak of the trace anomaly near the QGP phase transition. It is not yet clear however, if current
+lattice errors are under sufficient control for hydrodynamic transport models or if further improvement is needed.  
 
+In this work, we analyze the current status of lattice gauge calculations in the continuum limit by comparing simulation predictions using different lattice calculations for the QGP equation of state.
+We study the latest HotQCD and Wuppertal-Budapest parametrizations as well as the depreciated s95 parametrization based on older HotQCD lattice results. 
+
+We embed each equation of state in an event-by-event hydrodynamic model with a hadronic afterburner and measure spectra, flows and Bertsch-Pratt radii predicted by the simulations to quantify systematic 
+differences between the calculations. We also assess the generic uncertainty introduced by continuum extrapolation when constructing the best fit parametrization by sampling splines from the bootstrap coefficients 
+used in the HotQCD error analysis. Using these results, we comment on the resolving power of hydrodynamic simulations and assess the need for improved lattice calculations at zero baryo-chemical potential.
 
 \bibliography{eos,duke-qcd-refs/Duke_QCD_refs}
 
 
-\section{Lattice Uncertainties}
+\section{Lattice Uncertainties (Ron)}
 
-\section{Equations of state}
+\section{Methodology}
+
+We use the {\ttfamily VISHNU} event-by-event hybrid model which couples the boost invariant {\ttfamily VISH2+1} viscous hydrodynamics code to the {\ttfamily UrQMD} hadronic transport model. The initial conditions are obtained
+from a standard two-component Glauber Monte-Carlo which deposits entropy proportional to a linear combination of wounded nucleons and binary collisions,
+\begin{equation}
+ dS/dy \,\vert_{y=0} \propto \frac{(1-\alpha)}{2}N_\text{part} + \alpha N_\text{coll}.
+\end{equation}
+
+We choose a simplistic implementation of the Monte Carlo Glauber model and deposit wounded nucleon and binary collision entropy proportional to the transverse proton density $T_p({\bf x})$,
+\begin{eqnarray}
+ dS/dy \,\vert_{y=0} &\propto& \sum\limits_{i=0}^{N_\text{part,A}} w_i\, T_p({\bf x} - {\bf x}_i)(1+\alpha\, N_\text{coll,i}) \nonumber \\
+                     &+& \sum\limits_{j=0}^{N_\text{part,B}} w_j\, T_p({\bf x} - {\bf x}_i)(1+\alpha\, N_\text{coll,j}).
+\end{eqnarray}
+where $N_\text{coll,i}$ denotes the number of binary collisions suffered by the $i^\text{th}$ nucleon and $w_i$ is a random weight sampled from a Gamma distribution with unit mean.
+\begin{equation}
+ P_k(w) = \frac{k^k}{\Gamma(k)} w^{k-1} e^{-k w},
+\end{equation}
+The shape parameter $k=1$ is tuned to fit the slope of the minimum bias p+p multiplicity distribution at $200$ GeV and introduces additional fluctuations on top of the nucleon position fluctuations.
+
+For the wounded nucleon/binary collision mixture we choose the rather common value $\alpha=0.14$ which yields a good description of the centrality dependent charged particle multiplicity 
+in $200$ GeV Au+Au collisions after full hydrodynamic and hadronic evolution. The transverse proton density $T_p({\bf x})$ is fixed using a Gaussian of transverse area $B = 0.36$ $\text{fm}^2$,
+\begin{equation}
+ T_p({\bf x}) = \frac{1}{\sqrt{2 \pi B}} \exp \left(-\frac{x^2+y^2}{2 B} \right).
+\end{equation}
+ 
 
 
-\section{Hydrodynamic Model}
+\section{Results}
+
+\begin{figure}[t]
+  \includegraphics[width=\columnwidth]{./fig/eos_comparison}
+  \caption{
+    \label{fig:spectra}
+  }
+\end{figure}
+
+\begin{figure*}[t]
+  \includegraphics[width=\textwidth]{./fig/spectra}
+  \caption{
+    \label{fig:spectra}
+  }
+\end{figure*}
+
+\begin{figure*}[t]
+  \includegraphics[width=\textwidth]{./fig/v2}
+  \caption{
+    \label{fig:spectra}
+  }
+\end{figure*}
+
+\begin{figure*}[t]
+  \includegraphics[width=\textwidth]{./fig/v3}
+  \caption{
+    \label{fig:spectra}
+  }
+\end{figure*}
+
+\begin{figure*}[t]
+  \includegraphics[width=\textwidth]{./fig/hbt}
+  \caption{
+    \label{fig:spectra}
+  }
+\end{figure*}
+
 
 \section{Acknowledgements}
 
