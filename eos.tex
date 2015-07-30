@@ -54,49 +54,73 @@ In this work, we analyze the current status of lattice gauge calculations in the
 We study the latest HotQCD and Wuppertal-Budapest parametrizations as well as the depreciated s95 parametrization based on older HotQCD lattice results. 
 
 We embed each equation of state in an event-by-event hydrodynamic model with a hadronic afterburner and measure spectra, flows and Bertsch-Pratt radii predicted by the simulations to quantify systematic 
-differences between the calculations. We also assess the generic uncertainty introduced by continuum extrapolation when constructing the best fit parametrization by sampling splines from the bootstrap coefficients 
+differences between the calculations. We also assess the uncertainty introduced by continuum extrapolation when constructing the best fit parametrization by sampling splines from the bootstrap coefficients 
 used in the HotQCD error analysis. Using these results, we comment on the resolving power of hydrodynamic simulations and assess the need for improved lattice calculations at zero baryo-chemical potential.
 
-\bibliography{eos,duke-qcd-refs/Duke_QCD_refs}
+\section{Equations of State}
+
+We consider three parameterizations for the QGP equations of state, the state of the art HotQCD and Wuppertal-Budapest parameterizations \cite{?} as well as the older s95-v1 parametrization based on 
+older HotQCD results. For the purposes of this study, we focus on the intermediate and high temperature dependence of the lattice equation of state and assume that at lower temperatures, the dependence of the 
+QCD equation of state is described by the hadron 
+resonance gas model, which is to good approximation
 
 
-\section{Lattice Uncertainties (Ron)}
 
-\section{Methodology}
-
-We use the {\ttfamily VISHNU} event-by-event hybrid model which couples the boost invariant {\ttfamily VISH2+1} viscous hydrodynamics code to the {\ttfamily UrQMD} hadronic transport model. The initial conditions are obtained
-from a standard two-component Glauber Monte-Carlo which deposits entropy proportional to a linear combination of wounded nucleons and binary collisions,
-\begin{equation}
- dS/dy \,\vert_{y=0} \propto \frac{(1-\alpha)}{2}N_\text{part} + \alpha N_\text{coll}.
-\end{equation}
-
-We choose a simplistic implementation of the Monte Carlo Glauber model and deposit wounded nucleon and binary collision entropy proportional to the transverse proton density $T_p({\bf x})$,
-\begin{eqnarray}
- dS/dy \,\vert_{y=0} &\propto& \sum\limits_{i=0}^{N_\text{part,A}} w_i\, T_p({\bf x} - {\bf x}_i)(1+\alpha\, N_\text{coll,i}) \nonumber \\
-                     &+& \sum\limits_{j=0}^{N_\text{part,B}} w_j\, T_p({\bf x} - {\bf x}_i)(1+\alpha\, N_\text{coll,j}).
-\end{eqnarray}
-where $N_\text{coll,i}$ denotes the number of binary collisions suffered by the $i^\text{th}$ nucleon and $w_i$ is a random weight sampled from a Gamma distribution with unit mean.
-\begin{equation}
- P_k(w) = \frac{k^k}{\Gamma(k)} w^{k-1} e^{-k w},
-\end{equation}
-The shape parameter $k=1$ is tuned to fit the slope of the minimum bias p+p multiplicity distribution at $200$ GeV and introduces additional fluctuations on top of the nucleon position fluctuations.
-
-For the wounded nucleon/binary collision mixture we choose the rather common value $\alpha=0.14$ which yields a good description of the centrality dependent charged particle multiplicity 
-in $200$ GeV Au+Au collisions after full hydrodynamic and hadronic evolution. The transverse proton density $T_p({\bf x})$ is fixed using a Gaussian of transverse area $B = 0.36$ $\text{fm}^2$,
-\begin{equation}
- T_p({\bf x}) = \frac{1}{\sqrt{2 \pi B}} \exp \left(-\frac{x^2+y^2}{2 B} \right).
-\end{equation}
- 
+focus on the intermediate and high temperature dependence of the QGP equation of state
 
 
-\section{Results}
+study three parameterizations for the QGP equations of state, the state of the art HotQCD and Wuppertal-Budapest parameterizations \cite{?} as well as the older s95-v1 parametrization based on 
+older HotQCD results. To perform
 
-\begin{figure}[t]
+\begin{figure}[b!]
   \includegraphics[width=\columnwidth]{./fig/eos_comparison}
   \caption{
     \label{fig:spectra}
   }
 \end{figure}
+
+\section{Simulation}
+
+\section{Initial Conditions}
+
+We generate hydrodyamic initial conditions using a standard two-component Monte Carlo Glauber model which deposits entropy proportional to a linear combination of nucleon participants and binary nucleon-nucleon collisions,
+\begin{equation}
+ dS/dy \,\vert_{y=0} \propto \frac{(1-\alpha)}{2}N_\text{part} + \alpha N_\text{coll}.
+\end{equation}
+
+The entropy is localized about each nucleon's transverse parton density $T_p({\bf x})$,
+\begin{eqnarray}
+ dS/dy \,\vert_{y=0} &\propto& \sum\limits_{i=0}^{N_\text{part,A}} w_i\, T_p({\bf x} - {\bf x}_i)(1-\alpha + \alpha\, N_\text{coll,i}) \nonumber \\
+                     &+& \sum\limits_{j=0}^{N_\text{part,B}} w_j\, T_p({\bf x} - {\bf x}_i)(1-\alpha + \alpha\, N_\text{coll,j}),
+ \label{twocomponent}
+\end{eqnarray}
+where the summations run over the participants in each nucleus, $N_\text{coll,i}$ denotes the number of binary collisions suffered by the $i^\text{th}$ nucleon and the proton density $T_p({\bf x})$ is 
+described by a Gaussian
+\begin{equation}
+ T_p({\bf x}) = \frac{1}{\sqrt{2 \pi B}} \exp \left(-\frac{x^2+y^2}{2 B} \right)
+\end{equation}
+with transverse area $B = 0.36$ $\text{fm}^2$.
+
+The random nucleon weights $w_i$ in equation \eqref{twocomponent} are sampled independently from a Gamma distribution with unit mean
+\begin{equation}
+ P_k(w) = \frac{k^k}{\Gamma(k)} w^{k-1} e^{-k w},
+\end{equation}
+and shape parameter $k = \text{Var}(P)^{-1}$ which modulates the variance of the distribution. These fluctuations are typically added \cite{?} to reproduce the large multiplicity fluctuations observed in minimum bias proton-proton 
+collisions. In this work the shape parameter is fixed to $k=1$ to fit the $200$ GeV UA5 data \cite{?}. 
+
+It is important to note that the aforementioned Monte Carlo Glauber model is not a state of the art model for initializing hydrodynamic simulations. It makes many simplifying assumptions such as ignoring pre-equillibrium dynamics
+and asserting wounded nucleon and binary collision scaling, an assertion which is questioned by a number of recent works. Nevertheless, the model provides a good description of observed particle multiplicities, flows and spectra. In this work, we 
+are primarily interested in the \emph{sensitivity} of hydrodynamic observables to differences in the QGP equation of state and \emph{not} the overall best fit of model to data. Hence, the Monte Carlo Glauber model serves as suitable 
+surrogate for more accurate physical models.
+
+\section{Hydrodyamics and \\ Boltzmann Transport}
+
+The initial condition profiles, which provide the entropy density $dS/(d^2r_\perp\, d\eta\, \tau_\text{therm})$ at the QGP thermalization time, are then used to initialize the boost invariant viscous hydrodynamics code 
+{\ttfamily VISH2+1} \cite{?}. 
+
+
+
+\section{Results}
 
 \begin{figure*}[t]
   \includegraphics[width=\textwidth]{./fig/spectra}
@@ -132,7 +156,7 @@ in $200$ GeV Au+Au collisions after full hydrodynamic and hadronic evolution. Th
 \medskip
 JSM acknowledges support by the DOE/NNSA Stockpile Stewardship Graduate Fellowship under grant no.~DE-FC52-08NA28752.
 
-%\bibliography{trento,duke-qcd-refs/Duke_QCD_refs}
+\bibliography{eos,duke-qcd-refs/Duke_QCD_refs}
 
 
 \end{document}
