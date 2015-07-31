@@ -10,7 +10,8 @@
 
 \begin{document}
 
-\title{Quantifying uncertainty in hydrodyamic simulations of heavy-ion collisions attributable to imperfect knowledge of the QCD equation of state}
+\title{Quantifying uncertainty in hydrodyamic simulations of heavy-ion collisions attributable to imperfect knowledge of the 
+QCD equation of state}
 
 \author{J.\ Scott Moreland}
 \affiliation{Department of Physics, Duke University, Durham, NC 27708-0305}
@@ -27,85 +28,107 @@
 
 \section{Introduction}
 
-Hydrodynamic simulations are a popular tool to model the spacetime evolution of the quark-gluon plasma (QGP) produced in relativistic heavy-ion collisions.
-Lattice regularization is the only reliable method to calculate the QCD equation of state equation of state in the vicinity of a phase transition and hence 
-constitutes a critical component of modern computer simulations. While lattice techniques are rigorous in their treatment of the underlying QCD Lagrangian, 
-they are subject to numerical errors inherent in the lattice discretization procedure. These errors are manifest in differences in the continuum extrapolated QCD 
-trace anomaly predicted by different lattice collaborations and lead to an overall uncertainty in the true value of the QCD equation of state at zero baryochemical 
-potential.
+Hydrodynamic simulations are a popular tool to model the spacetime evolution of the quark-gluon plasma (QGP) produced in relativistic 
+heavy-ion collisions. Lattice regularization is the only reliable method to calculate the QCD equation of state equation of state in 
+the vicinity of a phase transition and hence constitutes a critical component of modern computer simulations. While lattice techniques 
+are rigorous in their treatment of the underlying QCD Lagrangian, they are subject to numerical errors inherent in the lattice discretization 
+procedure. These errors are manifest in differences in the continuum extrapolated QCD trace anomaly predicted by different 
+lattice collaborations and lead to an overall uncertainty in the true value of the QCD equation of state at zero baryochemical potential.
 
-For the purposes of hydrodynamic simulations, the equation of state is typically treated as a theoretically constrained quantity in contrast to e.g. the
-QGP specific shear viscosity $\eta/s$ which is varied and tuned to optimally replicate experimental data. Consequently, numerical discrepancies between different 
-lattice collaborations introduce an inherent systematic bias in the best fit values of underconstrained QGP properties determined from systematic model-to-data comparison. 
-A notable exception to this convention is a recent model-to-data analysis which parameterized the QGP equation of state and used a Bayesian, data driven approach 
-to constrain its functional form \cite{Novak:2013bqa}. 
+For the purposes of hydrodynamic simulations, the equation of state is typically treated as a theoretically constrained quantity in contrast 
+to e.g. the QGP specific shear viscosity $\eta/s$ which is varied and tuned to optimally replicate experimental data. Consequently, numerical 
+discrepancies between different lattice collaborations introduce an inherent systematic bias in the best fit values of underconstrained QGP 
+properties determined from systematic model-to-data comparison. A notable exception to this convention is a recent model-to-data analysis 
+which parameterized the QGP equation of state and used a Bayesian, data driven approach to constrain its functional form \cite{Novak:2013bqa}. 
 
-Uncertainties in the equation of state have been studied both at low temperature, by comparing lattice predictions to results from a hadron resonance gas model
-\cite{Huovinen:2009yb}, and at high temperature by comparing hydrodynamic predictions obtained using different parameterizations of the QCD trace anomaly 
-\cite{Huovinen:2005gy, Huovinen:2009yb}. Large differences were 
+Uncertainties in the equation of state have been studied both at low temperature, by comparing lattice predictions to results from a hadron 
+resonance gas model \cite{Huovinen:2009yb}, and at high temperature by comparing hydrodynamic predictions obtained using different 
+parameterizations of the QCD trace anomaly \cite{Huovinen:2005gy, Huovinen:2009yb}. Large differences were 
 
-Recent calculations by the HotQCD and Wuppertal-Budapest collaborations of the QCD trace anomaly in the continuum limit now show good agreement within errors. This 
-signals an important convergence in lattice descriptions of the QCD equation of state which previously exhibited a tension in the peak of the trace anomaly near the 
-QGP phase transition. It is not yet clear however, if current lattice errors are under sufficient control for hydrodynamic transport models or if further improvement 
-is needed.  
+Recent calculations by the HotQCD and Wuppertal-Budapest collaborations of the QCD trace anomaly in the continuum limit now show good agreement 
+within errors. This signals an important convergence in lattice descriptions of the QCD equation of state which previously exhibited a tension 
+in the peak of the trace anomaly near the QGP phase transition. It is not yet clear however, if current lattice errors are under sufficient 
+control for hydrodynamic transport models or if further improvement is needed.  
 
-In this work, we analyze the current status of lattice gauge calculations in the continuum limit by comparing simulation predictions using different lattice calculations 
-for the QGP equation of state. We study the latest HotQCD and Wuppertal-Budapest parametrizations as well as the depreciated s95 parametrization based on older HotQCD 
-lattice results. 
+In this work, we analyze the current status of lattice gauge calculations in the continuum limit by comparing simulation predictions using 
+different lattice calculations for the QGP equation of state. We study the latest HotQCD and Wuppertal-Budapest parametrizations as well as 
+the depreciated s95 parametrization based on older HotQCD lattice results. 
 
-We embed each equation of state in an event-by-event hydrodynamic model with a hadronic afterburner and measure spectra, flows and Bertsch-Pratt radii predicted by the 
-simulations to quantify systematic differences between the calculations. We also assess the uncertainty introduced by continuum extrapolation when constructing the best 
-fit parametrization by sampling splines from the bootstrap coefficients used in the HotQCD error analysis. Using these results, we comment on the resolving power of 
-hydrodynamic simulations and assess the need for improved lattice calculations at zero baryo-chemical potential.
+We embed each equation of state in an event-by-event hydrodynamic model with a hadronic afterburner and measure spectra, flows and Bertsch-Pratt 
+radii predicted by the simulations to quantify systematic differences between the calculations. We also assess the uncertainty introduced by 
+continuum extrapolation when constructing the best fit parametrization by sampling splines from the bootstrap coefficients used in the HotQCD 
+error analysis. Using these results, we comment on the resolving power of hydrodynamic simulations and assess the need for improved lattice 
+calculations at zero baryo-chemical potential.
 
 \section{Hybrid Model}
 
-The equations of state are compared using the VISHNU transport model which couples boost invariant viscous fluid dynamics for the hot and dense early phase of the collision 
-with a microscopic, kinetic description of late hadronic rescattering and freeze-out. 
-
-\begin{figure}
-  \includegraphics[width=\columnwidth]{./fig/eos_comparison}
-  \caption{
-    \label{fig:spectra}
-  }
-\end{figure}
+The equations of state are compared using the VISHNU transport model which couples boost invariant viscous fluid dynamics \cite{?} for the hot 
+and dense early phase of the collision with a microscopic, kinetic description of late hadronic rescattering and freeze-out \cite{?}. The mock 
+particle data generated by each simulated event are then stored and analyzed using the same methods applied in the experiment.
 
 \subsection{Initial Conditions}
 
-We generate hydrodyamic initial conditions using a standard two-component Monte Carlo Glauber model which deposits entropy proportional to a linear combination of nucleon participants and binary nucleon-nucleon collisions,
+\begin{figure}
+  \includegraphics[width=\columnwidth]{./fig/eos_comparison}
+  \caption{\label{fig:eos} Comparisons of the entropy density $s$, energy density $e$ and pressure $p$ divided by powers of the temperature $T$ for the 
+	   three equations of state used in this study.}
+\end{figure}
+
+We generate hydrodyamic initial conditions using a standard two-component Monte Carlo Glauber model which deposits entropy proportional to a linear 
+combination of nucleon participants and binary nucleon-nucleon collisions,
 \begin{equation}
  dS/dy \,\vert_{y=0} \propto \frac{(1-\alpha)}{2}N_\text{part} + \alpha N_\text{coll}.
+ \label{twocomponent}
 \end{equation}
 
 The entropy is localized about each nucleon's transverse parton density $T_p({\bf x})$,
 \begin{eqnarray}
  dS/dy \,\vert_{y=0} &\propto& \sum\limits_{i=0}^{N_\text{part,A}} w_i\, T_p({\bf x} - {\bf x}_i)(1-\alpha + \alpha\, N_\text{coll,i}) \nonumber \\
                      &+& \sum\limits_{j=0}^{N_\text{part,B}} w_j\, T_p({\bf x} - {\bf x}_i)(1-\alpha + \alpha\, N_\text{coll,j}),
- \label{twocomponent}
+ \label{glauber}
 \end{eqnarray}
-where the summations run over the participants in each nucleus, $N_\text{coll,i}$ denotes the number of binary collisions suffered by the $i^\text{th}$ nucleon and the proton density $T_p({\bf x})$ is 
-described by a Gaussian
+where the summations run over the participants in each nucleus, $N_\text{coll,i}$ denotes the number of binary collisions suffered by the $i^\text{th}$ 
+nucleon and the proton density $T_p({\bf x})$ is described by a Gaussian
 \begin{equation}
  T_p({\bf x}) = \frac{1}{\sqrt{2 \pi B}} \exp \left(-\frac{x^2+y^2}{2 B} \right)
 \end{equation}
 with transverse area $B = 0.36$ $\text{fm}^2$.
 
-The random nucleon weights $w_i$ in equation \eqref{twocomponent} are sampled independently from a Gamma distribution with unit mean
+The random nucleon weights $w_i$ in equation \eqref{glauber} are sampled independently from a Gamma distribution with unit mean
 \begin{equation}
  P_k(w) = \frac{k^k}{\Gamma(k)} w^{k-1} e^{-k w},
 \end{equation}
-and shape parameter $k = \text{Var}(P)^{-1}$ which modulates the variance of the distribution. These fluctuations are typically added \cite{?} to reproduce the large multiplicity fluctuations observed in minimum bias proton-proton 
-collisions. In this work the shape parameter is fixed to $k=1$ to fit the $200$ GeV UA5 data \cite{?}. 
+and shape parameter $k = \text{Var}(P)^{-1}$ which modulates the variance of the distribution. These fluctuations are typically added \cite{?} to reproduce 
+the large multiplicity fluctuations observed in minimum bias proton-proton collisions. In this work the shape parameter is fixed to $k=1$ to fit the $200$ 
+GeV UA5 data \cite{?}. 
 
-It is important to note that the aforementioned Monte Carlo Glauber model is not a state of the art model for initializing hydrodynamic simulations. It makes many simplifying assumptions such as ignoring pre-equillibrium dynamics
-and asserting wounded nucleon and binary collision scaling, an assertion which is questioned by a number of recent works. Nevertheless, the model provides a good description of observed particle multiplicities, flows and spectra. In this work, we 
-are primarily interested in the \emph{sensitivity} of hydrodynamic observables to differences in the QGP equation of state and \emph{not} the overall best fit of model to data. Hence, the Monte Carlo Glauber model serves as suitable 
-surrogate for more accurate physical models.
+For the binary collision fraction in equation \eqref{twocomponent}, we choose the value $\alpha=0.14$ used in reference \cite{?}.
 
-\section{Hydrodyamics and \\ Boltzmann Transport}
+It is important to note that the aforementioned Monte Carlo Glauber model is not a state of the art model for initializing hydrodynamic simulations. It 
+makes many simplifying assumptions such as ignoring pre-equillibrium dynamicsand asserting wounded nucleon and binary collision scaling, an assertion 
+which is questioned by a number of recent works. Nevertheless, the model provides a good description of observed particle multiplicities, flows and spectra. 
+In this work, we are primarily interested in the \emph{sensitivity} of hydrodynamic observables to differences in the QGP equation of state and \emph{not} 
+the overall best fit of model to data. Hence, the Monte Carlo Glauber model serves as suitable surrogate for more accurate physical models.
 
-The initial condition profiles, which provide the entropy density $dS/(d^2r_\perp\, d\eta\, \tau_\text{therm})$ at the QGP thermalization time, are then used to initialize the boost invariant viscous hydrodynamics code 
-{\ttfamily VISH2+1} \cite{?}. 
+\section{Hydrodyamics and \\ Kinetic Description}
+
+The initial condition profiles, which provide the entropy density $dS/(d^2r_\perp\, d\eta\, \tau_\text{therm})$ at the QGP thermalization time, are then scaled
+by an overall normalization factor which is tuned to fit the centrality dependence of charged particle production in $200$ GeV gold-gold collisions.
+
+We follow the work in reference \cite{?} and fix the hydrodynamic specific shear viscosity to a constant value $(\eta/s)_\text{QGP}=0.08$ which has been shown to
+provide a reasonable description of measured spectra and flows in $200$ GeV gold-gold collisions. For the purposes of this study, we assume vanishing bulk viscosity 
+$\zeta/s=0$, although it would be interesting to account for finite bulk viscosity in future work, as its functional form is sensitive to the value of the QGP trace anomaly 
+near the QCD phase transition \cite{?}.
+
+In order to switch from hydrodyamic field equations to microscopic transport, the VISHNU model asserts a sudden switching temperature $T_\text{sw}$ at which the 
+hydrodynamic energy-momentum tensor is particlized using the Cooper-Frye freezeout prescription,
+\begin{equation}
+ E\frac{dN_i}{d^3p} = \int_\sigma f_i(x,p) p^\mu d^3\sigma_\mu
+ \label{cooper-frye}
+\end{equation}
+where $f_i$ is the distribution function of particle species $i$, $p^\mu$ is its four-momentum and $d^3\sigma_\mu$ characterizes an element of the isothermal 
+freezeout hypersurface defined by $T_\text{sw}$.
+ 
 
 \section{Equations of State}
 
@@ -124,8 +147,8 @@ resonance gas model, which is to good approximation
 focus on the intermediate and high temperature dependence of the QGP equation of state
 
 
-study three parameterizations for the QGP equations of state, the state of the art HotQCD and Wuppertal-Budapest parameterizations \cite{?} as well as the older s95-v1 parametrization based on 
-older HotQCD results. To perform
+study three parameterizations for the QGP equations of state, the state of the art HotQCD and Wuppertal-Budapest parameterizations \cite{?} as well as the 
+older s95-v1 parametrization based on older HotQCD results. To perform
 
 
 \section{Results}
