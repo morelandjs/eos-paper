@@ -28,22 +28,29 @@ QCD equation of state}
 
 \section{Introduction}
 
-Hydrodynamic simulations are a popular tool to model the spacetime evolution of the quark-gluon plasma (QGP) produced in relativistic 
-heavy-ion collisions. Lattice regularization is the only reliable method to calculate the QCD equation of state equation of state in 
-the vicinity of a phase transition and hence constitutes a critical component of modern computer simulations. While lattice techniques 
-are rigorous in their treatment of the underlying QCD Lagrangian, they are subject to numerical errors inherent in the lattice discretization 
-procedure. These errors are manifest in differences in the continuum extrapolated QCD trace anomaly predicted by different 
-lattice collaborations and lead to an overall uncertainty in the true value of the QCD equation of state at zero baryochemical potential.
+Fluid dynamics is a useful framework to study the collective behaviour of hot and dense nuclear matter produced in 
+relativistic heavy-ions. Quantum Chromodynamics (QCD) predicts that at sufficiently high energies these collisions form 
+a new state of matter consisting of deconfined quarks and gluons known as a quark-gluon plasma (QGP). Simulations based
+on relativistic viscous hydrodynamics play a central role in extracting properties of the QGP which expands and freezes
+into hadrons too quickly for direct observation.
 
-For the purposes of hydrodynamic simulations, the equation of state is typically treated as a theoretically constrained quantity in contrast 
-to e.g. the QGP specific shear viscosity $\eta/s$ which is varied and tuned to optimally replicate experimental data. Consequently, numerical 
-discrepancies between different lattice collaborations introduce an inherent systematic bias in the best fit values of underconstrained QGP 
-properties determined from systematic model-to-data comparison. A notable exception to this convention is a recent model-to-data analysis 
-which parameterized the QGP equation of state and used a Bayesian, data driven approach to constrain its functional form \cite{Novak:2013bqa}. 
+The hydroynamic transport equations require two essential ingredients to specify the full time evolution of the QGP fireball: 
+initial conditions which describe the thermal profile of the QGP droplet at some early starting time and a QCD equation 
+of state which interrelates energy density, pressure and temperature of each fluid cell in local thermal equillibrium.
 
-Uncertainties in the equation of state have been studied both at low temperature, by comparing lattice predictions to results from a hadron 
+Lattice discretization is the only reliable method to calculate the QCD equation of state in the vicinity of the QGP phase transition and 
+hence constitutes a critical component of hydrodynamic simulations. While lattice techniques are rigorous in their treatment of the 
+underlying QCD Lagrangian, they are subject to numerical errors inherent in the lattice discretization procedure. These errors are manifest in 
+differences in the continuum extrapolated QCD trace anomaly predicted by different lattice collaborations and lead to an overall uncertainty 
+in the true value of the QCD equation of state at zero baryochemical potential.
+
+Simulations using a lattice equation of state thus inherrit all forms of numeric and systematic uncertainty associated 
+with the underlying lattice methodology. These uncertainties have been studied both at low temperature, by comparing lattice predictions to results from a hadron 
 resonance gas model \cite{Huovinen:2009yb}, and at high temperature by comparing hydrodynamic predictions obtained using different 
-parameterizations of the QCD trace anomaly \cite{Huovinen:2005gy, Huovinen:2009yb}. Large differences were 
+parameterizations of the QCD trace anomaly \cite{Huovinen:2005gy, Huovinen:2009yb}. 
+
+%A notable exception to this convention is a recent model-to-data analysis 
+%which parameterized the QGP equation of state and used a Bayesian, data driven approach to constrain its functional form \cite{Novak:2013bqa}. 
 
 Recent calculations by the HotQCD and Wuppertal-Budapest collaborations of the QCD trace anomaly in the continuum limit now show good agreement 
 within errors. This signals an important convergence in lattice descriptions of the QCD equation of state which previously exhibited a tension 
@@ -62,6 +69,14 @@ calculations at zero baryo-chemical potential.
 
 \section{Equations of State}
 
+We examine the most recent HotQCD and Wuppertal-Buddapest equations of state \cite{?} as well as an older HotQCD parameterization calculated using a coarser lattice spacing \cite{?}. The hybrid model approach used in this study switches
+from a fluid dynamic description of the medium for the liquid-like, QGP phase of the collision to a microscopic Boltzmann description once 
+the system cools and freezes into a hadron resonance gas. While the equation of state enters the hydrodynamic phase of the simulation as an 
+explicit function interrelating energy density, entropy density, pressure and temperature, the equation of state in the microscopic, kinetic 
+phase of the simulation is not simple to change as it depends on the complex interplay of scattering kinematics and resonance accounting.
+
+Consequently, the hadronic equation of state used in this study is regarded as a fixed quantity, determined by the list of particles and particle 
+resonances included in the UrQMD model which is used to simulate the hadronic 
 \section{Hybrid Model}
 
 The equations of state are compared using the VISHNU transport model which couples boost invariant viscous fluid dynamics \cite{?} for the hot 
@@ -99,15 +114,13 @@ the large multiplicity fluctuations observed in minimum bias proton-proton colli
 GeV UA5 data \cite{?}. 
 
 For the binary collision fraction in equation \eqref{twocomponent}, we choose the value $\alpha=0.14$ used in reference \cite{?}.
-
-It is important to note that the aforementioned Monte Carlo Glauber model is not a state of the art model for initializing hydrodynamic simulations. It 
-makes many simplifying assumptions such as ignoring pre-equillibrium dynamicsand asserting wounded nucleon and binary collision scaling, an assertion 
-which is questioned by a number of recent works. Nevertheless, the model provides a good description of observed particle multiplicities, flows and spectra. 
-In this work, we are primarily interested in the \emph{sensitivity} of hydrodynamic observables to differences in the QGP equation of state and \emph{not} 
-the overall best fit of model to data. Hence, the Monte Carlo Glauber model serves as suitable surrogate for more accurate physical models.
-
 \begin{figure}[t]
-  \includegraphics[width=\columnwidth]{./fig/eos_comparison}
+  \includegraphics[width=\columnwidth]{./fig/trace}
+  \caption{\label{fig:eos} Trace anomaly plotted for each equation of state along with the UrQMD trace}
+\end{figure}
+
+\begin{figure}[b]
+  \includegraphics[width=\columnwidth]{./fig/trace_final}
   \caption{\label{fig:eos} Comparisons of the entropy density $s$, energy density $e$ and pressure $p$ divided by powers of the temperature $T$ for the 
 	   three equations of state used in this study.}
 \end{figure}
