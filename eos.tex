@@ -10,8 +10,7 @@
 
 \begin{document}
 
-\title{Quantifying uncertainty in hydrodyamic simulations of heavy-ion collisions attributable to imperfect knowledge of the 
-QCD equation of state}
+\title{Hydrodynamic simulations of relativistic heavy-ion collisions\\ with different calculations of the QCD equation of state}
 
 \author{J.\ Scott Moreland}
 \affiliation{Department of Physics, Duke University, Durham, NC 27708-0305}
@@ -44,7 +43,7 @@ underlying QCD Lagrangian, they are subject to numerical errors inherent in the 
 differences in the continuum extrapolated QCD trace anomaly predicted by different lattice collaborations and lead to an overall uncertainty 
 in the true value of the QCD equation of state at zero baryochemical potential.
 
-Simulations using a lattice equation of state thus inherrit all forms of numeric and systematic uncertainty associated 
+Simulations using a lattice based equation of state thus inherrit all forms of numeric and systematic uncertainty associated 
 with the underlying lattice methodology. These uncertainties have been studied both at low temperature, by comparing lattice predictions to results from a hadron 
 resonance gas model \cite{Huovinen:2009yb}, and at high temperature by comparing hydrodynamic predictions obtained using different 
 parameterizations of the QCD trace anomaly \cite{Huovinen:2005gy, Huovinen:2009yb}. 
@@ -58,25 +57,26 @@ in the peak of the trace anomaly near the QGP phase transition. It is not yet cl
 control for hydrodynamic transport models or if further improvement is needed.  
 
 In this work, we analyze the current status of lattice gauge calculations in the continuum limit by comparing simulation predictions using 
-different lattice calculations for the QGP equation of state. We study the latest HotQCD and Wuppertal-Budapest parametrizations as well as 
+different lattice calculations of the QGP equation of state. We study the latest HotQCD and Wuppertal-Budapest parametrizations as well as 
 the depreciated s95 parametrization based on older HotQCD lattice results. 
 
-We embed each equation of state in an event-by-event hydrodynamic model with a hadronic afterburner and measure spectra, flows and Bertsch-Pratt 
-radii predicted by the simulations to quantify systematic differences between the calculations. We also assess the uncertainty introduced by 
-continuum extrapolation when constructing the best fit parametrization by sampling splines from the bootstrap coefficients used in the HotQCD 
-error analysis. Using these results, we comment on the resolving power of hydrodynamic simulations and assess the need for improved lattice 
-calculations at zero baryo-chemical potential.
+Each equation of state is analyzed using a hybrid simulation which couples viscous hydrodynamics to a microscopic, kinetic description for the evolution of the QGP and subsequent hadron resonance gas. The flows, spectra and Bertsch-Pratt radii are calculated from the
+simulation using each equation of state in order to quantify differences between the calculations. In addition, we analyze uncertainty
+in the HotQCD analysis by repeating the aforementioned procedure using different parameterizations of the QCD trace anomaly sampled from
+the boostrap coefficients characterizing the error in the HotQCD continuum extrapolation. Using these results, we comment on the resolving 
+power of hydrodynamic simulations and assess the need for improved lattice calculations at zero baryo-chemical potential.
 
 \section{Equations of State}
 
-We examine the most recent HotQCD and Wuppertal-Buddapest equations of state \cite{?} as well as an older HotQCD parameterization calculated using a coarser lattice spacing \cite{?}. The hybrid model approach used in this study switches
-from a fluid dynamic description of the medium for the liquid-like, QGP phase of the collision to a microscopic Boltzmann description once 
-the system cools and freezes into a hadron resonance gas. While the equation of state enters the hydrodynamic phase of the simulation as an 
-explicit function interrelating energy density, entropy density, pressure and temperature, the equation of state in the microscopic, kinetic 
-phase of the simulation is not simple to change as it depends on the complex interplay of scattering kinematics and resonance accounting.
+We examine the most recent HotQCD and Wuppertal-Buddapest equations of state \cite{?} as well as an older HotQCD parameterization calculated using a 
+coarser lattice spacing \cite{?}. The hybrid model approach used in this study switches from a fluid dynamic description of the medium for the liquid-like, 
+QGP phase of the collision to a microscopic Boltzmann description once the system cools and freezes into a hadron resonance gas. 
 
-Consequently, the hadronic equation of state used in this study is regarded as a fixed quantity, determined by the list of particles and particle 
-resonances included in the UrQMD model which is used to simulate the hadronic 
+While the equation of state enters the hydrodynamic phase of the simulation as an explicit function interrelating energy density, pressure and temperature, 
+its low temperature dependence is fixed in the hadronic phase of the collision, determined by the finite number of resonances accounted for in the UrQMD
+Boltzmann transport model. 
+
+
 \section{Hybrid Model}
 
 The equations of state are compared using the VISHNU transport model which couples boost invariant viscous fluid dynamics \cite{?} for the hot 
@@ -121,8 +121,13 @@ For the binary collision fraction in equation \eqref{twocomponent}, we choose th
 
 \begin{figure}[b]
   \includegraphics[width=\columnwidth]{./fig/trace_final}
-  \caption{\label{fig:eos} Comparisons of the entropy density $s$, energy density $e$ and pressure $p$ divided by powers of the temperature $T$ for the 
-	   three equations of state used in this study.}
+  \caption{\label{fig:eos} }
+\end{figure}
+
+\begin{figure}
+  \includegraphics[width=\columnwidth]{./fig/cs}
+  \caption{\label{fig:eos} Speed of sound squared $c_s^2$ plotted versus temperature $T$ for the three equations of state used in this study. The vertical
+	   gray line indicates the switching temperature $T_\text{sw} = 154$ MeV where the model switches from fluid dynamics to a microscopic transport model.}
 \end{figure}
 
 \subsection{Hydrodyamics and Boltzmann Transport}
