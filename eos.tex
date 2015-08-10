@@ -44,7 +44,7 @@ Lagrangian, they are subject to numerical errors inherent in the lattice discret
 continuum extrapolated QCD trace anomaly predicted by different lattice collaborations and lead to an overall uncertainty in the true value of the 
 QCD equation of state at zero baryochemical potential.
 
-Simulations using a lattice based equation of state hence inherrit all forms of numeric and systematic uncertainty associated with the underlying 
+Simulations using a lattice based equation of state inherrit all forms of numeric and systematic uncertainty associated with the underlying 
 lattice methodology. These modeling uncertainties have been studied both at low temperature, by comparing simulations with a lattice equation of 
 state to results obtained from a hadron resonance gas model \cite{Huovinen:2009yb}, and at high temperature by comparing the effect of different 
 lattice parameterizations of the lattice equation of state on particle spectra and flow \cite{Huovinen:2005gy, Huovinen:2009yb}. 
@@ -57,23 +57,20 @@ errors. This signals an important convergence in lattice descriptions of the QCD
 of the trace anomaly near the QGP phase transition. It is not yet clear however, if current lattice errors are under sufficient control for 
 hydrodynamic transport models or if further improvement is needed.  
 
-In this work, we analyze the current status of lattice gauge calculations in the continuum limit by comparing simulation predictions using different 
-lattice calculations of the QGP equation of state. We study the latest HotQCD and Wuppertal-Budapest parametrizations as well as the depreciated s95 
-parametrization based on older HotQCD lattice results. 
-
-Each equation of state is analyzed using a hybrid simulation which couples viscous hydrodynamics to a microscopic, kinetic description for the evolution 
-of the QGP and subsequent hadron resonance gas. The flows, spectra and Bertsch-Pratt radii are calculated from the simulation using each equation of state 
-in order to quantify differences between the calculations. In addition, we analyze uncertainty in the HotQCD analysis by repeating the aforementioned 
-procedure using different parameterizations of the QCD trace anomaly sampled from the boostrap coefficients characterizing the error in the HotQCD continuum 
-extrapolation. Using these results, we comment on the effect of equation of state uncertainties on hydrodynamic simulations and assess the need for further 
-refinements to the lattice data at zero baryo-chemical potential.
+In this work, we analyze the effect of lattice errors on simulations of relativistic heavy-ion collisions by comparing simulation predictions obtained 
+with different calculations of the QCD equation of state. We study the latest HotQCD and Wuppertal-Budapest equations of state, an older 
+S95p-v1 parametrization constructed from HotQCD measurements with a coarser lattice spacing, and also a sampling of curves drawn from HotQCD published errors. The 
+flows, spectra and Bertsch-Pratt radii are calculated for each equation of state and used to assess the need for further refinements to the QCD 
+equation of state at zero baryo-chemical potential.
 
 \section{Equations of State}
 
-The hybrid model approach used in this study switches from a fluid dynamic description of the medium for the liquid-like, QGP phase of the collision 
-to a microscopic Boltzmann description once the system cools and freezes into a hadron resonance gas. While the equation of state enters the hydrodynamic 
-phase of the simulation as a freely specified function interrelating energy density, pressure and temperature, its description in the kinetic phase of 
-the collision is fixed by the finite number of resonances included in the microscopic UrQMD transport model.
+The hybrid approach adopted in this work uses the UrQMD transport model to simulate microscopic interactions once the system expands and freezes into hadrons extend the 
+simulation to dillute regions of the system's spacetime evolution which are beyond the applicability of hydrodynamics. 
+
+
+While the QCD equation of state enters the hydrodynamic phase of the simulation as a freely specified function interrelating energy density, pressure and temperature, its description in the 
+kinetic phase of the collision is fixed -- determined by the finite number of particles and particle resonances included in the microscopic transport model.
 
 As a result, we limit our study to differences in the QCD equation of state \emph{above} the QGP transition temperature where hydrodynamics allows us to 
 freely vary its chosen form. We study three different parameterizations for this high temperature dependence -- two state of the art calculations 
@@ -88,7 +85,7 @@ When scaled by powers of the temperature, the trace anomaly forms a dimensionles
 where $e$ is the local fluid energy density, $p$ the pressure and $T$ the temperature.
 
 In Fig.~\ref{fig:trace} we plot the temperature scaled interaction measure of each equation of state as well as that of a hadron resonance gas calculated from 
-the list of partial resonances included in the UrQMD microscopic transport model. The s95p-v1 parameterization, which was constructed to interpolate between 
+the list of partial resonances included in the UrQMD collision kernel. The s95p-v1 parameterization, which was constructed to interpolate between 
 a hadron resonance gas calculation at low temperatures and lattice results at high temperatures, is in good agreement with the UrQMD equation of state while the 
 HotQCD and Wuppertal-Budapest results are slightly higher in the vicinity of the phase transition.
 
@@ -131,32 +128,32 @@ interpolation interval,
 We fix the piecewise temperature bounds $T_1 = 154$ MeV and $T_2 = 180$ MeV for the hydro-to-micro switching temperature $T_\text{sw} = 154$ MeV used in this work.
 While lower switching temperatures permit a smoother transition between the lattice and UrQMD equations of state, they necessitate chemical non-equillibirum corrections 
 which occur naturally in UrQMD but are not accounted for in the present lattice parameterizations \cite{?}. The modified interaction measures, labeled with a prime to 
-distinguish them from their published values, are plotted in Fig.~\ref{fig:trace_final}. The vertical gray line marks the hydro-to-micro switching temperature 
+distinguish them from the raw lattice results, are plotted in Fig.~\ref{fig:trace_final}. The vertical gray line marks the hydro-to-micro switching temperature 
 $T_\text{sw}=154$ MeV where the model switches from the VISH2+1 hydrodynamics code to UrQMD. 
 
 In Fig.~\ref{fig:cs} we plot the squared speed of sound $c_s^2 = dp / de$ for each modified interaction measure. The speed of sound of the HotQCD' and WB' equations
 of state are in good agreement while the S95' parameterization remains softer in a wider interval about the QGP phase transition. We note that the speed of sound in 
-the HotQCD' and WB' parameterizations is clearly affected by the interpolation in the vicinity of the switching temperature (gray vertical line), but that the 
-imposed matching maintains continuity.
+the HotQCD' and WB' parameterizations is clearly affected by the parametric transition \eqref{interpolation} in the vicinity of the switching temperature (vertical gray line), 
+but that the imposed matching maintains continuity.
 
-With the trace anomalies in hand, the energy density, pressure and entropy density are easily interrelated,
+With the trace anomalies in hand, the energy density, pressure and entropy density are easily interrelated to specify the equation of state used in the analysis,
 \begin{eqnarray}
  \cr \frac{p(T)}{T^4} &=& \int\limits_0^T dT'\, \frac{I(T')}{T'}, \\
  \frac{e(T)}{T^4} &=& I(T) + 3\, \frac{p(T)}{T^4}, \\
  \frac{s(T)}{T^3} &=& \frac{e(T) + p(T)}{T^4}. 
 \end{eqnarray}
-
-This completes the specification of the equations of state used in the analysis. We now briefly describe the hybrid model simulation into which the equations of state are embedded.
+ 
 
 \section{Hybrid Model}
 
-The equations of state are compared using the VISHNU transport model which couples the boost invariant viscous fluid dynamics code VISH2+1 \cite{?} for the hot and dense early 
-phase of the collision to UrQMD for modeling the microscopic kinetic interactions of hadronic scattering and freeze-out \cite{?}. The mock particle data generated by each 
-simulated event are then stored and analyzed to measure the spectra, flow and Bertsch-Pratt radii.
+The comprehensive hybrid model used in this analysis is explained in detail in reference  \cite{} to simulate the spacetime evolution of each QGP droplet and 
+
+We initial conditions are furnished using are 
+furnished using a simplistic Monte Carlo Glauber model which incorporates event-by-event fluctuations in the positions of nucleons within the colliding nuclei.
 
 \subsection{Initial Conditions}
 
-We generate hydrodyamic initial conditions using a standard two-component Monte Carlo Glauber model which deposits entropy proportional to a linear combination 
+The Monte Carlo Glauber model generate hydrodyamic initial conditions using a standard two-component ansatz which deposits entropy proportional to a linear combination 
 of nucleon participants and binary nucleon-nucleon collisions,
 \begin{equation}
  dS/dy \,\vert_{y=0} \propto \frac{(1-\alpha)}{2}N_\text{part} + \alpha N_\text{coll}
