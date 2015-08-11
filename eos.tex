@@ -49,28 +49,28 @@ lattice methodology. These modeling uncertainties have been studied both at low 
 state to results obtained from a hadron resonance gas model \cite{Huovinen:2009yb}, and at high temperature by comparing the effect of different 
 lattice parameterizations of the lattice equation of state on particle spectra and flow \cite{Huovinen:2005gy, Huovinen:2009yb}. 
 
-%A notable exception to this convention is a recent model-to-data analysis 
-%which parameterized the QGP equation of state and used a Bayesian, data driven approach to constrain its functional form \cite{Novak:2013bqa}. 
-
 Recent calculations by the HotQCD and Wuppertal-Budapest collaborations of the QCD trace anomaly in the continuum limit now show good agreement within 
 errors. This signals an important convergence in lattice descriptions of the QCD equation of state which previously exhibited a tension in the peak 
 of the trace anomaly near the QGP phase transition. It is not yet clear however, if current lattice errors are under sufficient control for 
 hydrodynamic transport models or if further improvement is needed.  
 
-In this work, we analyze the effect of lattice errors on simulations of relativistic heavy-ion collisions by comparing simulation predictions obtained 
-with different calculations of the QCD equation of state. We study the latest HotQCD and Wuppertal-Budapest equations of state, an older 
-S95p-v1 parametrization constructed from HotQCD measurements with a coarser lattice spacing, and also a sampling of curves drawn from HotQCD published errors. The 
-flows, spectra and Bertsch-Pratt radii are calculated for each equation of state and used to assess the need for further refinements to the QCD 
-equation of state at zero baryo-chemical potential.
+In this work, we quantify the effect of lattice errors on simulations of relativistic heavy-ion collisions by comparing simulation predictions obtained 
+with different calculations of the QCD equation of state. The equations of state are analyzed using a modern event-by-event hybrid simulation which couples
+viscous hydrodynamics to a hadronic afterburner to calculate flows, spectra and Bertsch-Pratt radii and are compared to measurements at the Relativistic
+Heavy-Ion Collider (RHIC).
+ 
+We analyze two state of the art calculations from the HotQCD and Wuppertal-Budapest collaborations as well as an older parameterization based on HotQCD 
+calculations with a coarser lattice spacing to gauge the importance of recent lattice improvements. We also assess the need for additional improvements 
+to the current state of the art by sampling equation of state curves from the latest HotQCD published errors to quantify current uncertainties. 
+
+
 
 \section{Equations of State}
 
-The hybrid approach adopted in this work uses the UrQMD transport model to simulate microscopic interactions once the system expands and freezes into hadrons extend the 
-simulation to dillute regions of the system's spacetime evolution which are beyond the applicability of hydrodynamics. 
-
-
-While the QCD equation of state enters the hydrodynamic phase of the simulation as a freely specified function interrelating energy density, pressure and temperature, its description in the 
-kinetic phase of the collision is fixed -- determined by the finite number of particles and particle resonances included in the microscopic transport model.
+The hybrid simulation used in this work switches from viscous hydrodynamics to a microscopic kinetic description once the system expands, cools and freezes 
+into hadrons. While the QCD equation of state enters the hydrodynamic phase of the simulation as a freely specified function interrelating energy density, 
+pressure and temperature, its description in the kinetic phase of the collision is fixed by the finite number of particles and particle resonances included 
+in the UrQMD model used for the hadronic phase of the simulation.
 
 As a result, we limit our study to differences in the QCD equation of state \emph{above} the QGP transition temperature where hydrodynamics allows us to 
 freely vary its chosen form. We study three different parameterizations for this high temperature dependence -- two state of the art calculations 
@@ -111,8 +111,10 @@ interpolation interval,
 \begin{eqnarray}
  \label{smoothstep}
  \cr z &=& 6 x^5 - 15 x^4 + 10 x^3 \\
-  \text{where } x &=& (T - T_1)/(T_2 - T_1).
+  \text{where } x &=& (T - T_1)/(T_2 - T_1),
 \end{eqnarray}
+where the endpoints $T_1 \equiv T_\text{sw}$ and $T_2 \equiv 180$ MeV smoothly interpolate the lattice results into the UrQMD trace anomaly at the desired switching 
+temperature $T_\text{sw}$.
 
 \begin{figure}[t]
   \includegraphics[width=\columnwidth]{./fig/trace}
@@ -125,11 +127,16 @@ interpolation interval,
 	  parameterizations in Fig.~\ref{fig:trace}. The gray, vertical line marks the hydro-to-micro switching temperature $T_\text{sw} = 154$ MeV.}
 \end{figure}
 
-We fix the piecewise temperature bounds $T_1 = 154$ MeV and $T_2 = 180$ MeV for the hydro-to-micro switching temperature $T_\text{sw} = 154$ MeV used in this work.
-While lower switching temperatures permit a smoother transition between the lattice and UrQMD equations of state, they necessitate chemical non-equillibirum corrections 
-which occur naturally in UrQMD but are not accounted for in the present lattice parameterizations \cite{?}. The modified interaction measures, labeled with a prime to 
-distinguish them from the raw lattice results, are plotted in Fig.~\ref{fig:trace_final}. The vertical gray line marks the hydro-to-micro switching temperature 
-$T_\text{sw}=154$ MeV where the model switches from the VISH2+1 hydrodynamics code to UrQMD. 
+In principle, the switching temperature could assume any value in a small interval below the equation of state's pseudo-critical transition temperature $T_\text{c}$ 
+and should be tuned to fit the relative abundance of pions, protons and kaons measured by experiment. Since we are primarily interested in the sensitivity of the 
+simulation to changes in the equation of state with all other quantities held fixed, we fix the transition temperature using the HotQCD chiral transition temperature 
+$T_\text{sw} \equiv T_\text{c} = 154$ MeV.
+
+ 
+While lower switching temperatures permit a smoother transition between the lattice and UrQMD equations of state, they 
+necessitate chemical non-equillibirum corrections which occur naturally in UrQMD but are not accounted for in the present lattice parameterizations \cite{?}. The modified 
+interaction measures, labeled with a prime to distinguish them from the raw lattice results, are plotted in Fig.~\ref{fig:trace_final}. The vertical gray line 
+marks the hydro-to-micro switching temperature $T_\text{sw}=154$ MeV where the model switches from the VISH2+1 hydrodynamics code to UrQMD. 
 
 In Fig.~\ref{fig:cs} we plot the squared speed of sound $c_s^2 = dp / de$ for each modified interaction measure. The speed of sound of the HotQCD' and WB' equations
 of state are in good agreement while the S95' parameterization remains softer in a wider interval about the QGP phase transition. We note that the speed of sound in 
@@ -146,14 +153,14 @@ With the trace anomalies in hand, the energy density, pressure and entropy densi
 
 \section{Hybrid Model}
 
-The comprehensive hybrid model used in this analysis is explained in detail in reference  \cite{} to simulate the spacetime evolution of each QGP droplet and 
-
-We initial conditions are furnished using are 
-furnished using a simplistic Monte Carlo Glauber model which incorporates event-by-event fluctuations in the positions of nucleons within the colliding nuclei.
+The equations of state are embedded in the modern event-by-event VISHNU hybrid model which uses the VISH2+1 boost-invariant viscous hydrodynamics code to simulate the 
+time evolution of the QGP medium and a microscopic UrQMD hadronic afterburner for subsequent evolution below the QGP transition temperature. Where necessary, free
+parameters of the model are are tuned to facillitate model-to-data comparison with $200$ GeV gold-gold collisions at RHIC. In this section, we briefly outline
+the implementation of the model used in this analysis; for a more detailed explanation of the VISHNU model, we refer the reader to \cite{}. 
 
 \subsection{Initial Conditions}
 
-The Monte Carlo Glauber model generate hydrodyamic initial conditions using a standard two-component ansatz which deposits entropy proportional to a linear combination 
+The hydrodynamic initial conditions are generate using a Monte Carlo Glauber model based on a common two-component ansatz which deposits entropy proportional to a linear combination 
 of nucleon participants and binary nucleon-nucleon collisions,
 \begin{equation}
  dS/dy \,\vert_{y=0} \propto \frac{(1-\alpha)}{2}N_\text{part} + \alpha N_\text{coll}
@@ -194,12 +201,12 @@ rescaled by an overall normalization factor to fit the measured charged particle
 
 \subsection{Hydrodyamics and Boltzmann Transport}
 
-We follow the work in reference \cite{?} and fix the hydrodynamic specific shear viscosity to a constant value $(\eta/s)_\text{QGP}=0.08$ which has been shown to 
-provide a reasonable description of measured spectra and flows for the system at hand. For the purposes of this study, we assume vanishing bulk viscosity 
-$\zeta/s=0$, although it would be interesting to account for finite bulk viscosity in future work, as its functional form is sensitive to the peak of the QCD 
-trace anomaly near the QGP phase transition \cite{?}.
+We follow the work in reference \cite{?} and fix the hydrodynamic specific shear viscosity to a constant value $(\eta/s)_\text{QGP}=0.08$, which has been shown to 
+provide a reasonable description of measured spectra and flows for the system at hand. For the purposes of this study, we assume vanishing bulk viscosity, although 
+it would be interesting to account for finite bulk viscosity in future work, as its functional form is sensitive to the peak of the QCD trace anomaly near the QGP 
+phase transition \cite{?}.
 
-In order to switch from hydrodyamic field equations to microscopic transport, the VISHNU model asserts a sudden switching temperature $T_\text{sw}$ at which the 
+In order to switch from hydrodyamic field equations to microscopic transport, the model asserts a sudden switching temperature $T_\text{sw}$ at which the 
 hydrodynamic energy-momentum tensor is particlized using the Cooper-Frye freezeout prescription,
 \begin{equation}
  E\frac{dN_i}{d^3p} = \int_\sigma f_i(x,p) p^\mu d^3\sigma_\mu
@@ -208,7 +215,12 @@ hydrodynamic energy-momentum tensor is particlized using the Cooper-Frye freezeo
 where $f_i$ is the distribution function of particle species $i$, $p^\mu$ is its four-momentum and $d^3\sigma_\mu$ characterizes an element of the isothermal freezeout 
 hypersurface defined by $T_\text{sw}$.
 
-We choose a switching temperature $T_\text{sw} = 154$ MeV which coincides with the temperature where the lattice equations of state is constructed to match 
+We choose a hydro-to-micro switching temperature $T_\text{sw} = 154$ MeV.
+
+ which coincides with the pseudo-critical phase transition temperature of the
+the HotQCD equation of state
+
+ temperature where the lattice equations of state is constructed to match 
 the UrQMD equation of state.
 
 
