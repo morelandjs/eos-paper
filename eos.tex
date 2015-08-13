@@ -155,7 +155,7 @@ time evolution of the QGP medium and a microscopic UrQMD hadronic afterburner fo
 parameters of the model are are tuned to facillitate model-to-data comparison with $200$ GeV gold-gold collisions at RHIC. In this section, we briefly outline
 the implementation of the model used in the analysis; for a more detailed explanation of the VISHNU model, we refer the reader to \cite{}. 
 
-\subsection{Initial Conditions}
+\subsection{Initial conditions}
 
 The hydrodynamic initial conditions are generate using a Monte Carlo Glauber model based on a common two-component ansatz which deposits entropy proportional to a linear combination 
 of nucleon participants and binary nucleon-nucleon collisions,
@@ -202,21 +202,24 @@ rescaled by an overall normalization factor to fit the measured charged particle
     \label{fig:spectra} Invariant yields of the HotQCD', WB' and S95' equations of state for positively charged pions (blue/circles), kaons (red/squares) and 
     protons (green/triangles) in centrality bins $0$--$5$\% (left column), $20$--$30$\% (middle column) and $40$--$50$\% (right column). The top row shows the 
     HotQCD' simulation result (lines) plotted against data from PHENIX (symbols). The middle and bottom rows show the ratio of the WB' and S95' invariant yields 
-    to the HotQCD' result (lines with bands). Pions and kaons have been offset for clarity.
+    to the HotQCD' result (lines with bands). Bands indicate two sigma statistical error. Pions and kaons have been offset for clarity.
   }
 \end{figure*}
 
 \begin{figure*}[t]
   \includegraphics[width=\textwidth]{./fig/v2}
   \caption{
-    \label{fig:spectra}
+    \label{fig:v2} Differential elliptic flow $v_2(p_T)$ calculated from the hydrodynamic Cooper-Frye freezeout hypersurface according to equation \ref{?} for 
+    the HotQCD', WB' and S95' equations of state for pions (blue), kaons (red) and protons (green) in centrality bins $0$--$10\%$ (left column), $20$--$30\%$ (middle column)
+    and $40$--$50\%$ (right column). The top row shows the HotQCD' simulation result for $v_2(p_T)$, while the middle and bottom rows show the ratio of the WB' and
+    S95' $v_2(p_T)$ over the HotQCD' result. Statistical errors are smaller than the linewidth and have been omitted.
   }
 \end{figure*}
 
 \begin{figure*}[t]
   \includegraphics[width=\textwidth]{./fig/v3}
   \caption{
-    \label{fig:spectra}
+    \label{fig:v3} Same as Fig.~\ref{fig:v2} but for differential triangular flow $v_3(p_T)$. Note that the HotQCD y-axis limits are different.
   }
 \end{figure*}
 
@@ -227,7 +230,7 @@ rescaled by an overall normalization factor to fit the measured charged particle
   }
 \end{figure*}
 
-\subsection{Hydrodyamics and Boltzmann Transport}
+\subsection{Hydrodyamics and Boltzmann transport}
 
 The hydrodynamic equations of motion are obtained in VISHNew by solving the second-order Israel-Stewart equations,
 \begin{equation}
@@ -264,16 +267,39 @@ Finally, the four-position, four-momentum and particle identification number of 
  
 \section{Results}
 
-The results are presented in two sections. First, we compare the spectra, flows and Bertsch-Pratt radii of each equation of state in central, mid-central and peripheral 
-collisions. The centrality cuts, which vary for each observable to match the experimental bins, are determined from $100,000$ minimum bias initial condition events according to
-total entropy. For example, the events with the $20\%$ highest entropy comprise centrality class $0$--$20\%$. The hydrodynamic events are then oversampled an additional
-four times to increase the number of particles in each event and suppress finite statistical error. The resulting UrQMD
+The results section is organized as follows. In sub-section \ref{spectra} we calculate the spectra of p for each equation of state across three different centrality classes using the final 
+particle information output by the full hybrid simulation. In sub-section \ref{flow} we repeat the calculation for differential elliptic and triangular flow but perform the calculation 
+on the hydrodynamic Cooper-Frye freezeout surface (explained later in the text). In sub-section \ref{hbt} we calculate the femptoscopic event-averaged Bertsch-Pratt radii again using the
+final particle information output by the UrQMD calculation, and finally in sub-section \ref{errors} we repeat the spectra and flow analysis using a sampling of equation of state curves
+from the HotQCD errors. 
 
-\subsection{Equation of State Comparison}
-\label{comparison}
+The centrality cuts, which vary for each observable to match the experimental bins, are determined from $100,000$ minimum bias initial condition events according to
+total entropy, e.g. the initial condition events with the $20\%$ highest entropy comprise centrality class $0$--$20\%$. The hydrodynamic events are then oversampled an additional
+four times to increase the number of particles in each event and suppress finite statistical error.
 
+\subsection{Particle spectra}
+\label{spectra}
 
+Figure \ref{fig:spectra} shows the invariant yield $dN/(2\pi p_T dp_T dy)$ of positively charged pions, kaons and protons calculated from the hybid model for the $0$--$5\%$, $20$--$30\%$
+and $40$--$50\%$ centrality classes using the HotQCD', WB' and S95' equations of state constructed in section \ref{eos}. 
 
+The first row shows the simulated HotQCD' yields plotted against observed pion, proton and kaon data from PHENIX. The equation of state provides a good description of 
+observed particle yields except for at moderate to large $p_T$ in central collisions where the equation of state overpredicts the data. This agreement would likely improve with more 
+realistic initial conditions, bulk viscous corrections and/or more careful treatment of the hydro-to-micro switching temperature $T_\text{sw}$, and thus we defer from making any 
+specific conclusions from the fit, suffice to say that the most recent HotQCD lattice results agree within the overall uncertainty of the present model. 
+
+The second and third rows in Fig.~\ref{fig:spectra} show the ratio of the invariant yields of the WB' and S95' equations of state over the invariant yield of the HotQCD' result. We see 
+that the spectra predicted by the HotQCD' and WB' equations of state agree within statistical error, while the S95' equation of state is appreciably softer and produces $\sim 10\%$ 
+more particles at $p_T = 0.5$ GeV and $\sim 30\%$ fewer particles at $p_T=2.5$ GeV across all three centralities.
+
+\subsection{Differential elliptic and triangular flow}
+\label{flow}
+
+\subsection{Femptoscopic Bertsch-Pratt radii}
+\label{hbt}
+
+\subsection{HotQCD errors}
+\label{errors}
 
 \section{Conclusion}
 
