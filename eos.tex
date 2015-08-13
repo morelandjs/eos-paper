@@ -3,7 +3,6 @@
 \usepackage{hyperref}
 \usepackage{graphicx}
 \usepackage{amsmath}
-\usepackage{cleveref}
 \graphicspath{{fig/}}
 
 \usepackage{mdwlist}
@@ -66,6 +65,7 @@ to the current state of the art by sampling equation of state curves from the la
 
 
 \section{Equations of State}
+\label{eos}
 
 The hybrid simulation used in this work switches from viscous hydrodynamics to a microscopic kinetic description once the system expands, cools and freezes 
 into hadrons. While the QCD equation of state enters the hydrodynamic phase of the simulation as a freely specified function interrelating energy density, 
@@ -113,7 +113,7 @@ interpolation interval,
  \cr z &=& 6 x^5 - 15 x^4 + 10 x^3 \\
   \text{where } x &=& (T - T_1)/(T_2 - T_1),
 \end{eqnarray}
-where the endpoints $T_1 \equiv T_\text{sw}$ and $T_2 \equiv 180$ MeV smoothly interpolate the lattice results into the UrQMD trace anomaly at the desired switching 
+where the endpoints $T_1 = T_\text{sw}$ and $T_2 = 180$ MeV smoothly interpolate the lattice results into the UrQMD trace anomaly at the desired switching 
 temperature $T_\text{sw}$.
 
 \begin{figure}[t]
@@ -130,12 +130,9 @@ temperature $T_\text{sw}$.
 In principle, the switching temperature could assume any value in a small interval below the equation of state's pseudo-critical transition temperature $T_\text{c}$ 
 and should be tuned to fit the relative abundance of pions, protons and kaons measured by experiment. Since we are primarily interested in the sensitivity of the 
 simulation to changes in the equation of state with all other quantities held fixed, we fix the transition temperature using the HotQCD chiral transition temperature 
-$T_\text{sw} \equiv T_\text{c} = 154$ MeV.
-
+$T_\text{sw} = T_\text{c} = 154$ MeV.
  
-While lower switching temperatures permit a smoother transition between the lattice and UrQMD equations of state, they 
-necessitate chemical non-equillibirum corrections which occur naturally in UrQMD but are not accounted for in the present lattice parameterizations \cite{?}. The modified 
-interaction measures, labeled with a prime to distinguish them from the raw lattice results, are plotted in Fig.~\ref{fig:trace_final}. The vertical gray line 
+The modified interaction measures, labeled with a prime to distinguish them from the raw lattice results, are plotted in Fig.~\ref{fig:trace_final}. The vertical gray line 
 marks the hydro-to-micro switching temperature $T_\text{sw}=154$ MeV where the model switches from the VISH2+1 hydrodynamics code to UrQMD. 
 
 In Fig.~\ref{fig:cs} we plot the squared speed of sound $c_s^2 = dp / de$ for each modified interaction measure. The speed of sound of the HotQCD' and WB' equations
@@ -156,7 +153,7 @@ With the trace anomalies in hand, the energy density, pressure and entropy densi
 The equations of state are embedded in the modern event-by-event VISHNU hybrid model which uses the VISH2+1 boost-invariant viscous hydrodynamics code to simulate the 
 time evolution of the QGP medium and a microscopic UrQMD hadronic afterburner for subsequent evolution below the QGP transition temperature. Where necessary, free
 parameters of the model are are tuned to facillitate model-to-data comparison with $200$ GeV gold-gold collisions at RHIC. In this section, we briefly outline
-the implementation of the model used in this analysis; for a more detailed explanation of the VISHNU model, we refer the reader to \cite{}. 
+the implementation of the model used in the analysis; for a more detailed explanation of the VISHNU model, we refer the reader to \cite{}. 
 
 \subsection{Initial Conditions}
 
@@ -199,40 +196,13 @@ rescaled by an overall normalization factor to fit the measured charged particle
 	   gray line indicates the switching temperature $T_\text{sw} = 154$ MeV where the model switches from fluid dynamics to a microscopic transport model.}
 \end{figure}
 
-\subsection{Hydrodyamics and Boltzmann Transport}
-
-We follow the work in reference \cite{?} and fix the hydrodynamic specific shear viscosity to a constant value $(\eta/s)_\text{QGP}=0.08$, which has been shown to 
-provide a reasonable description of measured spectra and flows for the system at hand. For the purposes of this study, we assume vanishing bulk viscosity, although 
-it would be interesting to account for finite bulk viscosity in future work, as its functional form is sensitive to the peak of the QCD trace anomaly near the QGP 
-phase transition \cite{?}.
-
-In order to switch from hydrodyamic field equations to microscopic transport, the model asserts a sudden switching temperature $T_\text{sw}$ at which the 
-hydrodynamic energy-momentum tensor is particlized using the Cooper-Frye freezeout prescription,
-\begin{equation}
- E\frac{dN_i}{d^3p} = \int_\sigma f_i(x,p) p^\mu d^3\sigma_\mu
- \label{cooper-frye}
-\end{equation}
-where $f_i$ is the distribution function of particle species $i$, $p^\mu$ is its four-momentum and $d^3\sigma_\mu$ characterizes an element of the isothermal freezeout 
-hypersurface defined by $T_\text{sw}$.
-
-We choose a hydro-to-micro switching temperature $T_\text{sw} = 154$ MeV.
-
- which coincides with the pseudo-critical phase transition temperature of the
-the HotQCD equation of state
-
- temperature where the lattice equations of state is constructed to match 
-the UrQMD equation of state.
-
-
-
-\section{Postprocessing and Analysis}
-
-\section{Results}
-
 \begin{figure*}[t]
   \includegraphics[width=\textwidth]{./fig/spectra}
   \caption{
-    \label{fig:spectra}
+    \label{fig:spectra} Invariant yields of the HotQCD', WB' and S95' equations of state for positively charged pions (blue/circles), kaons (red/squares) and 
+    protons (green/triangles) in centrality bins $0$--$5$\% (left column), $20$--$30$\% (middle column) and $40$--$50$\% (right column). The top row shows the 
+    HotQCD' simulation result (lines) plotted against data from PHENIX (symbols). The middle and bottom rows show the ratio of the WB' and S95' invariant yields 
+    to the HotQCD' result (lines with bands). Pions and kaons have been offset for clarity.
   }
 \end{figure*}
 
@@ -256,6 +226,49 @@ the UrQMD equation of state.
     \label{fig:spectra}
   }
 \end{figure*}
+
+\subsection{Hydrodyamics and Boltzmann Transport}
+
+The hydrodynamic equations of motion are obtained in VISHNew by solving the second-order Israel-Stewart equations,
+\begin{equation}
+ \partial_\mu T^{\mu\nu} = 0, \quad T^{\mu\nu} = e u^\mu u^\nu - (p + \Pi) \Delta^{\mu\nu} + \pi^{\mu\nu},
+\end{equation}
+where the bulk pressure $\Pi$ and shear stress $\pi^{\mu\nu}$ satisfy the relaxation equations,
+\begin{eqnarray}
+ \label{viscosity}
+ \cr \mathcal{D}\Pi = &-&\frac{1}{\tau_\Pi}(\Pi + \zeta \theta) - \frac{1}{2} \Pi \frac{\zeta T}{\tau_\Pi}d_\lambda \left(\frac{\tau_\Pi}{\zeta T} u^\lambda \right), \nonumber \\
+  \Delta^{\mu\alpha} \Delta^{\nu\beta} \mathcal{D}\pi_{\alpha\beta} = &-&\frac{1}{\tau_\pi}(\pi^{\mu\nu} - 2 \eta \sigma^{\mu\nu}) \\
+  &-& \frac{1}{2} \pi^{\mu\nu} \frac{\eta T}{\tau_\pi} d_\lambda\left(\frac{\tau_\pi}{\eta T} u^\lambda \right ).
+\end{eqnarray}
+
+We follow the work in reference \cite{?} and fix the bulk viscosity $\zeta$ and shear viscosity $\eta$ in equation \eqref{viscosity} using a constant specific shear viscosity $\eta/s=0.08$ 
+and vanishing bulk viscosity $\zeta/s=0$ in the hydrodynamic phase of the simulation. It would be interesting to study the effect of bulk viscous corrections which are sensitive to 
+the peak of the QCD trace anomaly near the QGP phase transition \cite{?}. Unfortunately, bulk viscous corrections do not have a straight forward implementation in the present hybrid model 
+and are neglected in this work. 
+
+As previously explained in section \,\ref{eos}, the VISHNU hybrid model transitions from hydrodyamic field equations to microscopic transport at a sudden switching temperature $T_\text{sw}$ 
+at which the hydrodynamic energy-momentum tensor is particlized using the Cooper-Frye freezeout prescription,
+\begin{equation}
+ E\frac{dN_i}{d^3p} = \int_\sigma f_i(x,p) p^\mu d^3\sigma_\mu
+ \label{cooper-frye}
+\end{equation}
+where $f_i$ is the distribution function of particle species $i$, $p^\mu$ is its four-momentum and $d^3\sigma_\mu$ characterizes an element of the isothermal freezeout 
+hypersurface defined by $T_\text{sw}$.
+
+The sampled particles then enter the UrQMD simulation where the Boltzmann equation, 
+\begin{equation}
+ \frac{df_i(x,p)}{dt} = \mathcal{C}_i(x,p),
+\end{equation}
+is solved to simulate all elastic and inelastic collisions between the particles with collision kernel $\mathcal{C}_i$ until the system becomes too dillute to continue interacting. 
+Finally, the four-position, four-momentum and particle identification number of each particle recorded at the moment of last interaction. 
+ 
+\section{Analysis and Results}
+
+The results are presented in two
+
+
+\section{Results}
+
 
 \section{Conclusion}
 
