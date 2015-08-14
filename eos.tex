@@ -156,6 +156,7 @@ parameters of the model are are tuned to facillitate model-to-data comparison wi
 the implementation of the model used in the analysis; for a more detailed explanation of the VISHNU model, we refer the reader to \cite{}. 
 
 \subsection{Initial conditions}
+\label{initial_condition}
 
 The hydrodynamic initial conditions are generate using a Monte Carlo Glauber model based on a common two-component ansatz which deposits entropy proportional to a linear combination 
 of nucleon participants and binary nucleon-nucleon collisions,
@@ -267,15 +268,15 @@ Finally, the four-position, four-momentum and particle identification number of 
  
 \section{Results}
 
-The results section is organized as follows. In sub-section \ref{spectra} we calculate the spectra of p for each equation of state across three different centrality classes using the final 
-particle information output by the full hybrid simulation. In sub-section \ref{flow} we repeat the calculation for differential elliptic and triangular flow but perform the calculation 
-on the hydrodynamic Cooper-Frye freezeout surface (explained later in the text). In sub-section \ref{hbt} we calculate the femptoscopic event-averaged Bertsch-Pratt radii again using the
-final particle information output by the UrQMD calculation, and finally in sub-section \ref{errors} we repeat the spectra and flow analysis using a sampling of equation of state curves
-from the HotQCD errors. 
+The results section is organized as follows. In sub-section \ref{spectra} we calculate the particle spectra for each equation of state across three different centrality classes using the final 
+particle information output by the hybrid simulation. In sub-section \ref{flow} we repeat the calculation for elliptic and triangular flow but perform the calculation on the 
+hydrodynamic Cooper-Frye freezeout surface for reasons explained later in the text. In sub-section \ref{hbt} we calculate the femptoscopic event-averaged Bertsch-Pratt radii, again using the 
+final particle information output by the full hybrid calculation. Finally in sub-section \ref{errors}, we repeat the spectra and flow analysis using a sampling of equation of state curves from the 
+HotQCD published errors. 
 
-The centrality cuts, which vary for each observable to match the experimental bins, are determined from $100,000$ minimum bias initial condition events according to
-total entropy, e.g. the initial condition events with the $20\%$ highest entropy comprise centrality class $0$--$20\%$. The hydrodynamic events are then oversampled an additional
-four times to increase the number of particles in each event and suppress finite statistical error.
+All results presented in the following sections are based on $10^5$ minimum bias events which are subdivided into centrality classes according to initial entropy, e.g. the initial condition events 
+with $20\%$ highest entropy comprise centrality class $0$--$20\%$. Each hydrodynamic event is oversampled an additional four times to increase the number of particles in each event and suppress 
+finite statistical error.
 
 \subsection{Particle spectra}
 \label{spectra}
@@ -283,14 +284,14 @@ four times to increase the number of particles in each event and suppress finite
 Figure \ref{fig:spectra} shows the invariant yield $dN/(2\pi p_T dp_T dy)$ of positively charged pions, kaons and protons calculated from the hybid model for the $0$--$5\%$, $20$--$30\%$
 and $40$--$50\%$ centrality classes using the HotQCD', WB' and S95' equations of state constructed in section \ref{eos}. 
 
-The first row shows the simulated HotQCD' yields plotted against observed pion, proton and kaon data from PHENIX. The equation of state provides a good description of 
-observed particle yields except for at moderate to large $p_T$ in central collisions where the equation of state overpredicts the data. This agreement would likely improve with more 
-realistic initial conditions, bulk viscous corrections and/or more careful treatment of the hydro-to-micro switching temperature $T_\text{sw}$, and thus we defer from making any 
-specific conclusions from the fit, suffice to say that the most recent HotQCD lattice results agree within the overall uncertainty of the present model. 
+The first row shows the HotQCD' yields obtained from the hybrid model plotted against observed pion, proton and kaon data from PHENIX. The second and third rows show the ratio of the invariant yields of 
+the WB' and S95' equations of state over the the HotQCD' result. We see that the HotQCD' equation of state provides a good description of observed particle yields except for at moderate 
+to large $p_T$ in central collisions where the equation of state overpredicts the data. This agreement would likely improve with more realistic initial conditions, bulk viscous corrections 
+and/or more careful treatment of the hydro-to-micro switching temperature $T_\text{sw}$, and thus we defer from making any specific conclusions from the overall fit to data. It suffices to say that the 
+most recent HotQCD lattice results provide a reasonable description of the PHENIX data and agrees within the overall uncertainty of the present model. 
 
-The second and third rows in Fig.~\ref{fig:spectra} show the ratio of the invariant yields of the WB' and S95' equations of state over the invariant yield of the HotQCD' result. We see 
-that the spectra predicted by the HotQCD' and WB' equations of state agree within statistical error, while the S95' equation of state is appreciably softer and produces $\sim 10\%$ 
-more particles at $p_T = 0.5$ GeV and $\sim 30\%$ fewer particles at $p_T=2.5$ GeV across all three centralities.
+Looking at the second and third rows of the figure which show the ratios of the WB' and S95' yields to the HotQCD' result, we see that the spectra predicted by the HotQCD' and WB' equations of state 
+agree within statistical error, while the S95' equation of state is appreciably softer and produces $\sim 10\%$ more particles at $p_T = 0.5$ GeV and $\sim 30\%$ fewer particles at $p_T=2.5$ GeV across all three centralities.
 
 \subsection{Differential elliptic and triangular flow}
 \label{flow}
