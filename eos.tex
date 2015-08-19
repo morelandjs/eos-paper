@@ -200,34 +200,35 @@ rescaled by an overall normalization factor to fit the measured charged particle
 \begin{figure*}[t]
   \includegraphics[width=\textwidth]{./fig/spectra}
   \caption{
-    \label{fig:spectra} Invariant yields of the HotQCD', WB' and S95' equations of state for positively charged pions (blue/circles), kaons (red/squares) and 
-    protons (green/triangles) in centrality bins $0$--$5$\% (left column), $20$--$30$\% (middle column) and $40$--$50$\% (right column). The top row shows the 
-    HotQCD' simulation result (lines) plotted against data from PHENIX (symbols). The middle and bottom rows show the ratio of the WB' and S95' invariant yields 
-    to the HotQCD' result (lines with bands). Bands indicate two sigma statistical error. Pions and kaons have been offset for clarity.
-  }
+    \label{fig:spectra} Effect of the equation of state on transverse momentum spectra. Top row: model calculations using the HotQCD equation of state plotted against 
+    PHENIX data for pions, kaons and protons (blue lines/circles, red lines/squares and green lines/triangles) in centrality bins $0$--$5\%$, $20$--$30\%$ and $40$--$50\%$ 
+    (columns left to right). Middle and bottom rows: ratios of the WB' and S95' invariant yields to the HotQCD' result. Shaded bands indicate two sigma statistical error. }
 \end{figure*}
 
 \begin{figure*}[t]
   \includegraphics[width=\textwidth]{./fig/v2}
   \caption{
-    \label{fig:v2} Differential elliptic flow $v_2(p_T)$ calculated from the hydrodynamic Cooper-Frye freezeout hypersurface according to equation \ref{?} for 
-    the HotQCD', WB' and S95' equations of state for pions (blue), kaons (red) and protons (green) in centrality bins $0$--$10\%$ (left column), $20$--$30\%$ (middle column)
-    and $40$--$50\%$ (right column). The top row shows the HotQCD' simulation result for $v_2(p_T)$, while the middle and bottom rows show the ratio of the WB' and
-    S95' $v_2(p_T)$ over the HotQCD' result. Statistical errors are smaller than the linewidth and have been omitted.
+    \label{fig:v2} Effect of the equation of state on differential elliptic flow $v_2(p_T)$ calculated from the Cooper-Frye freezeout hypersurface \eqref{differential_flow}.
+    Top row: model calculations using the HotQCD' equation of state for the elliptic flow $v_2(p_T)$  of pions, kaons and protons (blue, orange and green lines) 
+    in centrality bins $0$--$10\%$, $20$--$30\%$ and $40$--$50\%$ (columns left to right). Middle and bottom rows: ratios of the WB' and S95' elliptic flow to 
+    the HotQCD' result. Statistical errors are smaller than the linewidth and have been omitted.
   }
 \end{figure*}
 
 \begin{figure*}[t]
   \includegraphics[width=\textwidth]{./fig/v3}
   \caption{
-    \label{fig:v3} Same as Fig.~\ref{fig:v2} but for differential triangular flow $v_3(p_T)$. Note that the HotQCD y-axis limits are different.
+    \label{fig:v3} Same as Fig.~\ref{fig:v2} but for differential triangular flow $v_3(p_T)$. Note that the y-axis limits in the top row are different.
   }
 \end{figure*}
 
 \begin{figure*}[t]
   \includegraphics[width=\textwidth]{./fig/hbt}
   \caption{
-    \label{fig:spectra}
+    \label{fig:hbt} Effect of the equation of state on the Bertsch-Pratt radii.  We plot $R_o$, $R_s$, $R_l$ and the ratio $R_o/R_s$ (rows top to bottom) 
+    in centrality bins $0$--$10\%$, $20$--$30\%$ and $40$--$50\%$ (columns left to right) against transverse mass $m_T$ for the HotQCD', WB'  and S95' equations of state 
+    (purple, orange and blue lines). Shaded bands indicate two sigma errors estimated from the Jacobian of the fit function \eqref{fitfunction}. Symbols with errors bars 
+    are experimental data from PHENIX.  
   }
 \end{figure*}
 
@@ -330,21 +331,40 @@ RHIC and the LHC into perspective.
 \subsection{Femptoscopic Bertsch-Pratt radii}
 \label{hbt}
 
-The size of the fireball emission region is estimated using HBT interferometry for identical particles. We perform the calculation for identical pions and construct the two-particle correlation function, 
+The size of the fireball emission region is estimated using Hanbury-Brown-Twiss (HBT) interferometry for identical particles. The azimuthally averaged two-particle correlation function 
 \begin{equation}
  \label{hbt}
- C(q, k) = \frac{\sum\limits_N \sum\limits_{i < j} \delta_{q} \, \delta_{k}\Psi(q,r)}{\sum\limits_{N}' \sum\limits_{i,j} \delta_{q} \, \delta_{k}}.
+ C(q, k) = \frac{\sum\limits_n \sum\limits_{i, j} \delta_{q} \, \delta_{k}\Psi(q,r)}{\sum\limits_{n} \sum\limits_{i,j'} \delta_{q} \, \delta_{k}}
 \end{equation}
-where $q = p_i - p_j$ denotes the relative momentum, $r=x_i-x_j$ the relative separation and $k = (p_i + p_j)/2$ the average momentum of the pion pair in the longitudinal co-moving frame where the compononent of $k$ along
-the beam axis vanishes.
+consists of a numerator with particles pairs sampled from the same event and a denominator with pairs sampled from different events. Here $q = p_i - p_j$ denotes the relative momentum, $r=x_i-x_j$ the relative separation and $k = (p_i + p_j)/2$ the average momentum of the pion pair in the longitudinal co-moving 
+frame where the compononent of $k$ along the beam axis vanishes. The numerator is summed over all events $n$ in a given centrality class and unique particle pair combinations $i,j$ in each event. In the denominator, particle $i$ is
+taken from one event and particle $j'$ from a random partner event in the same centrality class. The delta functions $\delta_q$ and $\delta_k$ are $1$ if the momenta $q$ and $k$ fall into their respective bins and $0$ otherwise. Bose-Einsten 
+correlations, which are not included natively in the UrQMD model, are imposed by adding the symmetrization factor $\Psi(q,r) = 1 + \cos q\,r$. 
 
-The numerator in \eqref{hbt} is constructed using pions pairs sampled from the same event, while the denominator is constructed using pairs sampled from different events. The summations over $N$ and $i < j$ denotes all events in a given 
-centrality class and pion pairs in a single event, while the primed summations in the denominator indicate that one of the pions is sampled from a random partner event in same centrality class. 
-The delta functions $\delta_q$ and $\delta_k$ are $1$ if the momenta $q$ and $k$ fall into their respective bins and $0$ otherwise. Bose-Einsten correlations, which are not included natively in the UrQMD model, are imposed by add a symmetrization factor $\Psi(q,r) = 1 + \cos q\,r$ 
+The average pair momentum $k$ is then projected into its longitudinal component $k_\text{z}$ and transverse component $k_T$, while the separation momentum $q$ is represented in the orthogonal coordinates 
+$(q_o, q_s, q_l)$, where $q_l$ lies along the beam axis, $q_o$ is parallel to $k_T$ and $q_s$ perpendicular to $q_o$ and $q_l$. The resulting correlation function is approximated using a Gaussian source and 
+fit to the parametric form
+\begin{equation}
+ \label{fitfunction}
+ C(q_o, q_s, q_l, k_T) = \mathcal{N} \left(1 + \lambda\, e^{-R_o^2 q_o^2 - R_s^2 q_s^2 - R_l^2 q_l^2} \right) 
+\end{equation}
+by finding the best fit normalization $\mathcal{N}$, source strength $\lambda$ and Bertsch-Pratt radii $R_o$, $R_s$ and $R_l$ for a given transverse momentum $k_T$. 
 
+We calculate the Bertsch-Pratt radii for each equation of state using identical pions. The fit is perfomed using $2\cdot10^4$ hydrodynamic events in each centrality bin and an additional $10$ UrQMD oversamples per event. 
+The oversamples are then concatenated into a single particle list to increase the number of particle pairs by a factor $10^2$.
 
+In Fig.~\ref{fig:hbt}, we plot the Bertsch-Pratt radii for the HotQCD', WB' and S95' equations of state as functions of the transverse mass $m_T = \sqrt{m^2 + k_T^2}$ . The horizontal rows show the radii $R_o$, $R_s$, $R_l$ and ratio $R_o/R_s$ (top to bottom), while the columns 
+mark centrality classes $0$--$10\%$, $10$--$20\%$ and $20$--$40\%$ (left to right). The different colored lines annotated in the legend indicate different equations of state and the bands estimate the error from the Jacobian 
+of the fit. The symbols with error bars are experimental data from PHENIX.
+
+We see that the Bertsch-Pratt radii predicted by the hybrid model provide a good description of the data across all centralities, except for at low $p_T$ where $R_o$ and $R_l$ slightly undershoot the data. However, in contrast to
+spectra and flows we see no discernible difference in the Bertsch-Pratt radii predicted by the three different equations of state. This suggests that femptoscopic measurements are not sensitive enough to resolve small differences
+in the lattice equation of state.
+ 
 \subsection{HotQCD errors}
 \label{errors}
+
+As a final test we analyze errors in the 
 
 \section{Conclusion and Outlook}
 
