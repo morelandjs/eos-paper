@@ -28,25 +28,30 @@
 
 \section{Introduction}
 
-Fluid dynamics is a useful framework to study the collective behaviour of hot and dense nuclear matter produced in relativistic heavy-ions. 
-Quantum Chromodynamics (QCD) predicts that at sufficiently high energies these collisions form a new state of matter consisting of deconfined 
-quarks and gluons known as a quark-gluon plasma (QGP). Simulations based on relativistic viscous hydrodynamics play a central role in extracting 
+%RAS - remove lame utility statement from first sentence
+%Fluid dynamics is a useful framework to study the collective behaviour of hot and dense nuclear matter produced in relativistic heavy-ions. 
+Quantum Chromodynamics (QCD) predicts that at sufficiently high temperature or density nuclear matter exists in a state of deconfined 
+quarks and gluons known as a quark-gluon plasma (QGP).   This state of matter existed within the universe approximately one microsecond 
+after the big bang and is recreated in relativistic heavy ion collisions at the Relativistic Heavy Ion Collider (RHIC) and the Large Hadron Collider (LHC).
+Quantitative comparisons to simulations based on relativistic viscous hydrodynamics currently provide the primary means of extracting the
 properties of the QGP which expands and freezes into hadrons too quickly for direct observation.
 
 The hydroynamic transport equations require two essential ingredients to specify the full time evolution of the QGP fireball: initial conditions 
-which describe the thermal profile of the QGP droplet at some early starting time and a QCD equation of state which interrelates energy density, 
+which describe the thermal profile of the QGP droplet at some early starting time and a QCD Equation of State (EoS) which interrelates energy density, 
 pressure and temperature of each fluid cell in local thermal equillibrium.
 
 Lattice discretization is the only reliable method to calculate the QCD equation of state in the vicinity of the QGP phase transition and hence 
 constitutes a critical component of hydrodynamic simulations. While lattice techniques are rigorous in their treatment of the underlying QCD 
-Lagrangian, they are subject to numerical errors inherent in the lattice discretization procedure. These errors are manifest in differences in the 
-continuum extrapolated QCD trace anomaly predicted by different lattice collaborations and lead to an overall uncertainty in the true value of the 
+Lagrangian, they are subject to statistical and systematic errors inherent in the lattice discretization procedure. These errors are manifest in differences in the 
+continuum extrapolated QCD trace anomaly and lead to an overall uncertainty in the true value of the 
 QCD equation of state at zero baryochemical potential.
 
-Simulations using a lattice based equation of state inherrit all forms of numeric and systematic uncertainty associated with the underlying 
-lattice methodology. These modeling uncertainties have been studied both at low temperature, by comparing simulations with a lattice equation of 
-state to results obtained from a hadron resonance gas model \cite{Huovinen:2009yb}, and at high temperature by comparing the effect of different 
-lattice parameterizations of the lattice equation of state on particle spectra and flow \cite{Huovinen:2005gy, Huovinen:2009yb}. 
+% Simulations using a lattice based equation of state inherrit all forms of numeric and systematic uncertainty associated with the underlying 
+% lattice methodology. These modeling uncertainties have been studied both at low temperature, by comparing simulations with a lattice equation of 
+% state to results obtained from a hadron resonance gas model \cite{Huovinen:2009yb}, and at high temperature by comparing the effect of different 
+% lattice parameterizations of the lattice equation of state on particle spectra and flow \cite{Huovinen:2005gy, Huovinen:2009yb}. 
+
+To date there have been few sensitivity studies of hte impact of the EoS on hydroynamics simulaion results.  They have been limited to studies the order of the phase transition~ \cite{Huovinen:2005gy}, different parameterization schemes for the LQCD EoS ~\cite{Huovinen:2009yb}, and data driven Bayesian techniques to determine the EoS parameters motivated by LQCD EoS calculations~\cite{Pratt:2015vb}.  
 
 Recent calculations by the HotQCD and Wuppertal-Budapest collaborations of the QCD trace anomaly in the continuum limit now show good agreement within 
 errors. This signals an important convergence in lattice descriptions of the QCD equation of state which previously exhibited a tension in the peak 
