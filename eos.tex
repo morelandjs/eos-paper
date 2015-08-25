@@ -51,26 +51,29 @@ QCD equation of state at zero baryochemical potential.
 % state to results obtained from a hadron resonance gas model \cite{Huovinen:2009yb}, and at high temperature by comparing the effect of different 
 % lattice parameterizations of the lattice equation of state on particle spectra and flow \cite{Huovinen:2005gy, Huovinen:2009yb}. 
 
-To date there have been few sensitivity studies of hte impact of the EoS on hydroynamics simulaion results.  They have been limited to studies the order of the phase transition~ \cite{Huovinen:2005gy}, different parameterization schemes for the LQCD EoS ~\cite{Huovinen:2009yb}, and data driven Bayesian techniques to determine the EoS parameters motivated by LQCD EoS calculations~\cite{Pratt:2015vb}.  
-
-Recent calculations by the HotQCD and Wuppertal-Budapest collaborations of the QCD trace anomaly in the continuum limit now show good agreement within 
-errors. This signals an important convergence in lattice descriptions of the QCD equation of state which previously exhibited a tension in the peak 
-of the trace anomaly near the QGP phase transition. It is not yet clear however, if current lattice errors are under sufficient control for 
-hydrodynamic transport models or if further improvement is needed.  
-
+To date there have been few sensitivity studies of the influence of the EoS on hydroynamics simulaion results.  They have been limited to studies the order 
+of the phase transition~ \cite{Huovinen:2005gy}, different parameterization schemes for the LQCD EoS ~\cite{Huovinen:2009yb}, and data driven Bayesian 
+techniques to determine parameters for an EoS for a parameterization motivated by previous LQCD EoS calculations~\cite{Pratt:2015vb}.  However, a sensitivity
+study on the inherant errors in the LQCD EoS has not yet been performed, primarily because continuum extrapolations for the LQCD EoS at zero
+baryond density have only recently become available~\cite{Borsanyi:2013bia,Bazavov:2014pvz}.
 In this work, we quantify the effect of lattice errors on simulations of relativistic heavy-ion collisions by comparing simulation predictions obtained 
-with different calculations of the QCD equation of state. The equations of state are analyzed using a modern event-by-event hybrid simulation which couples
-viscous hydrodynamics to a hadronic afterburner to calculate flows, spectra and Bertsch-Pratt radii and are compared to measurements at the Relativistic
-Heavy-Ion Collider (RHIC).
- 
-We analyze two state of the art calculations from the HotQCD and Wuppertal-Budapest collaborations as well as an older parameterization based on HotQCD 
-calculations with a coarser lattice spacing to gauge the importance of recent lattice improvements. We also assess the need for additional improvements 
-to the current state of the art by sampling equation of state curves from the latest HotQCD published errors to quantify current uncertainties. 
-
+with QCD EoS calculations by the Wuppertal-Budapest collaboration using the stout fermion action~\cite{Borsanyi:2013bia} and the HotQCD collaboration 
+using the HISQ/tree action~\cite{Bazavov:2014pvz}.  We also perform a comparison to older s95p-v1 parameterization ~\cite{Huovinen:2009yb}, derived from 
+constrained fits to calculations using coarser ($32^3 \times 8$) lattices using the p4 and asqtad actions without contiuum extrapolation.  The equations of 
+state are analyzed using a modern event-by-event hybrid simulation which couples viscous hydrodynamics to a hadronic afterburner to calculate flows, spectra 
+and Bertsch-Pratt radii and are compared to measurements at the Relativistic Heavy-Ion Collider (RHIC).  We also perform a set of calculations in which the 
+HISQ/tree continuum EoS is sampled from within the published error range.
 
 
 \section{Equations of State}
 \label{eos}
+
+The stout and HISQ/tree actions as well as the p4 and asqtad actions are examples of staggered fermion actions that differ in their level improvements: additional terms 
+added to remove lattice artifacts, thereby improving convergence.  For a detailed discussion of these improvements see~\cite{Soltz:2015ur}.  For this comparison we note 
+that the stout and HISQ/tree actions contain additional smearing of the gluon links relative to p4 and asqtad, and the stout action does not included corrections to second 
+in the lattice spacing that are common to the other three.  The p4 and asqtad results used in the s95p-v1 parameterization are from ($32^3 \times 8$) lattices, referred to by 
+the number of temperal dimension, $N_{\tau}=8$.  The HISQ/tree continuum extrapolation was calculated for $N_{\tau}=8$, 10, and 12, whereas the stout results were 
+obtained from lattices of $N_{\tau}=6$, 8, 10, and 12.
 
 The hybrid simulation used in this work switches from viscous hydrodynamics to a microscopic kinetic description once the system expands, cools and freezes 
 into hadrons. While the QCD equation of state enters the hydrodynamic phase of the simulation as a freely specified function interrelating energy density, 
