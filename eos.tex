@@ -68,37 +68,33 @@ HISQ/tree continuum EoS is sampled from within the published error range.
 \section{Equations of State}
 \label{eos}
 
-The stout and HISQ/tree actions as well as the p4 and asqtad actions are examples of staggered fermion actions that differ in their level improvements: additional terms 
-added to remove lattice artifacts, thereby improving convergence.  For a detailed discussion of these improvements see~\cite{Soltz:2015ur}.  For this comparison we note 
-that the stout and HISQ/tree actions contain additional smearing of the gluon links relative to p4 and asqtad, and the stout action does not included corrections to second 
-in the lattice spacing that are common to the other three.  The p4 and asqtad results used in the s95p-v1 parameterization are from ($32^3 \times 8$) lattices, referred to by 
-the number of temperal dimension, $N_{\tau}=8$.  The HISQ/tree continuum extrapolation was calculated for $N_{\tau}=8$, 10, and 12, whereas the stout results were 
-obtained from lattices of $N_{\tau}=6$, 8, 10, and 12.
+The stout and HISQ/tree actions as well as the p4 and asqtad actions are examples of staggered fermion actions that differ in their level improvements: 
+additional terms added to remove lattice artifacts, thereby improving convergence.  For this comparison we note that the stout and HISQ/tree actions 
+contain additional smearing of the gluon links relative to p4 and asqtad, and the stout action does not included corrections to second in the lattice spacing 
+that are common to the other three.  The p4 and asqtad results used in the s95p-v1 parameterization are from ($32^3 \times 8$) lattices, referred to by 
+the number of temperal dimension, $N_{\tau}=8$.  The HISQ/tree continuum extrapolation was calculated for $N_{\tau}=8$, 10, and 12, whereas the stout 
+results were obtained from lattices of $N_{\tau}=6$, 8, 10, and 12.   See~\cite{Soltz:2015ur_arxiv1502.02296} for a more detailed discussion of the EoS calculations and
+the relative improvements the staggered fermion actions.
 
-The hybrid simulation used in this work switches from viscous hydrodynamics to a microscopic kinetic description once the system expands, cools and freezes 
-into hadrons. While the QCD equation of state enters the hydrodynamic phase of the simulation as a freely specified function interrelating energy density, 
-pressure and temperature, its description in the kinetic phase of the collision is fixed by the finite number of particles and particle resonances included 
-in the UrQMD model used for the hadronic phase of the simulation.
-
-As a result, we limit our study to differences in the QCD equation of state \emph{above} the QGP transition temperature where hydrodynamics allows us to 
-freely vary its chosen form. We study three different parameterizations for this high temperature dependence -- two state of the art calculations 
-in 2+1 flavour QCD from the HotQCD \cite{Bazavov:2014pvz} and Wuppertal-Budapest \cite{Borsanyi:2013bia} collaborations, as well as the older s95p-v1 
-parameterization \cite{Huovinen:2009yb} constructed using lattice data measured with a coarser lattice spacing \cite{Bazavov:2009zn}.
-
-The QCD equation of state is frequently characterized by the trace of the energy-momentum tensor, also referred to as the trace anomaly or interaction measure. 
-When scaled by powers of the temperature, the trace anomaly forms a dimensionless measure
+LQCD EoS calculations are obtained from calculations of trace of the energy momentum tensor, equal to the difference between the energy density
+and three times the pressure.  This quantity is typically referred to as the interaction measure, $I$ or trace anomaly becuase it measures deviations from the conformal equation
+of state.  
 \begin{equation}
  I \equiv \frac{\Theta^{\mu\mu}(T)}{T^4} = \frac{e - 3p}{T^4},
 \end{equation}
-where $e$ is the local fluid energy density, $p$ the pressure and $T$ the temperature.
+%
+where $\Theta$ is the stress-energy tensor, $e$ is the local fluid energy density, $p$ the pressure and $T$ the temperature.
+Cacluations typically begin at a lower temperature of $\sim$130~MeV, where small deviations with Hadron Resonance Gas (HRG) EoS may begin
+to develop.  This is evident in Fig.~\ref{fig:trace}, which shows the trace anomaly for the HRG and the three lattice calculations.  Both the HISQ/tree and stout
+EoS results begin to pull away from the HRG at temperatures above 130~MeV.  The s95p-v1 parameterization agrees with the HRG results up to a matching
+temperature of 183.8~MeV by construction.
 
-In Fig.~\ref{fig:trace} we plot the temperature scaled interaction measure of each equation of state as well as that of a hadron resonance gas calculated from 
-the list of partial resonances included in the UrQMD collision kernel. The s95p-v1 parameterization, which was constructed to interpolate between 
-a hadron resonance gas calculation at low temperatures and lattice results at high temperatures, is in good agreement with the UrQMD equation of state while the 
-HotQCD and Wuppertal-Budapest results are slightly higher in the vicinity of the phase transition.
-
+Although both the W-B and HotQCD collaborations have provided parameterizations suitable for insertion into hydrodynamic codes, the matching temperature
+of 130~MeV falls below the $155-165$ range for temperatures at which hybrid simulations typically switch from relativistic viscous hydrodynamcs to 
+a microscopic kinetic description such as UrQMD~\cite{standard_UrQMD_ref_1998}.  We note also that recent estimates for the freeze-out temperature derived from combining
+lattice calculations and experimental data also fall within this range~\cite{PhysRevLett.113.072001,arXiv:1506.07834}.  
 To ensure a self consistent description in regions of the collision where the simulation switches from hydrodynamics to Boltzmann transport, we match each high 
-temperature lattice equation of state with the low temperature UrQMD equation of state. We thus define a piecewise function for the temperature scaled interaction measure,
+temperature lattice equation of state with the low temperature HRG equation of state. We thus define a piecewise function for the temperature scaled interaction measure,
 \begin{equation}
  \label{interaction}
  I(T) =
@@ -155,6 +151,11 @@ With the trace anomalies in hand, the energy density, pressure and entropy densi
  \frac{s(T)}{T^3} &=& \frac{e(T) + p(T)}{T^4}. 
 \end{eqnarray}
  
+For clarity, Figs.~\ref{trace}--\ref{cs} do not include the resepctive errors bands for each calculation, but both calculations devote considerable effort
+to providing an accurate error estimates for their respective calculations~\cite{Borsanyi:2013bia,Bazavov:2014pvz}.  Common contributions to the errors
+come from variations in spline fits to the itneraction measures, differences between quadratic and quartic extrapolations in the lattice spacing, and
+small (~2\%) variations in the temperature scale.  Errors are typical of order 5\% for most quantities, and increase to 5--10\% in the transition region
+where the curves are steepest.
 
 \section{Hybrid Model}
 
