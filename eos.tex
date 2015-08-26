@@ -5,6 +5,13 @@
 \usepackage{amsmath}
 \graphicspath{{fig/}}
 
+%packages for editing
+\usepackage{xcolor}
+\usepackage[normalem]{ulem}
+\makeatletter
+\def\uwave{\bgroup \markoverwith{\lower3.5\p@\hbox{\sixly \textcolor{red}{\char58}}}\ULon}
+\font\sixly=lasy6 % does not re-load if already loaded, so no memory problem.
+\makeatother
 \usepackage{mdwlist}
 
 \newcommand{\nch}{N_\text{ch}}
@@ -30,61 +37,57 @@
 
 %RAS - remove lame utility statement from first sentence
 %Fluid dynamics is a useful framework to study the collective behaviour of hot and dense nuclear matter produced in relativistic heavy-ions. 
-Quantum Chromodynamics (QCD) predicts that at sufficiently high temperature or density nuclear matter exists in a state of deconfined 
-quarks and gluons known as a quark-gluon plasma (QGP).   This state of matter existed within the universe approximately one microsecond 
-after the big bang and is recreated in relativistic heavy ion collisions at the Relativistic Heavy Ion Collider (RHIC) and the Large Hadron Collider (LHC).
-Quantitative comparisons to simulations based on relativistic viscous hydrodynamics currently provide the primary means of extracting the
-properties of the QGP which expands and freezes into hadrons too quickly for direct observation.
+Quantum Chromodynamics (QCD) predicts that at sufficiently high temperature or density, nuclear matter exists in a state of deconfined state of quarks and gluons 
+known as a quark-gluon plasma (QGP). This state of matter filled the early universe several microseconds after the big bang and is now recreated and studied in 
+the laboratory by colliding heavy ions at relativistic energies at the Relativistic Heavy Ion Collider (RHIC) and the Large Hadron Collider (LHC).
 
-The hydroynamic transport equations require two essential ingredients to specify the full time evolution of the QGP fireball: initial conditions 
-which describe the thermal profile of the QGP droplet at some early starting time and a QCD Equation of State (EoS) which interrelates energy density, 
-pressure and temperature of each fluid cell in local thermal equillibrium.
+Quantitative model to data comparison, using simulations based on relativistic hydrodynamics, is the primary means to extract properties of QGP produced by 
+relativistic heavy-ion collisions which expands and freezes into hadrons too quickly for direct observation. These hydroynamic descriptions require two 
+essential ingredients to specify the full time evolution of the QGP fireball: initial conditions which describe the thermal profile of the QGP droplet at 
+some early starting time and a QCD Equation of State (EoS) which interrelates the energy density, pressure and temperature of each fluid cell in local thermal equillibrium.
 
 Lattice discretization is the only reliable method to calculate the QCD equation of state in the vicinity of the QGP phase transition and hence 
 constitutes a critical component of hydrodynamic simulations. While lattice techniques are rigorous in their treatment of the underlying QCD 
 Lagrangian, they are subject to statistical and systematic errors inherent in the lattice discretization procedure. These errors are manifest in differences in the 
-continuum extrapolated QCD trace anomaly and lead to an overall uncertainty in the true value of the 
-QCD equation of state at zero baryochemical potential.
+continuum extrapolated QCD trace anomaly and lead to an overall uncertainty in the true value of the QCD equation of state at zero baryochemical potential.
 
 % Simulations using a lattice based equation of state inherrit all forms of numeric and systematic uncertainty associated with the underlying 
 % lattice methodology. These modeling uncertainties have been studied both at low temperature, by comparing simulations with a lattice equation of 
 % state to results obtained from a hadron resonance gas model \cite{Huovinen:2009yb}, and at high temperature by comparing the effect of different 
 % lattice parameterizations of the lattice equation of state on particle spectra and flow \cite{Huovinen:2005gy, Huovinen:2009yb}. 
 
-To date there have been few sensitivity studies of the influence of the EoS on hydroynamics simulaion results.  They have been limited to studies the order 
-of the phase transition~ \cite{Huovinen:2005gy}, different parameterization schemes for the LQCD EoS ~\cite{Huovinen:2009yb}, and data driven Bayesian 
-techniques to determine parameters for an EoS for a parameterization motivated by previous LQCD EoS calculations~\cite{Pratt:2015vb}.  However, a sensitivity
-study on the inherant errors in the LQCD EoS has not yet been performed, primarily because continuum extrapolations for the LQCD EoS at zero
-baryond density have only recently become available~\cite{Borsanyi:2013bia,Bazavov:2014pvz}.
-In this work, we quantify the effect of lattice errors on simulations of relativistic heavy-ion collisions by comparing simulation predictions obtained 
-with QCD EoS calculations by the Wuppertal-Budapest collaboration using the stout fermion action~\cite{Borsanyi:2013bia} and the HotQCD collaboration 
-using the HISQ/tree action~\cite{Bazavov:2014pvz}.  We also perform a comparison to older s95p-v1 parameterization ~\cite{Huovinen:2009yb}, derived from 
-constrained fits to calculations using coarser ($32^3 \times 8$) lattices using the p4 and asqtad actions without contiuum extrapolation.  The equations of 
-state are analyzed using a modern event-by-event hybrid simulation which couples viscous hydrodynamics to a hadronic afterburner to calculate flows, spectra 
-and Bertsch-Pratt radii and are compared to measurements at the Relativistic Heavy-Ion Collider (RHIC).  We also perform a set of calculations in which the 
-HISQ/tree continuum EoS is sampled from within the published error range.
+To date there have been few sensitivity studies on the influence of the EoS on hydroynamic simulation results. They have been limited to studies of the order 
+of the phase transition~\cite{Huovinen:2005gy}, different parameterization schemes for the LQCD EoS~\cite{Huovinen:2009yb} and data driven Bayesian techniques 
+to constrain parameterizations of the EoS motivated by LQCD calculations~\cite{Pratt:2015vb}.  However, a sensitivity study on the inherant errors in the LQCD EoS has 
+not yet been performed, primarily because continuum extrapolations for the LQCD EoS at zero baryond density have only recently become available~\cite{Borsanyi:2013bia,Bazavov:2014pvz}. 
+In this work, we quantify the effect of lattice errors on simulations of relativistic heavy-ion collisions by comparing simulation predictions obtained with QCD EoS calculations 
+by the Wuppertal-Budapest collaboration using the stout fermion action~\cite{Borsanyi:2013bia} and the HotQCD collaboration using the HISQ/tree action~\cite{Bazavov:2014pvz}.  
+We also compare to the older s95p-v1 parameterization ~\cite{Huovinen:2009yb}, constructed from calculations performed on coarser ($32^3 \times 8$) lattices using p4 and asqtad actions without contiuum extrapolation.  
+The equations of state are analyzed using a modern event-by-event hybrid simulation which couples viscous hydrodynamics to a hadronic afterburner to calculate flows, spectra and Bertsch-Pratt 
+radii and are compared to measurements at the Relativistic Heavy-Ion Collider (RHIC).  We also perform a set of calculations in which the HISQ/tree continuum EoS is sampled from 
+within the published error range.
 
 
 \section{Equations of State}
 \label{eos}
 
-The stout and HISQ/tree actions as well as the p4 and asqtad actions are examples of staggered fermion actions that differ in their level improvements: 
+The stout and HISQ/tree actions as well as the p4 and asqtad actions are examples of staggered fermion actions that differ in their \uwave{level improvements}: 
 additional terms added to remove lattice artifacts, thereby improving convergence.  For this comparison we note that the stout and HISQ/tree actions 
-contain additional smearing of the gluon links relative to p4 and asqtad, and the stout action does not included corrections to second in the lattice spacing 
-that are common to the other three.  The p4 and asqtad results used in the s95p-v1 parameterization are from ($32^3 \times 8$) lattices, referred to by 
+contain additional smearing of the gluon links relative to p4 and asqtad actions, and that the stout action does not include any second order corrections in the lattice spacing 
+which are common to the other three.  The p4 and asqtad results used in the s95p-v1 parameterization are from ($32^3 \times 8$) lattices, referred to by 
 the number of temperal dimension, $N_{\tau}=8$.  The HISQ/tree continuum extrapolation was calculated for $N_{\tau}=8$, 10, and 12, whereas the stout 
 results were obtained from lattices of $N_{\tau}=6$, 8, 10, and 12.   See~\cite{Soltz:2015ur_arxiv1502.02296} for a more detailed discussion of the EoS calculations and
-the relative improvements the staggered fermion actions.
+relative improvements of the staggered fermion actions.
 
 LQCD EoS calculations are obtained from calculations of trace of the energy momentum tensor, equal to the difference between the energy density
-and three times the pressure.  This quantity is typically referred to as the interaction measure, $I$ or trace anomaly becuase it measures deviations from the conformal equation
-of state.  
+and three times the pressure.  This quantity is typically referred to as the interaction measure, $I$ \textcolor{red}{(discrepancy with formula, divided by $T^4$)} or 
+trace anomaly because it measures deviations from the conformal equation of state.  
 \begin{equation}
  I \equiv \frac{\Theta^{\mu\mu}(T)}{T^4} = \frac{e - 3p}{T^4},
 \end{equation}
 %
 where $\Theta$ is the stress-energy tensor, $e$ is the local fluid energy density, $p$ the pressure and $T$ the temperature.
-Cacluations typically begin at a lower temperature of $\sim$130~MeV, where small deviations with Hadron Resonance Gas (HRG) EoS may begin
+Calcuations typically begin at a lower temperature of $\sim$130~MeV, where small deviations with a Hadron Resonance Gas (HRG) EoS may begin
 to develop.  This is evident in Fig.~\ref{fig:trace}, which shows the trace anomaly for the HRG and the three lattice calculations.  Both the HISQ/tree and stout
 EoS results begin to pull away from the HRG at temperatures above 130~MeV.  The s95p-v1 parameterization agrees with the HRG results up to a matching
 temperature of 183.8~MeV by construction.
