@@ -3,6 +3,7 @@
 \usepackage{hyperref}
 \usepackage{graphicx}
 \usepackage{amsmath}
+\usepackage{paralist}
 \graphicspath{{fig/}}
 
 %packages for editing
@@ -15,6 +16,9 @@
 \usepackage{mdwlist}
 
 \newcommand{\nch}{N_\text{ch}}
+\newcommand{\hotqcd}{HotQCD$^\dagger$~}
+\newcommand{\wb}{WB$^\dagger$~}
+\newcommand{\spv}{s95$^\dagger$~}
 
 \begin{document}
 
@@ -35,117 +39,90 @@
 
 \section{Introduction}
 
-%RAS - remove lame utility statement from first sentence
-%Fluid dynamics is a useful framework to study the collective behaviour of hot and dense nuclear matter produced in relativistic heavy-ions. 
-Quantum Chromodynamics (QCD) predicts that at sufficiently high temperature or density, nuclear matter exists in a state of deconfined state of quarks and gluons 
-known as a quark-gluon plasma (QGP). This state of matter filled the early universe several microseconds after the big bang and is now recreated and studied in 
-the laboratory by colliding heavy ions at relativistic energies at the Relativistic Heavy Ion Collider (RHIC) and the Large Hadron Collider (LHC).
+Quantum Chromodynamics (QCD) predicts that at sufficiently high temperature or density, nuclear matter exists in a state of deconfined state of quarks and gluons known as a quark-gluon plasma (QGP). 
+This state of matter filled the early universe several microseconds after the big bang and is now recreated and studied in the laboratory by colliding heavy ions at relativistic energies at the Relativistic Heavy Ion Collider (RHIC) and the Large Hadron Collider (LHC).
 
-Quantitative model to data comparison, using simulations based on relativistic hydrodynamics, is the primary means to extract properties of QGP produced by 
-relativistic heavy-ion collisions which expands and freezes into hadrons too quickly for direct observation. These hydroynamic descriptions require two 
-essential ingredients to specify the full time evolution of the QGP fireball: initial conditions which describe the thermal profile of the QGP droplet at 
-some early starting time and a QCD Equation of State (EoS) which interrelates the energy density, pressure and temperature of each fluid cell in local thermal equillibrium.
+Quantitative model to data comparison, using simulations based on relativistic hydrodynamics, is the primary means to extract properties of QGP produced by relativistic heavy-ion collisions which expands and freezes into hadrons too quickly for direct observation. 
+These hydroynamic descriptions require two essential ingredients to specify the full time evolution of the QGP fireball: initial conditions which describe the thermal profile of the QGP droplet at some early starting time and a QCD Equation of State (EoS) which interrelates the energy density, pressure and temperature of each fluid cell in local thermal equillibrium.
 
-Lattice discretization is the only reliable method to calculate the QCD equation of state in the vicinity of the QGP phase transition and hence 
-constitutes a critical component of hydrodynamic simulations. While lattice techniques are rigorous in their treatment of the underlying QCD 
-Lagrangian, they are subject to statistical and systematic errors inherent in the lattice discretization procedure. These errors are manifest in differences in the 
-continuum extrapolated QCD trace anomaly and lead to an overall uncertainty in the true value of the QCD equation of state at zero baryochemical potential.
+Lattice discretization is the only reliable method to calculate the QCD equation of state in the vicinity of the QGP phase transition and hence constitutes a critical component of hydrodynamic simulations. 
+While lattice techniques are rigorous in their treatment of the underlying QCD Lagrangian, they are subject to statistical and systematic errors inherent in the lattice discretization procedure. 
+These errors are manifest in differences in the continuum extrapolated QCD trace anomaly and lead to an overall uncertainty in the true value of the QCD equation of state at zero baryochemical potential.
 
-% Simulations using a lattice based equation of state inherrit all forms of numeric and systematic uncertainty associated with the underlying 
-% lattice methodology. These modeling uncertainties have been studied both at low temperature, by comparing simulations with a lattice equation of 
-% state to results obtained from a hadron resonance gas model \cite{Huovinen:2009yb}, and at high temperature by comparing the effect of different 
-% lattice parameterizations of the lattice equation of state on particle spectra and flow \cite{Huovinen:2005gy, Huovinen:2009yb}. 
-
-To date there have been few sensitivity studies on the influence of the EoS on hydroynamic simulation results. They have been limited to studies of the order 
-of the phase transition~\cite{Huovinen:2005gy}, different parameterization schemes for the LQCD EoS~\cite{Huovinen:2009yb} and data driven Bayesian techniques 
-to constrain parameterizations of the EoS motivated by LQCD calculations~\cite{Pratt:2015vb}.  However, a sensitivity study on the inherant errors in the LQCD EoS has 
-not yet been performed, primarily because continuum extrapolations for the LQCD EoS at zero baryond density have only recently become available~\cite{Borsanyi:2013bia,Bazavov:2014pvz}. 
-In this work, we quantify the effect of lattice errors on simulations of relativistic heavy-ion collisions by comparing simulation predictions obtained with QCD EoS calculations 
-by the Wuppertal-Budapest collaboration using the stout fermion action~\cite{Borsanyi:2013bia} and the HotQCD collaboration using the HISQ/tree action~\cite{Bazavov:2014pvz}.  
-We also compare to the older s95p-v1 parameterization ~\cite{Huovinen:2009yb}, constructed from calculations performed on coarser ($32^3 \times 8$) lattices using p4 and asqtad actions without contiuum extrapolation.  
-The equations of state are analyzed using a modern event-by-event hybrid simulation which couples viscous hydrodynamics to a hadronic afterburner to calculate flows, spectra and Bertsch-Pratt 
-radii and are compared to measurements at the Relativistic Heavy-Ion Collider (RHIC).  We also perform a set of calculations in which the HISQ/tree continuum EoS is sampled from 
-within the published error range.
+To date there have been few sensitivity studies on the influence of the EoS on hydroynamic simulation results. 
+They have been limited to studies of the order of the phase transition~\cite{Huovinen:2005gy}, different parameterization schemes for the LQCD EoS \cite{Huovinen:2009yb} and data driven Bayesian techniques to constrain parameterizations of the EoS motivated by LQCD calculations \cite{Pratt:2015zsa}.
+However, a sensitivity study on the inherent errors in the LQCD EoS has not yet been performed, primarily because continuum extrapolations for the LQCD EoS at zero baryon density have only recently become available \cite{Borsanyi:2013bia,Bazavov:2014pvz}. 
+In this work, we quantify the effect of lattice errors on simulations of relativistic heavy-ion collisions by comparing simulation predictions obtained with QCD EoS calculations by the Wuppertal-Budapest collaboration using the stout fermion action \cite{Borsanyi:2013bia} and the HotQCD collaboration using the HISQ/tree action \cite{Bazavov:2014pvz}.  
+We also compare to the older s95p-v1 parameterization \cite{Huovinen:2009yb} constructed from calculations performed on coarser ($32^3 \times 8$) lattices using p4 and asqtad actions without contiuum extrapolation.  
+The equations of state are analyzed using a modern event-by-event hybrid simulation which couples viscous hydrodynamics to a hadronic afterburner to calculate flows, spectra and Bertsch-Pratt radii and are compared to measurements at the Relativistic Heavy-Ion Collider (RHIC).
+We also perform a set of calculations in which the HISQ/tree continuum EoS is sampled from within the published error range.
 
 
 \section{Equations of State}
 \label{eos}
 
-The stout and HISQ/tree actions as well as the p4 and asqtad actions are examples of staggered fermion actions that differ in their \uwave{level improvements}: 
-additional terms added to remove lattice artifacts, thereby improving convergence.  For this comparison we note that the stout and HISQ/tree actions 
-contain additional smearing of the gluon links relative to p4 and asqtad actions, and that the stout action does not include any second order corrections in the lattice spacing 
-which are common to the other three.  The p4 and asqtad results used in the s95p-v1 parameterization are from ($32^3 \times 8$) lattices, referred to by 
-the number of temperal dimension, $N_{\tau}=8$.  The HISQ/tree continuum extrapolation was calculated for $N_{\tau}=8$, 10, and 12, whereas the stout 
-results were obtained from lattices of $N_{\tau}=6$, 8, 10, and 12.   See~\cite{Soltz:2015ur_arxiv1502.02296} for a more detailed discussion of the EoS calculations and
-relative improvements of the staggered fermion actions.
+The Wuppertal-Budapest, HotQCD and s95p-v1 EoS parameterizations used in this work all employ staggered fermion actions with varying level improvements: additional terms added to remove lattice artifacts and improve simulation convergence. 
+For example, both the stout and HISQ/tree actions used by the Wuppertal-Budapest and HotQCD calculations contain additional smearing of the gluon links relative to p4 and asqtad actions used to construct the s95p-v1 parameterization.
+Moreover, the Wuppertal-Budapest stout action omits second order corrections in the lattice spacing which are common to the other three. 
 
-LQCD EoS calculations are obtained from calculations of trace of the energy momentum tensor, equal to the difference between the energy density
-and three times the pressure.  This quantity is typically referred to as the interaction measure, $I$ \textcolor{red}{(discrepancy with formula, divided by $T^4$)} or 
-trace anomaly because it measures deviations from the conformal equation of state.  
+The three analyses are further distinguished by the granularity of the lattices used in each calculation.
+The p4 and asqtad results used in the s95p-v1 parameterization are from ($32^3 \times 8$) lattices, referred to by the number of temperal dimension, $N_{\tau}=8$, while the HISQ/tree continuum extrapolation was calculated for $N_{\tau}=8$, 10, and 12, and the stout results for lattices with $N_{\tau}=6$, 8, 10 and 12. 
+For a more detailed discussion of the EoS calculations and relative improvements of the staggered fermion actions see \cite{Soltz:2015ula}.
+
+LQCD EoS calculations are obtained from the trace of the stress-energy tensor, equal to the difference between the energy density and three times the pressure. 
+This quantity is typically referred to as the interaction measure or trace anomaly  because it measures deviations from the conformal equation of state. 
+Once scaled by powers of the temperature, the trace anomaly forms a dimensionless measure 
 \begin{equation}
  I \equiv \frac{\Theta^{\mu\mu}(T)}{T^4} = \frac{e - 3p}{T^4},
 \end{equation}
-%
 where $\Theta$ is the stress-energy tensor, $e$ is the local fluid energy density, $p$ the pressure and $T$ the temperature.
-Calcuations typically begin at a lower temperature of $\sim$130~MeV, where small deviations with a Hadron Resonance Gas (HRG) EoS may begin
-to develop.  This is evident in Fig.~\ref{fig:trace}, which shows the trace anomaly for the HRG and the three lattice calculations.  Both the HISQ/tree and stout
-EoS results begin to pull away from the HRG at temperatures above 130~MeV.  The s95p-v1 parameterization agrees with the HRG results up to a matching
-temperature of 183.8~MeV by construction.
 
-Although both the W-B and HotQCD collaborations have provided parameterizations suitable for insertion into hydrodynamic codes, the matching temperature
-of 130~MeV falls below the $155-165$ range for temperatures at which hybrid simulations typically switch from relativistic viscous hydrodynamcs to 
-a microscopic kinetic description such as UrQMD~\cite{standard_UrQMD_ref_1998}.  We note also that recent estimates for the freeze-out temperature derived from combining
-lattice calculations and experimental data also fall within this range~\cite{PhysRevLett.113.072001,arXiv:1506.07834}.  
-To ensure a self consistent description in regions of the collision where the simulation switches from hydrodynamics to Boltzmann transport, we match each high 
-temperature lattice equation of state with the low temperature HRG equation of state. We thus define a piecewise function for the temperature scaled interaction measure,
+Lattice calcuations typically extend down to temperatures of ${\sim}130$~MeV, where small deviations with the Hadron Resonance Gas (HRG) EoS may begin to develop.
+This is evident in Fig.~\ref{fig:trace}, which shows the trace anomaly of the HRG EoS alongside results from the HotQCD and Wuppertal-Budapest (WB) collaborations with HISQ/tree and stout actions respectively, as well as the older s95p-v1 parameterization obtained using p4 and asqad actions.  
+Both the HISQ/tree and stout EoS results begin to pull away from the HRG EoS at temperatures above $130$~MeV, while the s95p-v1 parameterization agrees with the HRG results up to a matching temperature of $183.8$~MeV by construction.
+
+Although both the Wuppertal-Budapest and HotQCD collaborations have provided parameterizations suitable for insertion into hydrodynamic codes, the matching temperature of 130~MeV falls below the 155--165~MeV temperature range where hybrid simulations typically switch from relativistic viscous hydrodynamcs to a microscopic kinetic description such as UrQMD~\cite{Bass:1998ca,Bleicher:1999xi}.  
+We note also that recent estimates for the freeze-out temperature derived from combining lattice calculations and experimental data also fall within this range~\cite{Bazavov:2014xya, Adare:2015aqk}.  
+To ensure a self consistent description of the collision dynamics where the simulation switches from hydrodynamics to microscopic transport, we modify each lattice EoS to match the HRG EoS at the desired hydro-to-micro switching temperature. We thus define a new piecewise interaction measure
 \begin{equation}
  \label{interaction}
  I(T) =
   \begin{cases}
-   I_\text{hrg}(T)	& T \le T_1 \\
-   I_\text{blend}(T)	& T_1 < T < T_2 \\ 
+   I_\text{hrg}(T)	& T \le T_1, \\
+   I_\text{blend}(T)	& T_1 < T < T_2, \\ 
    I_\text{lattice}(T)	& T \ge T_2,
   \end{cases}
 \end{equation}
-where $I_\text{hrg}$ is the hadron resonance gas trace anomaly in UrQMD pictured in Fig.~\ref{fig:trace}, $I_\text{lattice}$ represents one of the HotQCD, Wuppertal-Budapest or S95p-v1 
-parameterizations and $I_\text{blend}$ is a function which smoothly connects between the two in the temperature interval $T_1 < T < T_2$,
+where $I_\text{hrg}$ and $I_\text{lattice}$ are the HRG and LQCD trace anomalies pictured in Fig.~\ref{fig:trace}, and $I_\text{blend}$ is a function 
 \begin{equation}
   \label{interpolation}
   I_\text{blend} = (1-z)\, I_\text{hrg} + z\, I_\text{lattice}.
 \end{equation}
-The interpolation parameter $z \in [0,1]$ in equation \ref{interpolation} is constructed to match the first and second derviatives at the endpoints of the 
-interpolation interval,
+which smoothly connects between the two in the temperature interval $T_1 < T < T_2$. The interpolation parameter $z \in [0,1]$ is constructed to match the first and second derviatives at the endpoints of the interpolation interval,
 \begin{eqnarray}
  \label{smoothstep}
  \cr z &=& 6 x^5 - 15 x^4 + 10 x^3 \\
-  \text{where } x &=& (T - T_1)/(T_2 - T_1),
+  \text{where } x &=& (T - T_1)/(T_2 - T_1).
 \end{eqnarray}
-where the endpoints $T_1 = T_\text{sw}$ and $T_2 = 180$ MeV smoothly interpolate the lattice results into the UrQMD trace anomaly at the desired switching 
-temperature $T_\text{sw}$.
+We fix the boundaries of the blending region $T_1=155$~MeV and $T_2=180$~MeV to impose matching at the switching temperature $T_\text{sw} = 155$~MeV which coincides with the pseudo-critical phase transition temperatures of the HotQCD and Wuppertal-Budapest EoS. 
+
+The modified interaction measures, labeled with a dagger to distinguish them from the published values, are plotted in Fig.~\ref{fig:trace_final}. 
+We see that the interpolation procedure imposes the necessary matching condition on either side of the switching temperature (vertical gray line) with minimal disturbance to the peak of the LQCD trace anomaly at higher temperatures.
+In Fig.~\ref{fig:cs} we plot the squared speed of sound $c_s^2 = dp/de$ for each modified interaction measure. The speed of sound of the \hotqcd and \wb equations
+of state are in good agreement while the \spv parameterization remains softer in a wider interval about the QGP phase transition. We note that the speed of sound in 
+the \hotqcd and \wb parameterizations is clearly affected by the parametric transition \eqref{interpolation} in the vicinity of the switching temperature (vertical gray line), 
+but that the imposed matching maintains continuity.
 
 \begin{figure}[t]
   \includegraphics[width=\columnwidth]{./fig/trace}
-  \caption{\label{fig:trace} The temperature scaled QCD trace anomaly for the UrQMD. HotQCD, WB and s95p-v1 parameterizations as a function of temperature \cite{?}.}
+  \caption{\label{fig:trace} The temperature scaled QCD interaction measure for the HRG. HotQCD, WB and s95p-v1 EoS as a function of temperature \cite{Bazavov:2014pvz, Borsanyi:2013bia, Huovinen:2009yb}.}
 \end{figure}
 
 \begin{figure}[b]
   \includegraphics[width=\columnwidth]{./fig/trace_final}
-  \caption{\label{fig:trace_final} The modified QCD trace anomalies HotQCD', WB' and S95' obtained from equation \eqref{interaction} and the corresponding lattice
-	  parameterizations in Fig.~\ref{fig:trace}. The gray, vertical line marks the hydro-to-micro switching temperature $T_\text{sw} = 154$ MeV.}
+  \caption{\label{fig:trace_final} The modified QCD interaction measure for the \hotqcd, \wb and \spv EoS obtained from equation \eqref{interaction} and the corresponding lattice
+	  parameterizations in Fig.~\ref{fig:trace}. The vertical gray line marks the hydro-to-micro switching temperature $T_\text{sw} = 155$~MeV.}
 \end{figure}
-
-In principle, the switching temperature could assume any value in a small interval below the equation of state's pseudo-critical transition temperature $T_\text{c}$ 
-and should be tuned to fit the relative abundance of pions, protons and kaons measured by experiment. Since we are primarily interested in the sensitivity of the 
-simulation to changes in the equation of state with all other quantities held fixed, we fix the transition temperature using the HotQCD chiral transition temperature 
-$T_\text{sw} = T_\text{c} = 154$ MeV.
- 
-The modified interaction measures, labeled with a prime to distinguish them from the raw lattice results, are plotted in Fig.~\ref{fig:trace_final}. The vertical gray line 
-marks the hydro-to-micro switching temperature $T_\text{sw}=154$ MeV where the model switches from the VISH2+1 hydrodynamics code to UrQMD. 
-
-In Fig.~\ref{fig:cs} we plot the squared speed of sound $c_s^2 = dp / de$ for each modified interaction measure. The speed of sound of the HotQCD' and WB' equations
-of state are in good agreement while the S95' parameterization remains softer in a wider interval about the QGP phase transition. We note that the speed of sound in 
-the HotQCD' and WB' parameterizations is clearly affected by the parametric transition \eqref{interpolation} in the vicinity of the switching temperature (vertical gray line), 
-but that the imposed matching maintains continuity.
 
 With the trace anomalies in hand, the energy density, pressure and entropy density are easily interrelated to specify the equation of state used in the analysis,
 \begin{eqnarray}
@@ -154,9 +131,9 @@ With the trace anomalies in hand, the energy density, pressure and entropy densi
  \frac{s(T)}{T^3} &=& \frac{e(T) + p(T)}{T^4}. 
 \end{eqnarray}
  
-For clarity, Figs.~\ref{trace}--\ref{cs} do not include the resepctive errors bands for each calculation, but both calculations devote considerable effort
-to providing an accurate error estimates for their respective calculations~\cite{Borsanyi:2013bia,Bazavov:2014pvz}.  Common contributions to the errors
-come from variations in spline fits to the itneraction measures, differences between quadratic and quartic extrapolations in the lattice spacing, and
+For clarity, Figs.~\ref{fig:trace}--\ref{fig:cs} do not include the respective errors bands for each calculation, but both calculations devote considerable effort
+to providing an accurate error estimate for their respective calculations~\cite{Borsanyi:2013bia,Bazavov:2014pvz}.  Common contributions to the errors
+come from variations in spline fits to the interaction measures, differences between quadratic and quartic extrapolations in the lattice spacing, and
 small (~2\%) variations in the temperature scale.  Errors are typical of order 5\% for most quantities, and increase to 5--10\% in the transition region
 where the curves are steepest.
 
@@ -208,7 +185,7 @@ rescaled by an overall normalization factor to fit the measured charged particle
 \begin{figure}
   \includegraphics[width=\columnwidth]{./fig/cs}
   \caption{\label{fig:cs} Speed of sound squared $c_s^2$ plotted versus temperature $T$ for the three equations of state used in this study. The vertical
-	   gray line indicates the switching temperature $T_\text{sw} = 154$ MeV where the model switches from fluid dynamics to a microscopic transport model.}
+	   gray line indicates the switching temperature $T_\text{sw} = 155$~MeV where the model switches from fluid dynamics to a microscopic transport model.}
 \end{figure}
 
 \begin{figure*}[t]
