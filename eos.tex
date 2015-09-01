@@ -4,7 +4,7 @@
 \usepackage{graphicx}
 \usepackage{amsmath}
 \usepackage{mathtools}
-%\usepackage{paralist}
+\usepackage{paralist}
 \graphicspath{{fig/}}
 
 %packages for editing
@@ -127,6 +127,7 @@ but that the imposed matching maintains continuity.
 
 With the trace anomalies in hand, the energy density, pressure and entropy density are easily interrelated to specify the equation of state used in the analysis,
 \begin{eqnarray}
+ \label{conversion}
  \cr \frac{p(T)}{T^4} &=& \int\limits_0^T dT'\, \frac{I(T')}{T'}, \\
  \frac{e(T)}{T^4} &=& I(T) + 3\, \frac{p(T)}{T^4}, \\
  \frac{s(T)}{T^3} &=& \frac{e(T) + p(T)}{T^4}. 
@@ -224,6 +225,7 @@ rescaled by an overall normalization factor to fit the measured charged particle
   }
 \end{figure*}
 
+
 \subsection{Hydrodyamics and Boltzmann transport}
 
 The hydrodynamic equations of motion are obtained in VISHNew by solving the second-order Israel-Stewart equations,
@@ -258,7 +260,7 @@ The sampled particles then enter the UrQMD simulation where the Boltzmann equati
 \end{equation}
 is solved to simulate all elastic and inelastic collisions between the particles with collision kernel $\mathcal{C}_i$ until the system becomes too dillute to continue interacting. 
 Finally, the four-position, four-momentum and particle identification number of each particle recorded at the moment of last interaction. 
- 
+
 \section{Results}
 \label{results}
 
@@ -353,23 +355,37 @@ of the fit. The symbols with error bars are experimental data from PHENIX.
 We see that the Bertsch-Pratt radii predicted by the hybrid model provide a good description of the data across all centralities, except for at low $p_T$ where $R_o$ and $R_l$ slightly undershoot the data. However, in contrast to
 spectra and flows we see no discernible difference in the Bertsch-Pratt radii predicted by the three different equations of state. This suggests that femptoscopic measurements are not sensitive enough to resolve small differences
 in the lattice equation of state.
- 
+
+\begin{figure}[b]
+  \includegraphics[width=\columnwidth]{./fig/splines}
+  \caption{
+    \label{fig:splines}
+  }
+\end{figure}
+
 \subsection{HotQCD errors}
 \label{errors}
 
-In sections 2 3 4 we present results 
-
-The HotQCD analysis referenced in this work includes -- in addition to best associated errors for the parametric fitting and continuum extrapolation procedures used to convert discrete lattice measurements into smooth parametric curves. In this 
-section, we consider the effect of these uncertainties by repeating the spectra and flow analysis in sections \ref{spectra} and \ref{flow} using a finite sample of curves drawn
-from HotQCD error estimates.
-
-The HotQCD trace anomaly is calculated at various temperatures in the interval $130 < T < 400$ MeV on grids of fixed temporal extent $N_\tau = 8,10,12$, where $N_\tau$ and $T$ are related to the lattice spacing $a$ via
+In addition to the best fit parameterization shown in Fig.~\ref{fig:trace}~, the HotQCD analysis includes a detailed calculation of associated lattice errors. The errors enter the analysis in several steps.
+The HotQCD trace anomaly is first calculated at various temperatures in the interval $130 < T < 400$ MeV using grids with temperal extent $N_\tau = 8,10$ and $12$.
+For each temperature and grid size, the lattice simulation is repeated a large number of times. 
+This creates a set of ``data points'' with a mean and variance determined from the Monte Carlo ensemble. 
+Each data point is then resampled from its mean and variance, and the collection of resampled points, one for each value of the temperature $T$ and grid size $N_\tau$, is fit with the ansatz,
 \begin{equation}
- N_\tau = (aT)^{-1}.
+ \label{splines}
+ \frac{\theta^{\mu\mu}(T)}{T^4} = A + \sum\limits_{i=1}^{n_k=3} B_i \times S_i(T) + \frac{C + \sum_{i=1}^{n_k + 3} D_i \times S_i(T)}{N_\tau^2}.
 \end{equation}
-Measurements of the QCD tracenomaly $\theta^{\mu\mu}$ are calculated at each value of the temperature and each
+Here the constants $A$, $B_i$, $C$ and $D_i$ are parameters of the fit, $S_i$ is a set of cubic basis splines and $n_k$ the number of knots used in the B-spline fitting. 
+The entire procedure is then repeated 20,001 times to sample the function space of $\theta^{\mu\mu}(T)/T^4$ from the errors in the ensemble averaged lattice measurements.
 
+In this section, we investigate the effect of the HotQCD lattice errors by measuring the spectra and flows for a subset of 100 randomly sampled splines determined according to equation \eqref{splines}.
+The piecewise interpolation procedure described in section \ref{eos} is applied to each spline to smoothly match the HotQCD lattice interaction measures with the HRG result at low temperature. 
+The resulting interaction measures are shown in Fig.~\ref{fig:splines} along side the best fit HotQCD parameterization which naturally falls in the middle of the sampled curves. 
+The vertical spread of the curves should be interpretted as the one sigma error band in the interval 180--400 MeV. 
 
+The energy density, entropy density, pressure and temperature are then calculated from each interaction measure according to \eqref{conversion} to generate 100 different EoS tables. 
+Above 400~MeV, the higher derivatives of the interaction measures become unreliable and we extrapolate the EoS table using a simple power law. 
+We note, however, that this modification has negligible impact on the hydrodynamic evolution at RHIC where the system is predominantly below 400~MeV and is implemented for numeric stability.
 
 
 \section{Conclusion and Outlook}
