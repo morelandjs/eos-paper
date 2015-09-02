@@ -360,8 +360,10 @@ in the lattice equation of state.
   \includegraphics[width=\columnwidth]{./fig/splines}
   \caption{
     \label{fig:splines}
+    Temperatured scaled interaction measure $(e-3 p)/T^4$ as a function of temperature $T$ for 100 different samples of the HotQCD error estimate (thin blue lines) plotted alongside the HRG EoS (thick orange line) and best fit HotQCD parameterization (thick red line).
   }
 \end{figure}
+
 
 \subsection{HotQCD errors}
 \label{errors}
@@ -378,19 +380,33 @@ Each data point is then resampled from its mean and variance, and the collection
 Here the constants $A$, $B_i$, $C$ and $D_i$ are parameters of the fit, $S_i$ is a set of cubic basis splines and $n_k$ the number of knots used in the B-spline fitting. 
 The entire procedure is then repeated 20,001 times to sample the function space of $\theta^{\mu\mu}(T)/T^4$ from the errors in the ensemble averaged lattice measurements.
 
-In this section, we investigate the effect of the HotQCD lattice errors by measuring the spectra and flows for a subset of 100 randomly sampled splines determined according to equation \eqref{splines}.
+In this section, we investigate the effect of the HotQCD lattice errors by measuring the spectra and flows for a subset of 100 randomly sampled EoS curves determined according to equation \eqref{splines}.
 The piecewise interpolation procedure described in section \ref{eos} is applied to each spline to smoothly match the HotQCD lattice interaction measures with the HRG result at low temperature. 
-The resulting interaction measures are shown in Fig.~\ref{fig:splines} along side the best fit HotQCD parameterization which naturally falls in the middle of the sampled curves. 
+The resulting interaction measures are shown in Fig.~\ref{fig:splines} alongside the best fit HotQCD parameterization which naturally falls in the middle of the sampled curves. 
 The vertical spread of the curves should be interpretted as the one sigma error band in the interval 180--400 MeV. 
 
 The energy density, entropy density, pressure and temperature are then calculated from each interaction measure according to \eqref{conversion} to generate 100 different EoS tables. 
 Above 400~MeV, the higher derivatives of the interaction measures become unreliable and we extrapolate the EoS table using a simple power law. 
 We note, however, that this modification has negligible impact on the hydrodynamic evolution at RHIC where the system is predominantly below 400~MeV.
 
-The HotQCD EoS samples are then used to repeat the spectra and flow analysis presented in section \ref{results}. 
-We choose to omit Bertsch-Pratt radii due to the low sensitivity observed across the three different EoS and computational intensity required.
+The HotQCD EoS samples are used to repeat the spectra and flow analysis presented in section \ref{results}. In Fig.~\ref{fig:spectra} we show the invariant yield $dN/(2\pi p_T dp_T dy)$ of positively charged pions, kaons and protons
+in centrality bins $0$--$5\%$, $20$--$30\%$ and $40$--$50\%$. The ratio plot in the figure subset shows that the spread in the particle yield for the HotQCD errors is $\mathcal{O}(5\%)$ across all centralities. 
+This spread is significantly smaller than the $\mathcal{O}(20 \%)$ deviations observed between the different EoS in Fig.~\ref{fig:spectra}. The elliptic flow $v_2$ shown in Fig.~\ref{fig:v2} and triangular flow $v_3$ in Fig.~\ref{fig:v3}
+show similarly small sensitivies to the HotQCD errors with variations of $\mathcal{O}(5\%)$ for $v_2$ and $\mathcal{O}(10\%)$ for $v_3$. This establishes that the error in the HotQCD calculation leads to minor variations of hydrodynamic
+observables.
 
 \section{Conclusion and Outlook}
+\label{conclusion}
+
+The LQCD EoS is an essential ingredient used in hydrodynamic simulations of relativistic heavy-ion collisions. In this study we simulated collisions at RHIC using a modern event-by-event hybrid model with three different equations of state: 
+two state of the art calculations by the HotQCD and Wuppertal-Budapest collaborations as well the s95p-v1 parameterization based on older lattice data. We find that the particle spectra calculated using the latest HotQCD and WB EoS
+are indistinguishable within the statistical errors of our analysis, while the s95p-v1 EoS is substantially softer and generates spectra which deviate by as much as $30\%$ within the applicability of the model. No significant dependence
+was observed for the different particle species or different centrality classes.
+Similar sensitivity was observed in the elliptic flow harmonics $v_2$ and $v_3$ calculated on the Cooper-Frye freezeout hypersurface. The elliptic flow produced by the HotQCD and WB EoS was essentially identical, while the softer s95p-v1
+parameterization produced $\mathcal{O}(10\%)$ less elliptic flow across centralities. The triangular flow $v_3$ was slightly more sensitive to changes in the hydrodynamic EoS and revealed a small $\mathcal{O}(5\%)$ discrepancy between the HotQCD
+and WB EoS, and much larger 10--25\% discrepancies with the s95p-v1 EoS which were largest in peripheral centralities. We also calculate Bertsch-Pratt radii for the three different EOS, but were not able to detect meaningful differences in $R_\text{o}$,
+$R_\text{s}$ and $R_\text{l}$ within the errors of our analysis. We note that a recent Bayesian sensitivity study observed stronger sensitivity of the Bertsch-Pratt radii to differences in the hydrodynamic equation of state  
+
 
 \begin{acknowledgments}
  JSM acknowledges support by the DOE/NNSA Stockpile Stewardship Graduate Fellowship under grant no.~DE-FC52-08NA28752.
