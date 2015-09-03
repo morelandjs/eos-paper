@@ -390,23 +390,27 @@ Above 400~MeV, the higher derivatives of the interaction measures become unrelia
 We note, however, that this modification has negligible impact on the hydrodynamic evolution at RHIC where the system is predominantly below 400~MeV.
 
 The HotQCD EoS samples are used to repeat the spectra and flow analysis presented in section \ref{results}. In Fig.~\ref{fig:spectra} we show the invariant yield $dN/(2\pi p_T dp_T dy)$ of positively charged pions, kaons and protons
-in centrality bins $0$--$5\%$, $20$--$30\%$ and $40$--$50\%$. The ratio plot in the figure subset shows that the spread in the particle yield for the HotQCD errors is $\mathcal{O}(5\%)$ across all centralities. 
-This spread is significantly smaller than the $\mathcal{O}(20 \%)$ deviations observed between the different EoS in Fig.~\ref{fig:spectra}. The elliptic flow $v_2$ shown in Fig.~\ref{fig:v2} and triangular flow $v_3$ in Fig.~\ref{fig:v3}
-show similarly small sensitivies to the HotQCD errors with variations of $\mathcal{O}(5\%)$ for $v_2$ and $\mathcal{O}(10\%)$ for $v_3$. This establishes that the error in the HotQCD calculation leads to minor variations of hydrodynamic
+in centrality bins $0$--$5\%$, $20$--$30\%$ and $40$--$50\%$. The ratio plot in the figure subset shows that the spread in the particle yield for the HotQCD errors is ${\sim} 5\%$ across all centralities. 
+This spread is significantly smaller than the ${\sim}20\%$ deviations observed between the different EoS in Fig.~\ref{fig:spectra}. The elliptic flow $v_2$ shown in Fig.~\ref{fig:v2} and triangular flow $v_3$ in Fig.~\ref{fig:v3}
+show similarly small sensitivies to the HotQCD errors with variations of ${\sim}5\%$ for $v_2$ and ${\sim}10\%$ for $v_3$. This establishes that the error in the HotQCD calculation leads to minor variations of hydrodynamic
 observables.
 
 \section{Conclusion and Outlook}
 \label{conclusion}
 
 The LQCD EoS is an essential ingredient used in hydrodynamic simulations of relativistic heavy-ion collisions. In this study we simulated collisions at RHIC using a modern event-by-event hybrid model with three different equations of state: 
-two state of the art calculations by the HotQCD and Wuppertal-Budapest collaborations as well the s95p-v1 parameterization based on older lattice data. We find that the particle spectra calculated using the latest HotQCD and WB EoS
-are indistinguishable within the statistical errors of our analysis, while the s95p-v1 EoS is substantially softer and generates spectra which deviate by as much as $30\%$ within the applicability of the model. No significant dependence
-was observed for the different particle species or different centrality classes.
-Similar sensitivity was observed in the elliptic flow harmonics $v_2$ and $v_3$ calculated on the Cooper-Frye freezeout hypersurface. The elliptic flow produced by the HotQCD and WB EoS was essentially identical, while the softer s95p-v1
-parameterization produced $\mathcal{O}(10\%)$ less elliptic flow across centralities. The triangular flow $v_3$ was slightly more sensitive to changes in the hydrodynamic EoS and revealed a small $\mathcal{O}(5\%)$ discrepancy between the HotQCD
-and WB EoS, and much larger 10--25\% discrepancies with the s95p-v1 EoS which were largest in peripheral centralities. We also calculate Bertsch-Pratt radii for the three different EOS, but were not able to detect meaningful differences in $R_\text{o}$,
-$R_\text{s}$ and $R_\text{l}$ within the errors of our analysis. We note that a recent Bayesian sensitivity study observed stronger sensitivity of the Bertsch-Pratt radii to differences in the hydrodynamic equation of state  
+two state of the art calculations by the HotQCD and Wuppertal-Budapest (WB) collaborations as well the s95p-v1 parameterization based on older lattice data. The model is used to quantify differences in the spectra, anisotropic flow coefficients and 
+Bertsch-Pratt radii predicted by the different EoS. 
 
+We find that the particle spectra calculated using the latest HotQCD and WB EoS, constructed from HISQ/tree and stout actions respectively, are indistinguishable within the statistical errors of our analysis, while the s95p-v1 EoS constructed from p4 and asqad actions is substantially softer and generates spectra which deviate by as much as $30\%$ within the applicability of the model. 
+Similar sensitivity was observed in the elliptic flow harmonics $v_2$ and $v_3$ calculated on the Cooper-Frye freezeout hypersurface. The elliptic flow produced by the HotQCD and WB EoS is essentially identical, while the softer s95p-v1 parameterization produces ${\sim}10\%$ less elliptic flow $v_2$ across all centralities. The triangular flow $v_3$ was slightly more sensitive to differences in the EoS and revealed a small ${\sim} 5\%$ discrepancy between the HotQCD and WB EoS and much larger ${\sim}15\%$ discrepancies with the s95p-v1 EoS. 
+On the other hand, the femptoscopic Bertsch-Pratt radii did not reveal meaningful differences in $R_\text{o}$, $R_\text{s}$ and $R_\text{l}$ within the errors of our analysis. 
+
+As a final check, we calculate the spectra and flows for 100 randomly sampled EoS curves drawn from the HotQCD errors at one standard deviation. The resulting variations in the sampled HotQCD curves are smaller than differences between the WB/HotQCD and s95p-v1 EoS, and amount to 
+5\% variations in the spectra and 5\% and 10\% variations in the elliptic flow $v_2$ and triangular flow $v_3$ respectively. 
+
+Collectively, these results signal an important convergence in the LQCD EoS at zero baryochemical potential. Not only do the latest HotQCD and WB lattice calculations agree, but a sampling of the HotQCD errors indicate that numerical uncertainties in the calculations are under
+good control. This indicates that QGP parameter extractions via systematic model-to-data comparison are robust to small differences between modern LQCD EoS calculations. In contrast, older lattice calculations with a larger peak in the LQCD trace anomaly lead to measureable differences in the QGP evolution and errode the accuracy of QGP model-to-data parameter extraction.
 
 \begin{acknowledgments}
  JSM acknowledges support by the DOE/NNSA Stockpile Stewardship Graduate Fellowship under grant no.~DE-FC52-08NA28752.
