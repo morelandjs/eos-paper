@@ -33,7 +33,7 @@
 \date{\today}
 
 \begin{abstract}
-Hydrodynamic calculations of ultra-relativistic heavy ion collisions are performed using the iEBE-VISHNU 2+1D code with fluctuating initial conditions and three different parameterizations of the Lattice QCD equations of state: continuum extrapolations for stout and HISQ/tree actions, as well as the s95p-v1 parameterization based upon calculations on $(32^3 \times 8)$ lattices using the p4 action.  All parameterizations are matched to a hadron resonance gas equation of state at $T=$155~MeV, at which point the calculations are continued using the UrQMD hadronic cascade.  Final state particle spectra for pions, kaons, and protons and HBT pion radii are compared for each of the equations of state as well as to experimental data for $\sqrt{s_{NN}}=200$ GeV Au+Au collisions with three centrality classes.  Second ($v_2$) and third ($v_3$) order hydrodynamic flow coefficients are also examined at the end of the hydrodynamic stage.  Experimental observables for the stout and HISQ/tree equations of state are observed to differ by less than a few percent for all observables except for $v_3$ in the 40-50\% centrality class, which differs by 5\%.  For this same observable, differences with the s95p-v1 equation of state reach 15\%. As a final check, we evolve a sample of equation of state curves drawn from the HISQ/tree published errors to examine their effect on mean $p_T$ and anisotropic flow coefficients $v_2$ and $v_3$. We observe small (order 1\%) deviations in these observales which indicates that errors in the continuum extrapolation are well constrained. 
+Hydrodynamic calculations of ultra-relativistic heavy ion collisions are performed using the iEBE-VISHNU 2+1D code with fluctuating initial conditions and three different parameterizations of the Lattice QCD equations of state: continuum extrapolations for stout and HISQ/tree actions, as well as the s95p-v1 parameterization based upon calculations on $(32^3 \times 8)$ lattices using the p4 action.  All parameterizations are matched to a hadron resonance gas equation of state at $T=$155~MeV, at which point the calculations are continued using the UrQMD hadronic cascade. Final state particle spectra for pions, kaons, and protons and HBT pion radii are compared for each of the equations of state as well as to experimental data for $\sqrt{s_{NN}}=200$ GeV Au+Au collisions with three centrality classes. The differential second ($v_2$) and third ($v_3$) order hydrodynamic flow coefficients are also examined at the end of the hydrodynamic stage. Experimental observables for the stout and HISQ/tree equations of state are observed to differ by less than a few percent for all observables, while the s95p-v1 equation of state generates spectra and flow coefficients which differ by $\sim$10--20\%. As a final check, we evolve a sample of equation of state curves drawn from the HISQ/tree published errors to examine the effect on mean $p_T$ and anisotropic flow coefficients $v_2$ and $v_3$. We observe small (order 1\%) deviations in these observales which indicates that errors in the continuum extrapolation are well constrained. 
 \end{abstract}
 
 \maketitle
@@ -105,17 +105,17 @@ which smoothly connects between the two in the temperature interval $T_1 < T < T
  \cr z &=& 6 x^5 - 15 x^4 + 10 x^3 \\
   \text{where } x &=& (T - T_1)/(T_2 - T_1).
 \end{eqnarray}
-We fix the boundaries of the blending region $T_1=155$~MeV and $T_2=180$~MeV to impose matching at the switching temperature $T_\text{sw} = 155$~MeV which coincides with the pseudo-critical phase transition temperatures of the HotQCD and Wuppertal-Budapest EoS. 
+We fix the boundaries of the blending region $T_1=155$~MeV and $T_2=180$~MeV to impose matching at the switching temperature $T_\text{sw} = 155$~MeV which coincides with the pseudo-critical phase transition temperatures of the HotQCD and Wuppertal-Budapest EoS. The modified interaction measures, hereafter referred to simply as HQCD, WB and S95, are plotted in Fig.~\ref{fig:trace_final}\,. We see that the interpolation procedure imposes the necessary matching condition on either side of the switching temperature (vertical gray line) with minimal disturbance to the peak of the LQCD trace anomaly at higher temperatures.
 
-The modified interaction measures, hereafter referred to simply as HQCD, WB and S95, are plotted in Fig.~\ref{fig:trace_final}\,. 
-We see that the interpolation procedure imposes the necessary matching condition on either side of the switching temperature (vertical gray line) with minimal disturbance to the peak of the LQCD trace anomaly at higher temperatures.
-In Fig.~\ref{fig:cs} we plot the squared speed of sound $c_s^2 = dp/de$ for each modified interaction measure. The speed of sound of the \hotqcd and \wb equations
-of state are in good agreement while the \spv parameterization remains softer in a wider interval about the QGP phase transition. We note that the parametric transition 
-\eqref{interpolation} modifies the speed of sound in the vicinity of the EoS matching temperature (vertical gray line) yet preserves continuity across the transition region.
+Signal propagation in the QGP medium is characterized by the speed of sound which is expressed in terms of the pressure and energy density as $c_s^2 = dp/de$.
+In Fig.~\ref{fig:cs} we plot the squared speed of sound for the HQCD, WB and S95 interaction measures shown in Fig.~\ref{fig:trace_final} alongside recent results from a systematic Bayesian analysis used to constrain parameterized forms of the LQCD EoS by simultaneously fitting model predictions to multiple observables at RHIC and the LHC \cite{Pratt:2015zsa}. 
+The top panel of Fig.~\ref{fig:cs} shows the three lattice parameterizations used in this work plotted against 50 parametric EoS samples (thin grey lines) from the Bayesian prior, while the bottom panel of Fig.~\ref{fig:cs} shows the same lattice results plotted against samples from the Bayesian posterior, i.e. once the EoS curves have been constrained by data. The more tightly clustered posterior curves show a clear preference for the present lattice results, although these constraints are not able to resolve differences between the different lattice calculations.
+
+Within the three lattice calculations used in this study, the \hotqcd and \wb speed of sound curves are in good agreement while the \spv parameterization remains softer in a wider interval about the QGP phase transition. We note that the parametric transition \eqref{interpolation} modifies the speed of sound in the vicinity of the EoS matching temperature (vertical gray line) but is constructed to preserve continuity across the desired transition region.
 
 \begin{figure}[t]
   \includegraphics[width=\columnwidth]{./fig/trace}
-  \caption{\label{fig:trace} The temperature scaled QCD interaction measure for the HRG. HotQCD, WB and s95p-v1 EoS as a function of temperature \cite{Bazavov:2014pvz, Borsanyi:2013bia, Huovinen:2009yb}.}
+  \caption{\label{fig:trace} The temperature scaled QCD interaction measure for a hadron resonance gas (HRG) alongside recent lattice calculations from the HotQCD (HQCD) and Wuppertal-Budapest (WB) collaborations as well as the older s95p-v1 lattice parameterization \cite{Bazavov:2014pvz, Borsanyi:2013bia, Huovinen:2009yb}.}
 \end{figure}
 
 \begin{figure}[b]
@@ -145,13 +145,15 @@ where the curves are steepest.
 The equations of state are embedded in the modern event-by-event iEBE-VISHNU hybrid model which uses the VISH2+1 boost-invariant viscous hydrodynamics code to simulate the 
 time evolution of the QGP medium and a microscopic UrQMD hadronic afterburner for subsequent evolution below the QGP transition temperature. Where necessary, free
 parameters of the model are are tuned to facillitate model-to-data comparison with $200$ GeV gold-gold collisions at RHIC. In this section, we briefly outline
-the implementation of the model used in the analysis; for a more detailed explanation of the VISHNU model, we refer the reader to \cite{Shen:2014vra}. 
+the implementation of the model used in the analysis; for a more detailed explanation of the model see reference \cite{Shen:2014vra}. 
 
 \subsection{Initial conditions}
 \label{initial_condition}
 
-The hydrodynamic initial conditions are generate using a Monte Carlo Glauber model based on a common two-component ansatz which deposits entropy proportional to a linear combination 
-of nucleon participants and binary nucleon-nucleon collisions,
+The initial conditions represent the largest source of uncertainty in modern hydrodynamic simulations and a number of models exist in the literature which have described
+the experimental data with varying degrees of success \cite{Schenke:2012wb, Niemi:2015qia, Chatterjee:2015aja, Moreland:2014oya, Drescher:2006pi, Adler:2013aqf}. Since the present work is primarily interested in measuring the sensitivity of the hydrodynamic evolution to differences in the QGP EoS and \emph{not} obtaining the overall best fit of model to data, we choose perhaps the simplest and most widely adopted initial condition implementation based on a two-component Glauber model; for an overview see \cite{Miller:2007ri}.
+
+In the two-component ansatz, initial entropy is deposited proportional to a linear combination of nucleon participants and binary nucleon-nucleon collisions,
 \begin{equation}
  dS/dy \,\vert_{y=0} \propto \frac{(1-\alpha)}{2}N_\text{part} + \alpha N_\text{coll}
  \label{twocomponent}
@@ -186,7 +188,7 @@ rescaled by an overall normalization factor to fit the measured charged particle
 \begin{figure}
   \includegraphics[width=\columnwidth]{./fig/cs}
   \caption{\label{fig:cs} Squared speed of sound $c_s^2$ plotted versus temperature $T$ for the \hotqcd (green), \wb (purple) and \spv (blue) equations of state pictured in 
-           Fig.~\ref{fig:trace_final}. Top and bottom panels show EoS parameterizations from the Bayesian analysis in reference \cite{?} for the prior (top panel) and posterior 
+           Fig.~\ref{fig:trace_final}. Top and bottom panels show EoS parameterizations from the Bayesian analysis in reference \cite{Pratt:2015zsa} for the prior (top panel) and posterior 
            (bottom panel) superimposed as thin grey lines. The vertical gray line indicates the switching temperature $T_\text{sw} = 155$~MeV where the model switches from fluid 
            dynamics to microscopic transport in the present study.}
 \end{figure}
@@ -219,7 +221,7 @@ rescaled by an overall normalization factor to fit the measured charged particle
 \begin{figure*}[t]
   \includegraphics[width=\textwidth]{./fig/hbt}
   \caption{
-    \label{fig:hbt} Effect of the equation of state on the Bertsch-Pratt radii.  We plot $R_o$, $R_s$, $R_l$ and the ratio $R_o/R_s$ (rows top to bottom) 
+    \label{fig:hbt} Effect of the equation of state on the Bertsch-Pratt radii.  We plot $R_s$, $R_o$, $R_l$ and the ratio $R_o/R_s$ (rows top to bottom) 
     in centrality bins $0$--$10\%$, $20$--$30\%$ and $40$--$50\%$ (columns left to right) against transverse mass $m_T$ for the \hotqcd, \wb  and \spv equations of state 
     (purple, orange and blue lines). Shaded bands indicate two sigma errors estimated from the Jacobian of the fit function \eqref{fitfunction}. Symbols with errors bars 
     are experimental data from PHENIX.  
@@ -229,7 +231,7 @@ rescaled by an overall normalization factor to fit the measured charged particle
 
 \subsection{Hydrodyamics and Boltzmann transport}
 
-The hydrodynamic equations of motion are obtained in VISHNew by solving the second-order Israel-Stewart equations,
+The hydrodynamic equations of motion are obtained in the iEBE-VISHNU model by solving the second-order Israel-Stewart equations,
 \begin{equation}
  \partial_\mu T^{\mu\nu} = 0, \quad T^{\mu\nu} = e u^\mu u^\nu - (p + \Pi) \Delta^{\mu\nu} + \pi^{\mu\nu},
 \end{equation}
@@ -243,10 +245,10 @@ where the bulk pressure $\Pi$ and shear stress $\pi^{\mu\nu}$ satisfy the relaxa
 
 We follow the work in reference \cite{Shen:2014sfi} and fix the bulk viscosity $\zeta$ and shear viscosity $\eta$ in equation \eqref{viscosity} using a constant specific shear viscosity $\eta/s=0.08$ 
 and vanishing bulk viscosity $\zeta/s=0$ in the hydrodynamic phase of the simulation. It would be interesting to study the effect of bulk viscous corrections which are sensitive to 
-the peak of the QCD trace anomaly near the QGP phase transition \cite{Karsch:2007jc}. Unfortunately, bulk viscous corrections do not have a straight forward implementation in the present hybrid model 
+the peak of the QCD trace anomaly near the QGP phase transition \cite{Karsch:2007jc}. Unfortunately, bulk viscous corrections to particle emission at freezeout do not have a straight forward implementation in the present hybrid model 
 and are neglected in this work. 
 
-As previously explained in section \,\ref{eos}, the VISHNU hybrid model transitions from hydrodyamic field equations to microscopic transport at a sudden switching temperature $T_\text{sw}$ 
+As previously explained in section \,\ref{eos}, the iEBE-VISHNU hybrid model transitions from hydrodynamic field equations to microscopic transport at a sudden switching temperature $T_\text{sw}$ 
 at which the hydrodynamic energy-momentum tensor is particlized using the Cooper-Frye freezeout prescription,
 \begin{equation}
  E\frac{dN_i}{d^3p} = \int_\sigma f_i(x,p) p^\mu d^3\sigma_\mu
@@ -260,7 +262,7 @@ The sampled particles then enter the UrQMD simulation where the Boltzmann equati
  \frac{df_i(x,p)}{dt} = \mathcal{C}_i(x,p),
 \end{equation}
 is solved to simulate all elastic and inelastic collisions between the particles with collision kernel $\mathcal{C}_i$ until the system becomes too dillute to continue interacting. 
-Finally, the four-position, four-momentum and particle identification number of each particle recorded at the moment of last interaction. 
+Finally, the four-position, four-momentum and particle identification number of each particle is recorded. 
 
 \section{Results}
 \label{results}
@@ -268,12 +270,9 @@ Finally, the four-position, four-momentum and particle identification number of 
 The results section is organized as follows. In sub-section \ref{spectra} we calculate the particle spectra for each equation of state across three different centrality classes using the final 
 particle information output by the hybrid simulation. In sub-section \ref{flow} we repeat the calculation for elliptic and triangular flow but perform the calculation on the 
 hydrodynamic Cooper-Frye freezeout surface for reasons explained later in the text. In sub-section \ref{hbt} we calculate the femptoscopic event-averaged Bertsch-Pratt radii, again using the 
-final particle information output by the full hybrid calculation. Finally in sub-section \ref{errors}, we repeat the spectra and flow analysis using a sampling of equation of state curves from the 
-HotQCD published errors. 
+final particle information output by the full hybrid calculation. Finally in sub-section \ref{errors}\,, we calculate mean $p_T$ and integrated anisotropic flow cumulants $v_2\{2\}$ and $v_3\{3\}$ from the UrQMD output using a sampling of equation of state curves from the HotQCD published errors. 
 
-All results presented in the following sections are based on $10^5$ minimum bias events which are subdivided into centrality classes according to initial entropy, e.g. the initial condition events 
-with $20\%$ highest entropy comprise centrality class $0$--$20\%$. Each hydrodynamic event is oversampled an additional four times to increase the number of particles in each event and suppress 
-finite statistical error.
+All results presented in the following sections are based on $5\cdot10^4$ minimum bias events which are subdivided into centrality classes according to initial entropy, e.g. the initial condition events with $20\%$ highest entropy comprise centrality class $0$--$20\%$. Each hydrodynamic event is oversampled an additional ten times to increase the number of particles in each event and suppress finite statistical error.
 
 \subsection{Particle spectra}
 \label{spectra}
@@ -281,14 +280,9 @@ finite statistical error.
 Figure \ref{fig:spectra} shows the invariant yield $dN/(2\pi p_T dp_T dy)$ of positively charged pions, kaons and protons calculated from the hybid model for the $0$--$5\%$, $20$--$30\%$
 and $40$--$50\%$ centrality classes using the \hotqcd, \wb and \spv equations of state constructed in section \ref{eos}. 
 
-The first row shows the \hotqcd yields obtained from the hybrid model plotted against observed pion, proton and kaon data from PHENIX. The second and third rows show the ratio of the invariant yields of 
-the \wb and \spv equations of state over the the \hotqcd result. We see that the \hotqcd equation of state provides a good description of observed particle yields except for at moderate 
-to large $p_T$ in central collisions where the equation of state overpredicts the data. This agreement would likely improve with more realistic initial conditions, bulk viscous corrections 
-and/or more careful treatment of the hydro-to-micro switching temperature $T_\text{sw}$, and thus we defer from making any specific conclusions from the overall fit to data. It suffices to say that the 
-most recent HotQCD lattice results provide a reasonable description of the PHENIX data and agrees within the overall uncertainty of the present model. 
+The first row shows the \hotqcd yields obtained from the hybrid model plotted against observed pion, proton and kaon data from PHENIX. The second and third rows show the ratio of the invariant yields of the \wb and \spv equations of state over the the \hotqcd result. One sees that the \hotqcd equation of state provides a good description of observed particle yields except for at moderate to large $p_T$ in central collisions where the equation of state overpredicts the data. This agreement would likely improve with more realistic initial conditions, bulk viscous corrections and/or more careful treatment of the hydro-to-micro switching temperature $T_\text{sw}$, and thus it's difficult to make any specific statements on the overall fit of model to data. It suffices to say that the most recent HotQCD lattice results provide a reasonable description of the PHENIX data and agrees within the overall uncertainty of the present model. 
 
-Looking at the second and third rows of the figure which show the ratios of the \wb and \spv yields to the \hotqcd result, we see that the spectra predicted by the \hotqcd and \wb equations of state 
-agree within statistical error, while the \spv equation of state is appreciably softer and produces $\sim 10\%$ more particles at $p_T = 0.5$ GeV and $\sim 30\%$ fewer particles at $p_T=2.5$ GeV across all three centralities.
+The second and third rows of Fig.~\ref{fig:spectra} show the ratios of the \wb and \spv yields to the \hotqcd result. The observed spectra predicted by the \hotqcd and \wb equations of state agree within statistical error, while the \spv equation of state is appreciably softer and produces $\sim\!5\%$ more particles at $p_T = 0.5$ GeV and $\sim\!20\%$ fewer particles at $p_T=2.5$ GeV across all three centralities.
 
 \subsection{Elliptic and triangular flows}
 \label{flow}
@@ -299,12 +293,9 @@ The azimuthal anisotropy of final particle emission is characterized by the Four
 \end{equation}
 where $\phi$ is the direction of the emitted particle, $\Psi_{RP}$ is the reaction plane angle of the event and $v_n$ the anisotropic flow coefficient corresponding to the Fourier harmonic of order $n$.
 
-The reaction plane angle cannot be measured experimentally and the anisotropic flow is typically estimated using multi-particle correlations such as two and four-particle cumulants. The statistical error of the 
-event-averaged estimators is suppressed with both increasing event multiplicity and event sample size. This can pose a challenge for computationally intensive hybrid model calculations which typically cannot 
-reach integrated luminosities comparable to experiment. 
+The reaction plane angle cannot be measured experimentally and the anisotropic flow is typically estimated using multi-particle correlations such as two and four-particle cumulants. The statistical error of the event-averaged estimators is suppressed with both increasing event multiplicity and event sample size. This can pose a challenge for computationally intensive hybrid model calculations which typically cannot reach integrated luminosities comparable to experiment. 
 
-Statistical errors are particularly noxious in differential flow calculations at moderate to large $p_T$ where particle statistics are limited. We circumvent this issue in the differential flow 
-analysis and calculate the flow anisotropy of pions, kaons and protons directly from the Cooper-Frye freezeout surface using the built in routines in the VISHNU package according to
+Statistical errors are particularly noxious in differential flow calculations at moderate to large $p_T$ where particle statistics are limited. We circumvent this issue in the differential flow analysis and calculate the flow anisotropy of pions, kaons and protons directly from the Cooper-Frye freezeout surface using the built in routines in the iEBE-VISHNU package according to
 \begin{equation}
  \label{differential_flow}
  v_n(p_T) = \frac{\int d\phi_p e^{i n \phi_p} dN/(dy p_T dp_T d\phi_p)}{\int d\phi_p\, dN/(dy p_T dp_T d\phi_p)}.
@@ -316,13 +307,9 @@ Figs.~\ref{fig:v2} shows the elliptic flow $v_2$ of pions, kaons and protons cal
 The first row of the figure shows the elliptic flow predicted by the \hotqcd equation of state while the middle and bottom rows display theoretical ratios of the \wb and \spv predictions over the \hotqcd result. The information
 in Fig.~\ref{fig:v3} is identical to that in Fig.~\ref{fig:v2} except that elliptic flow $v_2$ has been replaced with triangular flow $v_3$.
 
-We see in Fig.~\ref{fig:v2} that the elliptic flow generated by the \hotqcd and \wb parameterizations is in very good agreement across all centralities, while the \spv parameterization systematically generates $\sim 10\%$ less 
-flow than the \hotqcd equation of state. This is consistent with previous findings that the \spv equation of state is considerably softer in the vicinity of the phase transition as evidenced by the 
-speed of sound in Fig.~\ref{fig:cs}. 
+We see in Fig.~\ref{fig:v2} that the elliptic flow generated by the \hotqcd and \wb parameterizations is in very good agreement across all centralities, while the \spv parameterization systematically generates $\sim \! 5\%$ less flow than the \hotqcd equation of state. This is expected as the \spv equation of state is considerably softer in the vicinity of the phase transition as evidenced by the speed of sound in Fig.~\ref{fig:cs}. 
 
-In Fig.~\ref{fig:v3}, we see that the effect on the triangular flow is similar to the effect observed on the elliptic flow except more pronounced and generates as large as a $20\%$ discrepancy in the peripheral flows
-predicted by the \hotqcd and \spv equations of state. This sensitivity of higher harmonics to the softness of the QGP phase equation of state puts the relatively large higher-order anisotropic flow coefficients observed at
-RHIC and the LHC into perspective. 
+In Fig.~\ref{fig:v3}, we see that the effect on the triangular flow is similar to the effect observed on the elliptic flow except more pronounced and generates as large as a $15\%$ discrepancy in the peripheral flows predicted by the \hotqcd and \spv equations of state. This sensitivity of higher harmonics to the softness of the QGP phase equation of state puts the relatively large higher-order anisotropic flow coefficients observed at RHIC and the LHC into perspective. 
 
 \subsection{Femptoscopic Bertsch-Pratt radii}
 \label{hbt}
@@ -346,18 +333,14 @@ fit to the parametric form
 \end{equation}
 by finding the best fit normalization $\mathcal{N}$, source strength $\lambda$ and Bertsch-Pratt radii $R_o$, $R_s$ and $R_l$ for a given transverse momentum $k_T$. 
 
-We calculate the Bertsch-Pratt radii for each equation of state using identical pions. The fit is perfomed using $2\cdot10^4$ hydrodynamic events in each centrality bin and an additional ten UrQMD oversamples per event. 
-The oversamples are then concatenated into a single particle list to increase the number of particle pairs by a factor $10^2$.
+We calculate the Bertsch-Pratt radii for each equation of state using identical pions. The fit is perfomed using $5\cdot10^4$ hydrodynamic events in each centrality bin and an additional ten UrQMD oversamples per event. The oversamples are then concatenated into a single particle list to increase the number of particle pairs by a factor $10^2$.
 
-In Fig.~\ref{fig:hbt}, we plot the Bertsch-Pratt radii for the \hotqcd, \wb and \spv equations of state as functions of the transverse mass $m_T = \sqrt{m^2 + k_T^2}$ . The horizontal rows show the radii $R_o$, $R_s$, $R_l$ and ratio $R_o/R_s$ (top to bottom), while the columns 
-mark centrality classes $0$--$10\%$, $10$--$20\%$ and $20$--$40\%$ (left to right). The different colored lines annotated in the legend indicate different equations of state and the bands estimate the error from the Jacobian 
+In Fig.~\ref{fig:hbt}, we plot the Bertsch-Pratt radii for the \hotqcd, \wb and \spv equations of state as functions of the transverse mass $m_T = \sqrt{m^2 + k_T^2}$ where $m$ is the pion mass. The horizontal rows show the radii $R_s$, $R_o$, $R_l$ and ratio $R_o/R_s$ (top to bottom), while the columns mark centrality classes $0$--$10\%$, $10$--$20\%$ and $20$--$40\%$ (left to right). The different colored lines annotated in the legend indicate different equations of state and the bands estimate the error from the Jacobian 
 of the fit. The symbols with error bars are experimental data from PHENIX.
 
-We see that the Bertsch-Pratt radii predicted by the hybrid model provide a good description of the data across all centralities, except for at low $p_T$ where $R_o$ and $R_l$ slightly undershoot the data. However, in contrast to
-spectra and flows we see no discernible difference in the Bertsch-Pratt radii predicted by the three different equations of state. This suggests that femptoscopic measurements are not sensitive enough to resolve small differences
-in the lattice equation of state.
+We see that the Bertsch-Pratt radii predicted by the hybrid model provide a good description of the data across all centralities, except for at low $p_T$ where the ratio $R_o/R_s$ slightly undershoots the data. However, in contrast to spectra and flows we see no discernible difference in the Bertsch-Pratt radii predicted by the three different equations of state. This suggests that femptoscopic measurements are not sensitive enough to resolve small differences in the lattice equation of state.
 
-\begin{figure}[b]
+\begin{figure}[t]
   \includegraphics[width=\columnwidth]{./fig/splines}
   \caption{
     \label{fig:splines}
@@ -365,6 +348,14 @@ in the lattice equation of state.
   }
 \end{figure}
 
+\begin{figure}[t]
+  \includegraphics[width=\columnwidth]{./fig/eos_compare}
+  \caption{
+    \label{fig:splines}
+    Pion, kaon and proton yields in centrality bin 19--30\% for 100 random samples drawn from the HotQCD error splines. Top panel shows the invariant yield plotted against PHENIX data. Bottom panels show the ratio of each spline
+    to the published HotQCD EoS.
+  }
+\end{figure}
 
 \subsection{HotQCD errors}
 \label{errors}
@@ -373,7 +364,7 @@ In addition to the best fit parameterization shown in Fig.~\ref{fig:trace}~, the
 The HotQCD trace anomaly is first calculated at various temperatures in the interval $130 < T < 400$ MeV using grids with temperal extent $N_\tau = 8,10$ and $12$.
 For each temperature and grid size, the lattice simulation is repeated a large number of times. 
 This creates a set of ``data points'' with a mean and variance determined from the Monte Carlo ensemble. 
-Each data point is then resampled from its mean and variance, and the collection of resampled points, one for each value of the temperature $T$ and grid size $N_\tau$, is fit with the ansatz,
+Each data point is then resampled from the ensemble's mean and variance, and the collection of resampled points, one for each value of the temperature $T$ and grid size $N_\tau$, is fit with the ansatz,
 \begin{equation}
  \label{splines}
  \frac{\theta^{\mu\mu}(T)}{T^4} = A + \sum\limits_{i=1}^{n_k=3} B_i \times S_i(T) + \frac{C + \sum_{i=1}^{n_k + 3} D_i \times S_i(T)}{N_\tau^2}.
@@ -395,15 +386,6 @@ in centrality bins $0$--$5\%$, $20$--$30\%$ and $40$--$50\%$. The ratio plot in 
 This spread is significantly smaller than the ${\sim}20\%$ deviations observed between the different EoS in Fig.~\ref{fig:spectra}. The elliptic flow $v_2$ shown in Fig.~\ref{fig:v2} and triangular flow $v_3$ in Fig.~\ref{fig:v3}
 show similarly small sensitivies to the HotQCD errors with variations of ${\sim}5\%$ for $v_2$ and ${\sim}10\%$ for $v_3$. This establishes that the error in the HotQCD calculation leads to minor variations of hydrodynamic
 observables.
-
-\begin{figure}[t]
-  \includegraphics[width=\columnwidth]{./fig/eos_compare}
-  \caption{
-    \label{fig:splines}
-    Pion, kaon and proton yields in centrality bin 20--30\% for 100 random samples drawn from the HotQCD error splines. Top panel shows the invariant yield plotted against PHENIX data. Bottom panels show the ratio of each spline
-    to the published HotQCD EoS.
-  }
-\end{figure}
 
 \section{Conclusion and Outlook}
 \label{conclusion}
