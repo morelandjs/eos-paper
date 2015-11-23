@@ -17,9 +17,9 @@
 \usepackage{mdwlist}
 
 \newcommand{\nch}{N_\text{ch}}
-\newcommand{\hotqcd}{HotQCD$^\dagger$~}
-\newcommand{\wb}{WB$^\dagger$~}
-\newcommand{\spv}{S95$^\dagger$~}
+\newcommand{\hotqcd}{HQCD~}
+\newcommand{\wb}{WB~}
+\newcommand{\spv}{S95~}
 
 \begin{document}
 
@@ -33,7 +33,7 @@
 \date{\today}
 
 \begin{abstract}
-Hydrodynamic calculations of ultra-relativistic heavy ion collisions are performed using the VISHNU 2+1D code with fluctuating initial conditions and three different parameterizations of the Lattice QCD equations of state: continuum extrapolations for stout and HISQ/tree actions, as well as the s95p-v1 parameterization based upon calculations on $(32^3 \times 8)$ lattices using the p4 action.  All parameterizations are matched at a uniform energy density corresponding to $\sim$155~MeV, at which point the calculations are continued using the UrQMD hadronic cascade.  Final state particle spectra for pions, kaons, and protons and HBT pion radii are compared for each of the equations of state as well as to experimental data for $s_{NN}$=100 GeV Au+Au collisions with three centrality classes.  Second ($v_2$) and third ($v_3$) order hydrodynamic flow coefficients are also examined at the end of the hydrodynamic stage.  Experimental observables for the stout and HISQ/tree equations of state are observed to differ by less than a few percent for all observables except for $v_3$ in the 40-50\% centrality class, which differs by 5\%.  For this same observable, differences with the s95p-v1 equation of state reach 20\%.
+Hydrodynamic calculations of ultra-relativistic heavy ion collisions are performed using the iEBE-VISHNU 2+1D code with fluctuating initial conditions and three different parameterizations of the Lattice QCD equations of state: continuum extrapolations for stout and HISQ/tree actions, as well as the s95p-v1 parameterization based upon calculations on $(32^3 \times 8)$ lattices using the p4 action.  All parameterizations are matched to a hadron resonance gas equation of state at $T=$155~MeV, at which point the calculations are continued using the UrQMD hadronic cascade.  Final state particle spectra for pions, kaons, and protons and HBT pion radii are compared for each of the equations of state as well as to experimental data for $\sqrt{s_{NN}}=200$ GeV Au+Au collisions with three centrality classes.  Second ($v_2$) and third ($v_3$) order hydrodynamic flow coefficients are also examined at the end of the hydrodynamic stage.  Experimental observables for the stout and HISQ/tree equations of state are observed to differ by less than a few percent for all observables except for $v_3$ in the 40-50\% centrality class, which differs by 5\%.  For this same observable, differences with the s95p-v1 equation of state reach 15\%. As a final check, we evolve a sample of equation of state curves drawn from the HISQ/tree published errors to examine their effect on mean $p_T$ and anisotropic flow coefficients $v_2$ and $v_3$. We observe small (order 1\%) deviations in these observales which indicates that errors in the continuum extrapolation are well constrained. 
 \end{abstract}
 
 \maketitle
@@ -97,7 +97,7 @@ To ensure a self consistent description of the collision dynamics where the simu
 where $I_\text{hrg}$ and $I_\text{lattice}$ are the HRG and LQCD trace anomalies pictured in Fig.~\ref{fig:trace}, and $I_\text{blend}$ is a function 
 \begin{equation}
   \label{interpolation}
-  I_\text{blend} = (1-z)\, I_\text{hrg} + z\, I_\text{lattice}.
+  I_\text{blend} = (1-z)\, I_\text{hrg} + z\, I_\text{lattice}
 \end{equation}
 which smoothly connects between the two in the temperature interval $T_1 < T < T_2$. The interpolation parameter $z \in [0,1]$ is constructed to match the first and second derviatives at the endpoints of the interpolation interval,
 \begin{eqnarray}
@@ -107,12 +107,11 @@ which smoothly connects between the two in the temperature interval $T_1 < T < T
 \end{eqnarray}
 We fix the boundaries of the blending region $T_1=155$~MeV and $T_2=180$~MeV to impose matching at the switching temperature $T_\text{sw} = 155$~MeV which coincides with the pseudo-critical phase transition temperatures of the HotQCD and Wuppertal-Budapest EoS. 
 
-The modified interaction measures, labeled with a dagger to distinguish them from the published values, are plotted in Fig.~\ref{fig:trace_final}. 
+The modified interaction measures, hereafter referred to simply as HQCD, WB and S95, are plotted in Fig.~\ref{fig:trace_final}\,. 
 We see that the interpolation procedure imposes the necessary matching condition on either side of the switching temperature (vertical gray line) with minimal disturbance to the peak of the LQCD trace anomaly at higher temperatures.
 In Fig.~\ref{fig:cs} we plot the squared speed of sound $c_s^2 = dp/de$ for each modified interaction measure. The speed of sound of the \hotqcd and \wb equations
-of state are in good agreement while the \spv parameterization remains softer in a wider interval about the QGP phase transition. We note that the speed of sound in 
-the \hotqcd and \wb parameterizations is clearly affected by the parametric transition \eqref{interpolation} in the vicinity of the switching temperature (vertical gray line), 
-but that the imposed matching maintains continuity.
+of state are in good agreement while the \spv parameterization remains softer in a wider interval about the QGP phase transition. We note that the parametric transition 
+\eqref{interpolation} modifies the speed of sound in the vicinity of the EoS matching temperature (vertical gray line) yet preserves continuity across the transition region.
 
 \begin{figure}[t]
   \includegraphics[width=\columnwidth]{./fig/trace}
@@ -120,7 +119,7 @@ but that the imposed matching maintains continuity.
 \end{figure}
 
 \begin{figure}[b]
-  \includegraphics[width=\columnwidth]{./fig/trace_final}
+  \includegraphics[width=\columnwidth]{./fig/trace_matched}
   \caption{\label{fig:trace_final} The modified QCD interaction measure for the \hotqcd, \wb and \spv EoS obtained from equation \eqref{interaction} and the corresponding lattice
 	  parameterizations in Fig.~\ref{fig:trace}. The vertical gray line marks the hydro-to-micro switching temperature $T_\text{sw} = 155$~MeV.}
 \end{figure}
@@ -143,7 +142,7 @@ where the curves are steepest.
 
 \section{Hybrid Model}
 
-The equations of state are embedded in the modern event-by-event VISHNU hybrid model which uses the VISH2+1 boost-invariant viscous hydrodynamics code to simulate the 
+The equations of state are embedded in the modern event-by-event iEBE-VISHNU hybrid model which uses the VISH2+1 boost-invariant viscous hydrodynamics code to simulate the 
 time evolution of the QGP medium and a microscopic UrQMD hadronic afterburner for subsequent evolution below the QGP transition temperature. Where necessary, free
 parameters of the model are are tuned to facillitate model-to-data comparison with $200$ GeV gold-gold collisions at RHIC. In this section, we briefly outline
 the implementation of the model used in the analysis; for a more detailed explanation of the VISHNU model, we refer the reader to \cite{Shen:2014vra}. 
@@ -186,8 +185,10 @@ rescaled by an overall normalization factor to fit the measured charged particle
 
 \begin{figure}
   \includegraphics[width=\columnwidth]{./fig/cs}
-  \caption{\label{fig:cs} Speed of sound squared $c_s^2$ plotted versus temperature $T$ for the \hotqcd, \wb and \spv equations of state used in this study. The vertical
-	   gray line indicates the switching temperature $T_\text{sw} = 155$~MeV where the model switches from fluid dynamics to a microscopic transport model.}
+  \caption{\label{fig:cs} Squared speed of sound $c_s^2$ plotted versus temperature $T$ for the \hotqcd (green), \wb (purple) and \spv (blue) equations of state pictured in 
+           Fig.~\ref{fig:trace_final}. Top and bottom panels show EoS parameterizations from the Bayesian analysis in reference \cite{?} for the prior (top panel) and posterior 
+           (bottom panel) superimposed as thin grey lines. The vertical gray line indicates the switching temperature $T_\text{sw} = 155$~MeV where the model switches from fluid 
+           dynamics to microscopic transport in the present study.}
 \end{figure}
 
 \begin{figure*}[t]
@@ -394,6 +395,15 @@ in centrality bins $0$--$5\%$, $20$--$30\%$ and $40$--$50\%$. The ratio plot in 
 This spread is significantly smaller than the ${\sim}20\%$ deviations observed between the different EoS in Fig.~\ref{fig:spectra}. The elliptic flow $v_2$ shown in Fig.~\ref{fig:v2} and triangular flow $v_3$ in Fig.~\ref{fig:v3}
 show similarly small sensitivies to the HotQCD errors with variations of ${\sim}5\%$ for $v_2$ and ${\sim}10\%$ for $v_3$. This establishes that the error in the HotQCD calculation leads to minor variations of hydrodynamic
 observables.
+
+\begin{figure}[t]
+  \includegraphics[width=\columnwidth]{./fig/eos_compare}
+  \caption{
+    \label{fig:splines}
+    Pion, kaon and proton yields in centrality bin 20--30\% for 100 random samples drawn from the HotQCD error splines. Top panel shows the invariant yield plotted against PHENIX data. Bottom panels show the ratio of each spline
+    to the published HotQCD EoS.
+  }
+\end{figure}
 
 \section{Conclusion and Outlook}
 \label{conclusion}

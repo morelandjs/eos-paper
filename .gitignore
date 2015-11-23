@@ -1,8 +1,2 @@
-*.aux
-*.bbl
-*.log
-*.out
-*.blg
-*.backup
 fig/
-eosNotes.bib
+build/
