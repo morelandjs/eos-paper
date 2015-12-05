@@ -23,7 +23,7 @@
 
 \begin{document}
 
-\title{Hydrodynamic simulations of relativistic heavy-ion collisions\\ with different calculations of the QCD equation of state}
+\title{Hydrodynamic simulations of relativistic heavy-ion collisions\\ with different lattice QCD calculations of the equation of state}
 
 \author{J.\ Scott Moreland}
 \affiliation{Department of Physics, Duke University, Durham, NC 27708-0305}
@@ -33,7 +33,7 @@
 \date{\today}
 
 \begin{abstract}
-Hydrodynamic calculations of ultra-relativistic heavy ion collisions are performed using the iEBE-VISHNU 2+1D code with fluctuating initial conditions and three different parameterizations of the Lattice QCD equations of state: continuum extrapolations for stout and HISQ/tree actions, as well as the s95p-v1 parameterization based upon calculations on $(32^3 \times 8)$ lattices using the p4 action.  All parameterizations are matched to a hadron resonance gas equation of state at $T=$155~MeV, at which point the calculations are continued using the UrQMD hadronic cascade. Final state particle spectra for pions, kaons, and protons and HBT pion radii are compared for each of the equations of state as well as to experimental data for $\sqrt{s_{NN}}=200$ GeV Au+Au collisions with three centrality classes. The differential second ($v_2$) and third ($v_3$) order hydrodynamic flow coefficients are also examined at the end of the hydrodynamic stage. Experimental observables for the stout and HISQ/tree equations of state are observed to differ by less than a few percent for all observables, while the s95p-v1 equation of state generates spectra and flow coefficients which differ by $\sim$10--20\%. As a final check, we evolve a sample of equation of state curves drawn from the HISQ/tree published errors to examine the effect on mean $p_T$ and anisotropic flow coefficients $v_2$ and $v_3$. We observe small (order 1\%) deviations in these observales which indicates that errors in the continuum extrapolation are well constrained. 
+Hydrodynamic calculations of ultra-relativistic heavy ion collisions are performed using the iEBE-VISHNU 2+1D code with fluctuating initial conditions and three different parameterizations of the Lattice QCD equations of state: continuum extrapolations for stout and HISQ/tree actions, as well as the s95p-v1 parameterization based upon calculations using the p4 action.  All parameterizations are matched to a hadron resonance gas equation of state at $T=$155~MeV, at which point the calculations are continued using the UrQMD hadronic cascade.  Calculations for $\sqrt{s_{NN}}=200$ GeV Au+Au collisions in three centrality classes are compared to experimental data for final state particle spectra and anisotropic flow coefficients $v_2$ and $v_3$ as well as for pion HBT radii.  Experimental observables for the stout and HISQ/tree equations of state are observed to differ by less than a few percent for all observables, while the s95p-v1 equation of state generates spectra and flow coefficients which differ by $\sim$10--20\%.  Calculations in which the HISQ/tree equation of state is sampled from the published error distribution are also observed to differ by less than a few percent.
 \end{abstract}
 
 \maketitle
@@ -43,12 +43,12 @@ Hydrodynamic calculations of ultra-relativistic heavy ion collisions are perform
 Quantum Chromodynamics (QCD) predicts that at sufficiently high temperature or density, nuclear matter exists in a state of deconfined state of quarks and gluons known as a quark-gluon plasma (QGP). 
 This state of matter filled the early universe several microseconds after the big bang and is now recreated and studied in the laboratory by colliding heavy ions at relativistic energies at the Relativistic Heavy Ion Collider (RHIC) and the Large Hadron Collider (LHC).
 
-Quantitative model to data comparison, using simulations based on relativistic hydrodynamics, is the primary means to extract properties of QGP produced by relativistic heavy-ion collisions which expands and freezes into hadrons too quickly for direct observation. 
+Quantitative model to data comparison, using simulations based on relativistic hydrodynamics, is the optimal means to extract properties of QGP produced by relativistic heavy-ion collisions which expands and freezes into hadrons too quickly for direct observation. 
 These hydroynamic descriptions require two essential ingredients to specify the full time evolution of the QGP fireball: initial conditions which describe the thermal profile of the QGP droplet at some early starting time and a QCD Equation of State (EoS) which interrelates the energy density, pressure and temperature of each fluid cell in local thermal equillibrium.
 
-Lattice discretization is the only reliable method to calculate the QCD equation of state in the vicinity of the QGP phase transition and hence constitutes a critical component of hydrodynamic simulations. 
+Lattice discretization is the only reliable method to calculate the QCD equation of state at zero baryochemical potential in the vicinity of the QGP phase transition and hence constitutes a critical component of hydrodynamic simulations. 
 While lattice techniques are rigorous in their treatment of the underlying QCD Lagrangian, they are subject to statistical and systematic errors inherent in the lattice discretization procedure. 
-These errors are manifest in differences in the continuum extrapolated QCD trace anomaly and lead to an overall uncertainty in the true value of the QCD equation of state at zero baryochemical potential.
+These errors are manifest in differences in the continuum extrapolated QCD trace anomaly and lead to an overall uncertainty in the true value of the QCD equation of state.
 
 To date there have been few sensitivity studies on the influence of the EoS on hydroynamic simulation results. 
 They have been limited to studies of the order of the phase transition~\cite{Huovinen:2005gy}, different parameterization schemes for the LQCD EoS \cite{Huovinen:2009yb} and data driven Bayesian techniques to constrain parameterizations of the EoS motivated by LQCD calculations \cite{Pratt:2015zsa,Sangaline:2015isa}.
@@ -77,14 +77,14 @@ For a more detailed discussion of the EoS calculations and relative improvements
 
 LQCD EoS calculations are obtained from the trace of the stress-energy tensor, equal to the difference between the energy density and three times the pressure. 
 This quantity is typically referred to as the interaction measure or trace anomaly  because it measures deviations from the conformal equation of state. 
-Once scaled by powers of the temperature, the trace anomaly forms a dimensionless measure 
+Scaled by the fourth power of the temperature, the trace anomaly forms a dimensionless measure 
 \begin{equation}
  I \equiv \frac{\Theta^{\mu\mu}(T)}{T^4} = \frac{e - 3p}{T^4},
 \end{equation}
 where $\Theta$ is the stress-energy tensor, $e$ is the local fluid energy density, $p$ the pressure and $T$ the temperature.
 
 Lattice calcuations typically extend down to temperatures of ${\sim}130$~MeV, where small deviations with the Hadron Resonance Gas (HRG) EoS may begin to develop.
-This is evident in Fig.~\ref{fig:trace}, which shows the trace anomaly of the HRG EoS alongside results from the HotQCD and Wuppertal-Budapest (WB) collaborations with HISQ/tree and stout actions respectively, as well as the older s95p-v1 parameterization obtained using p4 and asqad actions.  
+This is evident in Fig.~\ref{fig:trace}, which shows the trace anomaly of the HRG EoS alongside results from the HotQCD and Wuppertal-Budapest collaborations with HISQ/tree and stout actions respectively, as well as the older s95p-v1 parameterization obtained using p4 and asqad actions.  
 Both the HISQ/tree and stout EoS results begin to pull away from the HRG EoS at temperatures above $130$~MeV, while the s95p-v1 parameterization agrees with the HRG results up to a matching temperature of $183.8$~MeV by construction.
 
 Although both the Wuppertal-Budapest and HotQCD collaborations have provided parameterizations suitable for insertion into hydrodynamic codes, the matching temperature of 130~MeV falls below the 155--165~MeV temperature range where hybrid simulations typically switch from relativistic viscous hydrodynamcs to a microscopic kinetic description such as UrQMD~\cite{Bass:1998ca,Bleicher:1999xi}.  
@@ -110,7 +110,7 @@ which smoothly connects between the two in the temperature interval $T_1 < T < T
  \cr z &=& 6 x^5 - 15 x^4 + 10 x^3 \\
   \text{where } x &=& (T - T_1)/(T_2 - T_1).
 \end{eqnarray}
-We fix the boundaries of the blending region $T_1=155$~MeV and $T_2=180$~MeV to impose matching at the switching temperature $T_\text{sw} = 155$~MeV which coincides with the pseudo-critical phase transition temperatures of the HotQCD and Wuppertal-Budapest EoS. The modified interaction measures, hereafter referred to simply as HQCD, WB and S95, are plotted in Fig.~\ref{fig:trace_final}\,. We see that the interpolation procedure imposes the necessary matching condition on either side of the switching temperature (vertical line) with minimal disturbance to the peak of the LQCD trace anomaly at higher temperatures.
+We fix the boundaries of the blending region $T_1=155$~MeV and $T_2=180$~MeV to impose matching at the switching temperature $T_\text{sw} = 155$~MeV, which coincides with the pseudo-critical phase transition temperatures of the HotQCD and Wuppertal-Budapest EoS~\cite{Borsanyi:2010gc,Bazavov:2012iu,Bhattacharya:2014iw}. The modified interaction measures, hereafter referred to simply as HQCD, WB and S95, are plotted in Fig.~\ref{fig:trace_final}\,. This interpolation procedure imposes the necessary matching condition on either side of the switching temperature (vertical line) with minimal disturbance to the peak of the LQCD trace anomaly at higher temperatures.
 
 \begin{figure}[t]
   \includegraphics[width=\columnwidth]{./fig/trace_matched}
@@ -118,9 +118,9 @@ We fix the boundaries of the blending region $T_1=155$~MeV and $T_2=180$~MeV to 
 	  parameterizations in Fig.~\ref{fig:trace}. The vertical line marks the hydro-to-micro switching temperature $T_\text{sw} = 155$~MeV.}
 \end{figure}
 
-Signal propagation in the QGP medium is characterized by the speed of sound which is expressed in terms of the pressure and energy density as $c_s^2 = dp/de$.
+Signal propagation in the QGP medium is characterized by the speed of sound, expressed in terms of the pressure and energy density as $c_s^2 = dp/de$.
 In Fig.~\ref{fig:cs} we plot the squared speed of sound for the HQCD, WB and S95 interaction measures shown in Fig.~\ref{fig:trace_final} alongside recent results from a systematic Bayesian analysis used to constrain parameterized forms of the LQCD EoS by simultaneously fitting model predictions to multiple observables at RHIC and the LHC \cite{Pratt:2015zsa}. 
-The top panel of Fig.~\ref{fig:cs} shows the three lattice parameterizations used in this work plotted against 50 parametric EoS samples (thin grey lines) from the Bayesian prior, while the bottom panel of Fig.~\ref{fig:cs} shows the same lattice results plotted against samples from the Bayesian posterior, i.e. once the EoS curves have been constrained by data. The more tightly clustered posterior curves show a clear preference for the present lattice results, although these constraints are not able to resolve differences between the different lattice calculations.
+The top panel of Fig.~\ref{fig:cs} shows the three lattice parameterizations used in this work plotted against 50 parametric EoS samples (thin grey lines) from the Bayesian prior, while the bottom panel of Fig.~\ref{fig:cs} shows the same lattice results plotted against samples from the Bayesian posterior, i.e. once the EoS curves have been constrained by data. The more tightly clustered posterior curves show a clear preference for the present lattice results.  Although these constraints are not able to resolve differences between the different lattice calculations, they fall below the continuum extrapolations for temperatures above 0.2~GeV.
 
 Within the three lattice calculations used in this study, the HQCD and WB speed of sound curves are in good agreement while the S95 parameterization remains softer in a wider interval about the QGP phase transition. We note that the parametric transition \eqref{interpolation} modifies the speed of sound in the vicinity of the EoS matching temperature but is constructed to preserve continuity across the desired transition region.
 
@@ -150,7 +150,7 @@ where the curves are steepest.
           }
 \end{figure}
 
-The equations of state are embedded in the modern event-by-event iEBE-VISHNU hybrid model which uses the VISH2+1 boost-invariant viscous hydrodynamics code to simulate the 
+The equations of state are embedded in the event-by-event iEBE-VISHNU hybrid model which uses the VISH2+1 boost-invariant viscous hydrodynamics code to simulate the 
 time evolution of the QGP medium and a microscopic UrQMD hadronic afterburner for subsequent evolution below the QGP transition temperature. Where necessary, free
 parameters of the model are are tuned to facillitate model-to-data comparison with $200$ GeV gold-gold collisions at RHIC. In this section, we briefly outline
 the implementation of the model used in the analysis; for a more detailed explanation of the model see reference \cite{Shen:2014vra}. 
@@ -162,8 +162,8 @@ the implementation of the model used in the analysis; for a more detailed explan
 \subsection{Initial conditions}
 \label{initial_condition}
 
-The initial conditions represent the largest source of uncertainty in modern hydrodynamic simulations and a number of models exist in the literature which have described
-the experimental data with varying degrees of success \cite{Schenke:2012wb, Niemi:2015qia, Chatterjee:2015aja, Moreland:2014oya, Drescher:2006pi, Adler:2013aqf}. Since the present work is primarily interested in measuring the sensitivity of the hydrodynamic evolution to differences in the QGP EoS and \emph{not} obtaining the overall best fit of model to data, we choose perhaps the simplest and most widely adopted initial condition implementation based on a two-component Glauber model; for an overview see \cite{Miller:2007ri}.
+The initial conditions represent the largest source of uncertainty in current hydrodynamic simulations and a number of models exist in the literature which have described
+the experimental data with varying degrees of success \cite{Schenke:2012wb, Niemi:2015qia, Chatterjee:2015aja, Moreland:2014oya, Drescher:2006pi, Adler:2013aqf}. Because the goal of the present work is to measure the sensitivity of the hydrodynamic evolution to differences in the QGP EoS and \emph{not} obtaining the overall best fit of model to data, we choose the simplest and most widely adopted initial condition implementation based on a two-component Glauber model; for an overview see \cite{Miller:2007ri}.
 
 In the two-component ansatz, initial entropy is deposited proportional to a linear combination of nucleon participants and binary nucleon-nucleon collisions,
 \begin{equation}
@@ -212,9 +212,9 @@ where the bulk pressure $\Pi$ and shear stress $\pi^{\mu\nu}$ satisfy the relaxa
 \end{eqnarray}
 
 We follow the work in reference \cite{Shen:2014sfi} and fix the bulk viscosity $\zeta$ and shear viscosity $\eta$ in equation \eqref{viscosity} using a constant specific shear viscosity $\eta/s=0.08$ 
-and vanishing bulk viscosity $\zeta/s=0$ in the hydrodynamic phase of the simulation. It would be interesting to study the effect of bulk viscous corrections which are sensitive to 
-the peak of the QCD trace anomaly near the QGP phase transition \cite{Karsch:2007jc}. Unfortunately, bulk viscous corrections to particle emission at freezeout do not have a straight forward implementation in the present hybrid model 
-and are neglected in this work. 
+and vanishing bulk viscosity $\zeta/s=0$ in the hydrodynamic phase of the simulation. 
+Although the bulk viscous corrections are sensitive to 
+the peak of the QCD trace anomaly near the QGP phase transition \cite{Karsch:2007jc}, the bulk viscous corrections to particle emission at freezeout do not have a straight forward implementation in the present hybrid model and are therefore not included in this work. 
 
 As previously explained in section \,\ref{eos}, the iEBE-VISHNU hybrid model transitions from hydrodynamic field equations to microscopic transport at a sudden switching temperature $T_\text{sw}$ 
 at which the hydrodynamic energy-momentum tensor is particlized using the Cooper-Frye freezeout prescription,
@@ -244,11 +244,11 @@ Finally, the four-position, four-momentum and particle identification number of 
 \label{results}
 
 The results section is organized as follows. In sub-section \ref{spectra} we calculate the particle spectra for each equation of state across three different centrality classes using the final 
-particle information output by the hybrid simulation. In sub-section \ref{flow} we repeat the calculation for elliptic and triangular flow but perform the calculation on the 
-hydrodynamic Cooper-Frye freezeout surface for reasons explained later in the text. In sub-section \ref{hbt} we calculate the femptoscopic event-averaged Bertsch-Pratt radii, again using the 
+particle information output of the hybrid simulation. In sub-section \ref{flow} we repeat the calculation for elliptic and triangular flow but perform the calculation on the 
+hydrodynamic Cooper-Frye freezeout surface to reduce statistical errors. In sub-section~\ref{hbt} we calculate the femptoscopic event-averaged Bertsch-Pratt radii, again using the 
 final particle information output by the full hybrid calculation. Finally in sub-section \ref{errors}\,, we calculate mean $p_T$ and integrated anisotropic flow cumulants $v_2\{2\}$ and $v_3\{3\}$ from the UrQMD output using a sampling of equation of state curves from the HotQCD published errors. 
 
-All results presented in the following sections are based on $5\cdot10^4$ minimum bias events which are subdivided into centrality classes according to initial entropy, e.g. the initial condition events with $20\%$ highest entropy comprise centrality class $0$--$20\%$. Each hydrodynamic event is oversampled an additional ten times to increase the number of particles in each event and suppress finite statistical error.
+All results presented in the following sections are based on $5\cdot10^4$ minimum bias events which are subdivided into centrality classes according to initial entropy, e.g. the initial condition events with $20\%$ highest entropy comprise centrality class $0$--$20\%$. Each hydrodynamic event is oversampled an additional ten times to suppress finite statistical error.
 
 \subsection{Particle spectra}
 \label{spectra}
@@ -266,7 +266,7 @@ All results presented in the following sections are based on $5\cdot10^4$ minimu
 Figure \ref{fig:spectra} shows the invariant yield $dN/(2\pi p_T dp_T dy)$ of positively charged pions, kaons and protons calculated from the hybid model for the $10$--$15\%$, $20$--$30\%$
 and $40$--$50\%$ centrality classes using the HQCD, WB and S95 equations of state constructed in section \ref{eos}. 
 
-The first row shows the HQCD yields obtained from the hybrid model plotted against observed pion, proton and kaon data from PHENIX. The second and third rows show the ratio of the invariant yields of the WB and S95 equations of state over the the HQCD result. One sees that the HQCD equation of state provides a good description of observed particle yields except for at moderate to large $p_T$ in central collisions where the equation of state overpredicts the data. This agreement would likely improve with more realistic initial conditions, bulk viscous corrections and/or more careful treatment of the hydro-to-micro switching temperature $T_\text{sw}$, and thus it's difficult to make any specific statements on the overall fit of model to data. 
+The first row shows the HQCD yields obtained from the hybrid model plotted against observed pion, proton and kaon data from PHENIX. The second and third rows show the ratio of the invariant yields of the WB and S95 equations of state over the the HQCD result. One sees that the HQCD equation of state provides a good description of observed particle yields except for moderate to large $p_T$ in central collisions where this calculation overpredicts the data. This agreement would likely improve with more realistic initial conditions, bulk viscous corrections and/or more careful treatment of the hydro-to-micro switching temperature $T_\text{sw}$, and thus it's difficult to make any specific statements on the overall fit of model to data. 
 
 The second and third rows of Fig.~\ref{fig:spectra} show the ratios of the WB and S95 yields to the HQCD result. The observed spectra predicted by the HQCD and WB equations of state agree within statistical error, while the S95 equation of state is appreciably softer and produces $\sim\!5\%$ more particles at $p_T = 0.5$ GeV and $\sim\!20\%$ fewer particles at $p_T=2.5$ GeV across all three centralities.
 
@@ -286,22 +286,20 @@ The azimuthal anisotropy of final particle emission is characterized by the Four
 \end{equation}
 where $\phi$ is the direction of the emitted particle, $\Psi_{RP}$ is the reaction plane angle of the event and $v_n$ the anisotropic flow coefficient corresponding to the Fourier harmonic of order $n$.
 
-The reaction plane angle cannot be measured experimentally and the anisotropic flow is typically estimated using multi-particle correlations such as two and four-particle cumulants. The statistical error of the event-averaged estimators is suppressed with both increasing event multiplicity and event sample size. This can pose a challenge for computationally intensive hybrid model calculations which typically cannot reach integrated luminosities comparable to experiment. 
+The anisotropic flow is typically estimated using multi-particle correlations such as two and four-particle cumulants. The statistical error of the event-averaged estimators is suppressed with both increasing event multiplicity and event sample size. This can pose a challenge for computationally intensive hybrid model calculations which typically cannot reach integrated luminosities comparable to experiment. 
 
-Statistical errors are particularly noxious in differential flow calculations at moderate to large $p_T$ where particle statistics are limited. We circumvent this issue in the differential flow analysis and calculate the flow anisotropy of pions, kaons and protons directly from the Cooper-Frye freezeout surface using the built in routines in the iEBE-VISHNU package according to
+Statistical errors are particularly challenging in differential flow calculations at moderate to large $p_T$ where particle statistics are limited. We circumvent this issue in the differential flow analysis and calculate the flow anisotropy of pions, kaons and protons directly from the Cooper-Frye freezeout surface using the built in routines in the iEBE-VISHNU package according to
 \begin{equation}
  \label{differential_flow}
  v_n(p_T) = \frac{\int d\phi_p e^{i n \phi_p} dN/(dy p_T dp_T d\phi_p)}{\int d\phi_p\, dN/(dy p_T dp_T d\phi_p)}.
 \end{equation}
-Consequently, the flow results in Figs.~\ref{fig:v2} and \ref{fig:v3} do not include contributions from flow generated by the UrQMD hadronic afterburner which is indentical for each of the three equations of state. Hence, these results should be interpretted as a conservative upper bound on the goodness of fit sensitivity expected in a full hybrid model simulation.
+Consequently, the flow results in Figs.~\ref{fig:v2} and \ref{fig:v3} do not include contributions from flow generated by the UrQMD hadronic afterburner which is indentical for each of the three equations of state.  In Sec.~\ref{errors} results that incorporate UrQMD for the integrated flow measurements will be shown to be consistent.
 
 Figure~\ref{fig:v2} shows the elliptic flow $v_2$ of pions, kaons and protons calculated from equation \eqref{differential_flow} for the HQCD, WB and S95 equations of state in $0$--$10$, $20$--$30$ and $40$--$50\%$ centrality bins. 
-The first row of the figure shows the elliptic flow predicted by the HQCD equation of state while the middle and bottom rows display theoretical ratios of the WB and S95 predictions over the HQCD result. The information
-in Fig.~\ref{fig:v3} is identical to that in Fig.~\ref{fig:v2} except that elliptic flow $v_2$ has been replaced with triangular flow $v_3$.
+The first row of the figure shows the elliptic flow predicted by the HQCD equation of state while the middle and bottom rows display theoretical ratios of the WB and S95 predictions over the HQCD result. The presentation
+of Fig.~\ref{fig:v3} is identical to Fig.~\ref{fig:v2} except that elliptic flow $v_2$ has been replaced with triangular flow $v_3$.
 
-We see in Fig.~\ref{fig:v2} that the elliptic flow generated by the HQCD and WB parameterizations is in very good agreement across all centralities, while the S95 parameterization systematically generates $\sim \! 5\%$ less flow than the HQCD equation of state. This is expected as the S95 equation of state is considerably softer in the vicinity of the phase transition as evidenced by the speed of sound in Fig.~\ref{fig:cs}. 
-
-In Fig.~\ref{fig:v3}, we see that the effect on the triangular flow is similar to the effect observed on the elliptic flow except more pronounced and generates as large as a $15\%$ discrepancy in the peripheral flows predicted by the HQCD and S95 equations of state. This sensitivity of higher harmonics to the softness of the QGP phase equation of state puts the relatively large higher-order anisotropic flow coefficients observed at RHIC and the LHC into perspective. 
+We see in Fig.~\ref{fig:v2} that the elliptic flow generated by the HQCD and WB parameterizations is in very good agreement across all centralities, while the S95 parameterization systematically generates $\sim \! 5\%$ less flow than the HQCD equation of state. This is expected as the S95 equation of state is considerably softer in the vicinity of the phase transition as evidenced by the speed of sound in Fig.~\ref{fig:cs}.  In Fig.~\ref{fig:v3}, we see that the effect on the triangular flow is similar to the effect observed on the elliptic flow except more pronounced and generates as large as a $15\%$ discrepancy in the peripheral flows predicted by the HQCD and S95 equations of state. 
 
 \begin{figure*}[t]
   \includegraphics[width=\textwidth]{./fig/hbt}
@@ -316,9 +314,9 @@ In Fig.~\ref{fig:v3}, we see that the effect on the triangular flow is similar t
 \subsection{Femptoscopic Bertsch-Pratt radii}
 \label{hbt}
 
-The size of the fireball emission region is estimated using Hanbury-Brown-Twiss (HBT) interferometry for identical particles. The azimuthally averaged two-particle correlation function 
+The size of the fireball emission region is obtained using Hanbury-Brown-Twiss (HBT) interferometry for identical particles. The azimuthally averaged two-particle correlation function 
 \begin{equation}
- \label{hbt}
+ \label{c2}
  C(q, k) = \frac{\sum\limits_n \sum\limits_{i, j} \delta_{q} \, \delta_{k}\Psi(q,r)}{\sum\limits_{n} \sum\limits_{i,j'} \delta_{q} \, \delta_{k}}
 \end{equation}
 consists of a numerator with particles pairs sampled from the same event and a denominator with pairs sampled from different events. Here $q = p_i - p_j$ denotes the relative momentum, $r=x_i-x_j$ the relative separation and $k = (p_i + p_j)/2$ the average momentum of the pion pair in the longitudinal co-moving 
@@ -354,19 +352,18 @@ that HBT measurements are at most weakly sensitive to small perturbations in the
   }
 \end{figure}
 
-In addition to the best fit parameterization shown in Fig.~\ref{fig:trace}~, the HotQCD analysis includes a detailed calculation of associated lattice errors. The errors enter the analysis in several steps.
-The HotQCD trace anomaly is first calculated at various temperatures in the interval $130 < T < 400$ MeV using grids with temperal extent $N_\tau = 8,10$ and $12$.
-For each temperature and grid size, the lattice simulation is repeated a large number of times. 
-This creates a set of ``data points'' with a mean and variance determined from the Monte Carlo ensemble. 
-A set of data points is then resampled from the ensemble's mean and variance, and the collection of resampled points, one for each value of the temperature $T$ and grid size $N_\tau$, is fit with the ansatz,
+In addition to the best fit parameterization shown in Fig.~\ref{fig:trace}~, we perform a sensitivity study using equations of state drawn from the HotQCD error distributions.  These curves were calculated in several steps.
+The HotQCD trace anomaly was first calculated at various temperatures in the interval $130 < T < 400$ MeV using grids with temporal extent $N_\tau = 8,10$ and $12$.
+For each temperature and temporal extend, several thousand lattice configurations were generated, creating a set of ``data points'' with a mean and variance determined from the Monte Carlo ensemble. 
+A set of data points was then resampled from the ensemble's mean and variance, and the collection of resampled points, one for each value of the temperature $T$ and grid size $N_\tau$, were fit with the ansatz,
 \begin{equation}
  \label{splines}
  \frac{\theta^{\mu\mu}(T)}{T^4} = A + \sum\limits_{i=1}^{n_k=3} B_i \times S_i(T) + \frac{C + \sum_{i=1}^{n_k + 3} D_i \times S_i(T)}{N_\tau^2}.
 \end{equation}
 Here the constants $A$, $B_i$, $C$ and $D_i$ are parameters of the fit, $S_i$ is a set of cubic basis splines and $n_k$ the number of knots used in the B-spline fitting. 
-The entire procedure is then repeated 20,001 times to sample the function space of $\theta^{\mu\mu}(T)/T^4$ from the errors in the ensemble averaged lattice measurements.
+The entire procedure was repeated 20,001 times to sample the function space of $\theta^{\mu\mu}(T)/T^4$ from the errors in the ensemble averaged lattice measurements.
 
-In this section, we investigate the effect of these HotQCD lattice errors by measuring the spectra and flows for a subset of 100 randomly sampled EoS curves determined according to equation \eqref{splines}.
+Here we investigate the effect of these HotQCD lattice errors by measuring the spectra and flows for a subset of 100 randomly sampled EoS curves determined according to equation \eqref{splines}.
 The piecewise interpolation procedure described in section \ref{eos} is applied to each spline to smoothly match the HotQCD lattice interaction measures with the HRG result at low temperature. 
 The resulting interaction measures are shown in Fig.~\ref{fig:splines} alongside the best fit matched HotQCD parameterization which naturally falls in the middle of the sampled curves.  
 
@@ -398,9 +395,6 @@ mean $p_T$, $v_2$ and $v_3$.
 
 Errors in the HotQCD continuum extrapolation, represented by the spread in the HQCD EoS samples (blue circles), account for small (order 1\%) differences in mean $p_T$, $v_2$ and $v_3$ which are similar in magnitude to differences between the Wuppertal-Buddapest stout fermion (red triangles) and HotQCD HISQ/tree actions (blue squares). On the other hand, the pronounced peak in the S95 interaction measure leads to a much larger differences in mean $p_T$ and flows. For example, the value of $v_3\{2\}$ calculated using the S95 EoS is 12.6\% smaller than the same calculation performed with the HQCD EoS.
 
-Fig.~\ref{fig:eos_compare} is the primary result of this work. It demonstrates that current discrepancies between state-of-the-art LQCD calculations by the Wuppertal-Budapest and HotQCD collaborations lead to small changes in predicted simulation observables which are for all purposes negligible when compared to much larger model uncertainties in e.g. initial state physics and particlization. It also shows that errors in the lattice continuum extrapolation are under similar control; further improvements may affect simulation observables by a few percent at RHIC energies but no more. However, we see quite a large discrepancy in the older s95p-v1 lattice parameterization which was calculated on a coarser lattice and without continuum extrapolation.
-
-
 \section{Conclusion and Outlook}
 \label{conclusion}
 
@@ -410,14 +404,15 @@ The analysis is performed in two stages. First, we compare the latest HotQCD EoS
 
 We find that the spectra and flows of the HotQCD and Wuppertal-Budapest calculations are largely indistinguishable, while the s95p-v1 parameterization leads to noticeably softer spectra and less anisotropic flow. On the other hand, measurements of the azimuthally averaged HBT radii were not sensitive enough to resolve differences between the different EoS parameterizations. Furthermore, we see little differences for pions, kaons or protons, generic dependence on transverse momentum and somewhat surprisingly, only moderate sensitivity of the EoS deviations to changes in the centrality class.
 
-In the second stage of the analysis we quantify the effect of continuum extrapolation errors in the HotQCD calculation using a set of 100 randomly sampled EoS curves from the HotQCD error estimate. Based on our previous findings, we integrate over momenta and charged particle species to calculate high precision measurements of mean $p_T$ and anisotropic flow cumulants
+In the second stage of the analysis we quantify the effect of continuum extrapolation errors in the HotQCD calculation using a set of 100 randomly sampled EoS curves from the HotQCD error estimate. To improve statistical precision, we integrate over momenta and charged particle species to calculate high precision measurements of mean $p_T$ and anisotropic flow cumulants
 $v_2\{2\}$ and $v_3\{2\}$ for both the HotQCD error samples as well as the aforementioned HotQCD, Wuppertal-Budapest and s95p-v1 "best fit" parameterizations. The calculation shows that
 errors in the HotQCD continuum extrapolation lead to small $\sim\!1$--3\% differences in mean $p_T$, $v_2$ and $v_3$ which are of similar magnitude to differences between the HotQCD and Wuppertal-Budapest EoS parameterizations. On the other hand, the large peak in the older s95p-v1 EoS parameterization generates an appreciable softening of the hydrodynamic evolution which, for example, leads to a 12.6\% suppression of the triangular flow cumulant $v_3\{2\}$.
 
-Collectively, these results signal an important convergence in the LQCD EoS at zero baryochemical potential. Not only do the latest HotQCD and WB lattice calculations agree, but a sampling of the HotQCD errors indicate that numerical uncertainties in the calculations are under good control. This indicates that QGP parameter extractions via systematic model-to-data comparison are robust to small differences between modern LQCD EoS calculations. In contrast, older lattice calculations with a larger peak in the LQCD trace anomaly lead to measureable differences in the QGP evolution and errode the accuracy of QGP model-to-data parameter extraction.
+The primary result of this work is summarized in Fig.~\ref{fig:eos_compare}.  We have quantified for the first time impact of variations in the equation of state on soft particle observables in a heavy ion collisions.  By comparing different calculations and sampling from within the error distribution for a single calculation we have studied the impact of systematic and statistical errors on final state measurements.  We observe that these errors lead to differences of less than 1\% for particle spectra, and 2--3\% for $v_2$ and $v_3$.  These differences are comparable to current experimental systematic errors~\cite{Adamczyk:2013jh,Adare:2011uo} and until significant error reductions are obtained and required to constrain other model input parameters, further refinements of the equation of state at zero baryon density are unlikely to be needed.  However, continued use of the s95p-v1 equation of state in hydrodynamic modeling is discouraged.
 
 \begin{acknowledgments}
- JSM acknowledges support by the DOE/NNSA Stockpile Stewardship Graduate Fellowship under grant no.~DE-FC52-08NA28752.
+% We wish to thank Jonah Bernard for many helpful discussions.
+This work was performed with support from the U.S. Department of Energy NNSA Stockpile Stewardship Graduate Fellowship under grant no.~DE-FC52-08NA28752 and from Lawrence Livermore National Laboratory under Contract DE-AC52-07NA27344.
 \end{acknowledgments}
 
 \bibliography{eos,duke-qcd-refs/Duke_QCD_refs}
