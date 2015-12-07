@@ -17,9 +17,6 @@
 \usepackage{mdwlist}
 
 \newcommand{\nch}{N_\text{ch}}
-%\newcommand{\hotqcd}{HQCD~}
-%\newcommand{\wb}{WB~}
-%\newcommand{\spv}{S95~}
 
 \begin{document}
 
@@ -33,7 +30,7 @@
 \date{\today}
 
 \begin{abstract}
-Hydrodynamic calculations of ultra-relativistic heavy ion collisions are performed using the iEBE-VISHNU 2+1D code with fluctuating initial conditions and three different parameterizations of the Lattice QCD equations of state: continuum extrapolations for stout and HISQ/tree actions, as well as the s95p-v1 parameterization based upon calculations using the p4 action.  All parameterizations are matched to a hadron resonance gas equation of state at $T=$155~MeV, at which point the calculations are continued using the UrQMD hadronic cascade.  Calculations for $\sqrt{s_{NN}}=200$ GeV Au+Au collisions in three centrality classes are compared to experimental data for final state particle spectra and anisotropic flow coefficients $v_2$ and $v_3$ as well as for pion HBT radii.  Experimental observables for the stout and HISQ/tree equations of state are observed to differ by less than a few percent for all observables, while the s95p-v1 equation of state generates spectra and flow coefficients which differ by $\sim$10--20\%.  Calculations in which the HISQ/tree equation of state is sampled from the published error distribution are also observed to differ by less than a few percent.
+Hydrodynamic calculations of ultra-relativistic heavy ion collisions are performed using the iEBE-VISHNU 2+1D code with fluctuating initial conditions and three different parameterizations of the Lattice QCD equations of state: continuum extrapolations for stout and HISQ/tree actions, as well as the s95p-v1 parameterization based upon calculations using the p4 action.  All parameterizations are matched to a hadron resonance gas equation of state at $T= 155$~MeV, at which point the calculations are continued using the UrQMD hadronic cascade.  Calculations for $\sqrt{s_{NN}}=200$ GeV Au+Au collisions in three centrality classes are compared to experimental data for final state particle spectra and anisotropic flow coefficients $v_2$ and $v_3$ as well as for pion HBT radii.  Experimental observables for the stout and HISQ/tree equations of state are observed to differ by less than a few percent for all observables, while the s95p-v1 equation of state generates spectra and flow coefficients which differ by $\sim$10--20\%.  Calculations in which the HISQ/tree equation of state is sampled from the published error distribution are also observed to differ by less than a few percent.
 \end{abstract}
 
 \maketitle
@@ -64,7 +61,7 @@ We also perform a set of calculations in which the HISQ/tree continuum EoS is sa
 
 \begin{figure}[t]
   \includegraphics[width=\columnwidth]{./fig/trace}
-  \caption{\label{fig:trace} The temperature scaled QCD interaction measure for a hadron resonance gas (HRG) alongside recent lattice calculations from the HotQCD (HQCD) and Wuppertal-Budapest (WB) collaborations as well as the older s95p-v1 lattice parameterization \cite{Bazavov:2014pvz, Borsanyi:2013bia, Huovinen:2009yb}.}
+  \caption{\label{fig:trace} The QCD interaction measure for a hadron resonance gas (HRG) alongside recent lattice calculations from the HotQCD and Wuppertal-Budapest collaborations as well as the older s95p-v1 lattice parameterization \cite{Bazavov:2014pvz, Borsanyi:2013bia, Huovinen:2009yb}.}
 \end{figure}
 
 The Wuppertal-Budapest, HotQCD and s95p-v1 EoS parameterizations used in this work all employ staggered fermion actions with varying level improvements: additional terms added to remove lattice artifacts and improve simulation convergence. 
@@ -110,19 +107,19 @@ which smoothly connects between the two in the temperature interval $T_1 < T < T
  \cr z &=& 6 x^5 - 15 x^4 + 10 x^3 \\
   \text{where } x &=& (T - T_1)/(T_2 - T_1).
 \end{eqnarray}
-We fix the boundaries of the blending region $T_1=155$~MeV and $T_2=180$~MeV to impose matching at the switching temperature $T_\text{sw} = 155$~MeV, which coincides with the pseudo-critical phase transition temperatures of the HotQCD and Wuppertal-Budapest EoS~\cite{Borsanyi:2010gc,Bazavov:2012iu,Bhattacharya:2014iw}. The modified interaction measures, hereafter referred to simply as HQCD, WB and S95, are plotted in Fig.~\ref{fig:trace_final}\,. This interpolation procedure imposes the necessary matching condition on either side of the switching temperature (vertical line) with minimal disturbance to the peak of the LQCD trace anomaly at higher temperatures.
+We fix the boundaries of the blending region $T_1=155$~MeV and $T_2=180$~MeV to impose matching at the switching temperature $T_\text{sw} = 155$~MeV, which coincides with the pseudo-critical phase transition temperatures of the HotQCD and Wuppertal-Budapest EoS~\cite{Borsanyi:2010gc,Bazavov:2012iu,Bhattacharya:2014iw}. The modified interaction measures, hereafter referred to simply as HQ, WB and S95, are plotted in Fig.~\ref{fig:trace_final}\,. This interpolation procedure imposes the necessary matching condition on either side of the switching temperature (vertical line) with minimal disturbance to the peak of the LQCD trace anomaly at higher temperatures.
 
 \begin{figure}[t]
   \includegraphics[width=\columnwidth]{./fig/trace_matched}
-  \caption{\label{fig:trace_final} The modified QCD interaction measure for the HQCD, WB and S95 EoS obtained from equation \eqref{interaction} and the corresponding lattice
+  \caption{\label{fig:trace_final} The modified QCD interaction measures for the HQ, WB and S95 EoS obtained from equation \eqref{interaction} and the corresponding lattice
 	  parameterizations in Fig.~\ref{fig:trace}. The vertical line marks the hydro-to-micro switching temperature $T_\text{sw} = 155$~MeV.}
 \end{figure}
 
 Signal propagation in the QGP medium is characterized by the speed of sound, expressed in terms of the pressure and energy density as $c_s^2 = dp/de$.
-In Fig.~\ref{fig:cs} we plot the squared speed of sound for the HQCD, WB and S95 interaction measures shown in Fig.~\ref{fig:trace_final} alongside recent results from a systematic Bayesian analysis used to constrain parameterized forms of the LQCD EoS by simultaneously fitting model predictions to multiple observables at RHIC and the LHC \cite{Pratt:2015zsa}. 
+In Fig.~\ref{fig:cs} we plot the squared speed of sound for the HQ, WB and S95 interaction measures shown in Fig.~\ref{fig:trace_final} alongside recent results from a systematic Bayesian analysis used to constrain parameterized forms of the LQCD EoS by simultaneously fitting model predictions to multiple observables at RHIC and the LHC \cite{Pratt:2015zsa}. 
 The top panel of Fig.~\ref{fig:cs} shows the three lattice parameterizations used in this work plotted against 50 parametric EoS samples (thin grey lines) from the Bayesian prior, while the bottom panel of Fig.~\ref{fig:cs} shows the same lattice results plotted against samples from the Bayesian posterior, i.e. once the EoS curves have been constrained by data. The more tightly clustered posterior curves show a clear preference for the present lattice results.  Although these constraints are not able to resolve differences between the different lattice calculations, they fall below the continuum extrapolations for temperatures above 0.2~GeV.
 
-Within the three lattice calculations used in this study, the HQCD and WB speed of sound curves are in good agreement while the S95 parameterization remains softer in a wider interval about the QGP phase transition. We note that the parametric transition \eqref{interpolation} modifies the speed of sound in the vicinity of the EoS matching temperature but is constructed to preserve continuity across the desired transition region.
+Within the three lattice calculations used in this study, the HQ and WB speed of sound curves are in good agreement while the S95 parameterization remains softer in a wider interval about the QGP phase transition. We note that the parametric transition \eqref{interpolation} modifies the speed of sound in the vicinity of the EoS matching temperature but is constructed to preserve continuity across the desired transition region.
 
 With the trace anomalies in hand, the energy density, pressure and entropy density are easily interrelated to specify the equation of state used in the analysis,
 \begin{eqnarray}
@@ -132,31 +129,24 @@ With the trace anomalies in hand, the energy density, pressure and entropy densi
  \frac{s(T)}{T^3} &=& \frac{e(T) + p(T)}{T^4}. 
 \end{eqnarray}
  
-For clarity, Figs.~\ref{fig:trace}--\ref{fig:cs} do not include the respective errors bands for the HotQCD and Wuppertal-Budapest trace anomalies, but both calculations devote considerable effort
-to providing an accurate error estimate for their respective calculations~\cite{Borsanyi:2013bia,Bazavov:2014pvz}.  Common contributions to the errors
+For clarity, Figs.~\ref{fig:trace}--\ref{fig:cs} do not include the respective errors bands for the HotQCD and Wuppertal-Budapest trace anomalies, but both calculations devote considerable effort to providing an accurate error estimate for their respective calculations~\cite{Borsanyi:2013bia,Bazavov:2014pvz}.  Common contributions to the errors
 come from variations in spline fits to the interaction measures, differences between quadratic and quartic extrapolations in the lattice spacing, and
 small (~2\%) variations in the temperature scale.  Errors are typical of order 5\% for most quantities, and increase to 5--10\% in the transition region
 where the curves are steepest.
-
-%RAS-end-comment-region
 
 \section{Hybrid Model}
 
 \begin{figure}[b]
   \includegraphics[width=\columnwidth]{./fig/cs}
-  \caption{\label{fig:cs} Squared speed of sound $c_s^2$ plotted versus temperature $T$ for the HQCD, WB and S95 equations of state pictured in 
+  \caption{\label{fig:cs} Squared speed of sound $c_s^2$ plotted versus temperature $T$ for the HQ, WB and S95 equations of state pictured in 
            Fig.~\ref{fig:trace_final}. Top panel shows EoS parameterizations from the Bayesian prior used in reference \cite{Pratt:2015zsa} (thin grey lines)
            while the bottom panel shows samples from the Bayesian posterior once the samples have been constrained by experimental data.
           }
 \end{figure}
 
-The equations of state are embedded in the event-by-event iEBE-VISHNU hybrid model which uses the VISH2+1 boost-invariant viscous hydrodynamics code to simulate the 
-time evolution of the QGP medium and a microscopic UrQMD hadronic afterburner for subsequent evolution below the QGP transition temperature. Where necessary, free
-parameters of the model are are tuned to facillitate model-to-data comparison with $200$ GeV gold-gold collisions at RHIC. In this section, we briefly outline
+The equations of state are embedded in the event-by-event iEBE-VISHNU hybrid model which uses the VISH2+1 boost-invariant viscous hydrodynamics code \cite{Song:2007ux} to simulate the 
+time evolution of the QGP medium and the microscopic UrQMD hadronic afterburner \cite{Bass:1998ca, Bleicher:1999xi} for subsequent evolution below the QGP transition temperature. Where necessary, free parameters of the model are are tuned to facillitate model-to-data comparison with $\sqrt{s_{NN}}=200$ GeV gold-gold collisions at RHIC. In this section, we briefly outline
 the implementation of the model used in the analysis; for a more detailed explanation of the model see reference \cite{Shen:2014vra}. 
-
-
-
 
 
 \subsection{Initial conditions}
@@ -171,7 +161,7 @@ In the two-component ansatz, initial entropy is deposited proportional to a line
  \label{twocomponent}
 \end{equation}
 where for the binary collision fraction, we use $\alpha=0.14$ which has been shown to provide a good description of the centrality dependence of charged particle 
-multiplicity in $200$ GeV gold-gold collisions \cite{Shen:2014sfi}.
+multiplicity in $\sqrt{s_{NN}}=200$ GeV gold-gold collisions \cite{Shen:2014sfi}.
 
 The entropy is localized about each nucleon's transverse parton density $T_p({\bf x})$,
 \begin{eqnarray}
@@ -192,10 +182,9 @@ The random nucleon weights $w_i$ in equation \eqref{glauber} are sampled indepen
 \end{equation}
 and shape parameter $k = \text{Var}(P)^{-1}$ which modulates the variance of the distribution. 
 Such fluctuations are typically added to reproduce the large multiplicity fluctuations observed in minimum bias proton-proton collisions \cite{Adare:2008ns, Dumitru:2012yr, Moreland:2012qw, Bozek:2013uha, Shen:2014sfi}. 
-In this work the shape parameter is fixed to $k=1$ determined by a fit to the $200$ GeV UA5 data \cite{Ansorge:1988kn}. 
+In this work the shape parameter is fixed to $k=1$ determined by a fit to the $\sqrt{s_{NN}}=200$ GeV UA5 data \cite{Ansorge:1988kn}. 
 
-The initial condition profiles, which provide the entropy density $dS/(d^2r_\perp\, d\eta\, \tau_\text{therm})$ at the QGP thermalization time, are finally 
-rescaled by an overall normalization factor to fit the measured charged particle multiplicity in $0$--$10\%$ centrality collisions.
+The initial condition profiles, which provide the entropy density at the QGP thermalization time, are finally rescaled by an overall normalization factor to fit the measured charged particle multiplicity in $0$--$10\%$ centrality collisions.
 
 \subsection{Hydrodyamics and Boltzmann transport}
 
@@ -213,8 +202,6 @@ where the bulk pressure $\Pi$ and shear stress $\pi^{\mu\nu}$ satisfy the relaxa
 
 We follow the work in reference \cite{Shen:2014sfi} and fix the bulk viscosity $\zeta$ and shear viscosity $\eta$ in equation \eqref{viscosity} using a constant specific shear viscosity $\eta/s=0.08$ 
 and vanishing bulk viscosity $\zeta/s=0$ in the hydrodynamic phase of the simulation. 
-Although the bulk viscous corrections are sensitive to 
-the peak of the QCD trace anomaly near the QGP phase transition \cite{Karsch:2007jc}, the bulk viscous corrections to particle emission at freezeout do not have a straight forward implementation in the present hybrid model and are therefore not included in this work. 
 
 As previously explained in section \,\ref{eos}, the iEBE-VISHNU hybrid model transitions from hydrodynamic field equations to microscopic transport at a sudden switching temperature $T_\text{sw}$ 
 at which the hydrodynamic energy-momentum tensor is particlized using the Cooper-Frye freezeout prescription,
@@ -235,9 +222,9 @@ Finally, the four-position, four-momentum and particle identification number of 
 \begin{figure*}[t]
   \includegraphics[width=\textwidth]{./fig/spectra}
   \caption{
-    \label{fig:spectra} Effect of the equation of state on transverse momentum spectra. Top row: model calculations using the HQCD equation of state plotted against 
-    PHENIX data for pions, kaons and protons (blue lines/circles, red lines/squares and green lines/triangles) in centrality bins $0$--$5\%$, $20$--$30\%$ and $40$--$50\%$ 
-    (columns left to right). Middle and bottom rows: ratios of the WB and S95 invariant yields to the HQCD result. Shaded bands indicate two sigma statistical error. }
+    \label{fig:spectra} Effect of the equation of state on transverse momentum spectra. Top row: model calculations using the HQ equation of state plotted against 
+    PHENIX data for pions, kaons and protons (blue lines/circles, orange lines/squares and green lines/triangles) in centrality bins $10$--$15\%$, $20$--$30\%$ and $40$--$50\%$ 
+    (columns left to right). Middle and bottom rows: ratios of the WB and S95 invariant yields to the HQ result. Shaded bands indicate two sigma statistical error. }
 \end{figure*}
 
 \section{Results}
@@ -257,18 +244,18 @@ All results presented in the following sections are based on $5\cdot10^4$ minimu
   \includegraphics[width=\textwidth]{./fig/v2}
   \caption{
     \label{fig:v2} Effect of the equation of state on differential elliptic flow $v_2(p_T)$ calculated from the Cooper-Frye freezeout hypersurface \eqref{differential_flow}.
-    Top row: model calculations using the HQCD equation of state for the elliptic flow $v_2(p_T)$  of pions, kaons and protons (blue, orange and green lines) 
+    Top row: model calculations using the HQ equation of state for the elliptic flow $v_2(p_T)$ of pions, kaons and protons (blue, orange and green lines) 
     in centrality bins $0$--$10\%$, $20$--$30\%$ and $40$--$50\%$ (columns left to right). Middle and bottom rows: ratios of the WB and S95 elliptic flow to 
-    the HQCD result. Statistical errors are negligible and have been omitted.
+    the HQ result. Statistical errors are negligible and have been omitted.
   }
 \end{figure*}
 
 Figure \ref{fig:spectra} shows the invariant yield $dN/(2\pi p_T dp_T dy)$ of positively charged pions, kaons and protons calculated from the hybid model for the $10$--$15\%$, $20$--$30\%$
-and $40$--$50\%$ centrality classes using the HQCD, WB and S95 equations of state constructed in section \ref{eos}. 
+and $40$--$50\%$ centrality classes using the HQ, WB and S95 equations of state constructed in section \ref{eos}. 
 
-The first row shows the HQCD yields obtained from the hybrid model plotted against observed pion, proton and kaon data from PHENIX. The second and third rows show the ratio of the invariant yields of the WB and S95 equations of state over the the HQCD result. One sees that the HQCD equation of state provides a good description of observed particle yields except for moderate to large $p_T$ in central collisions where this calculation overpredicts the data. This agreement would likely improve with more realistic initial conditions, bulk viscous corrections and/or more careful treatment of the hydro-to-micro switching temperature $T_\text{sw}$, and thus it's difficult to make any specific statements on the overall fit of model to data. 
+The first row shows the HQ yields obtained from the hybrid model plotted against observed pion, proton and kaon data from PHENIX. The second and third rows show the ratio of the invariant yields of the WB and S95 equations of state over the HQ result. One sees that the HQ equation of state provides a good description of observed particle yields except for moderate to large $p_T$ in central collisions where this calculation overpredicts the data. This agreement would likely improve with more realistic initial conditions, bulk viscous corrections and/or more careful treatment of the hydro-to-micro switching temperature $T_\text{sw}$, and thus it's difficult to make any specific statements on the overall fit of model to data. 
 
-The second and third rows of Fig.~\ref{fig:spectra} show the ratios of the WB and S95 yields to the HQCD result. The observed spectra predicted by the HQCD and WB equations of state agree within statistical error, while the S95 equation of state is appreciably softer and produces $\sim\!5\%$ more particles at $p_T = 0.5$ GeV and $\sim\!20\%$ fewer particles at $p_T=2.5$ GeV across all three centralities.
+The second and third rows of Fig.~\ref{fig:spectra} show the ratios of the WB and S95 yields to the HQ result. The observed spectra predicted by the HQ and WB equations of state agree within statistical error, while the S95 equation of state is appreciably softer and produces $\sim\!5\%$ more particles at $p_T = 0.5$ GeV and $\sim\!20\%$ fewer particles at $p_T=2.5$ GeV across all three centralities.
 
 \subsection{Elliptic and triangular flows}
 \label{flow}
@@ -295,18 +282,18 @@ Statistical errors are particularly challenging in differential flow calculation
 \end{equation}
 Consequently, the flow results in Figs.~\ref{fig:v2} and \ref{fig:v3} do not include contributions from flow generated by the UrQMD hadronic afterburner which is indentical for each of the three equations of state.  In Sec.~\ref{errors} results that incorporate UrQMD for the integrated flow measurements will be shown to be consistent.
 
-Figure~\ref{fig:v2} shows the elliptic flow $v_2$ of pions, kaons and protons calculated from equation \eqref{differential_flow} for the HQCD, WB and S95 equations of state in $0$--$10$, $20$--$30$ and $40$--$50\%$ centrality bins. 
-The first row of the figure shows the elliptic flow predicted by the HQCD equation of state while the middle and bottom rows display theoretical ratios of the WB and S95 predictions over the HQCD result. The presentation
+Figure~\ref{fig:v2} shows the elliptic flow $v_2$ of pions, kaons and protons calculated from equation \eqref{differential_flow} for the HQ, WB and S95 equations of state in $0$--$10$, $20$--$30$ and $40$--$50\%$ centrality bins. 
+The first row of the figure shows the elliptic flow predicted by the HQ equation of state while the middle and bottom rows display theoretical ratios of the WB and S95 predictions over the HQ result. The presentation
 of Fig.~\ref{fig:v3} is identical to Fig.~\ref{fig:v2} except that elliptic flow $v_2$ has been replaced with triangular flow $v_3$.
 
-We see in Fig.~\ref{fig:v2} that the elliptic flow generated by the HQCD and WB parameterizations is in very good agreement across all centralities, while the S95 parameterization systematically generates $\sim \! 5\%$ less flow than the HQCD equation of state. This is expected as the S95 equation of state is considerably softer in the vicinity of the phase transition as evidenced by the speed of sound in Fig.~\ref{fig:cs}.  In Fig.~\ref{fig:v3}, we see that the effect on the triangular flow is similar to the effect observed on the elliptic flow except more pronounced and generates as large as a $15\%$ discrepancy in the peripheral flows predicted by the HQCD and S95 equations of state. 
+We see in Fig.~\ref{fig:v2} that the elliptic flow generated by the HQ and WB parameterizations is in very good agreement across all centralities, while the S95 parameterization systematically generates $\sim \! 5\%$ less flow than the HQ equation of state. This is expected as the S95 equation of state is considerably softer in the vicinity of the phase transition as evidenced by the speed of sound in Fig.~\ref{fig:cs}.  In Fig.~\ref{fig:v3}, we see that the effect on the triangular flow is similar to the effect observed on the elliptic flow except more pronounced and generates as large as a $\sim \! 15\%$ discrepancy in the peripheral flows predicted by the HQ and S95 equations of state. 
 
 \begin{figure*}[t]
   \includegraphics[width=\textwidth]{./fig/hbt}
   \caption{
-    \label{fig:hbt} Effect of the equation of state on the Bertsch-Pratt radii.  We plot $R_s$, $R_o$, $R_l$ and the ratio $R_o/R_s$ (rows top to bottom) 
-    in centrality bins $0$--$10\%$, $20$--$30\%$ and $40$--$50\%$ (columns left to right) against transverse mass $m_T$ for the HQCD, WB  and S95 equations of state 
-    (purple, orange and blue lines). Shaded bands indicate two sigma errors estimated from the Jacobian of the fit function \eqref{fitfunction}. Symbols with errors bars 
+    \label{fig:hbt} Effect of the equation of state on the Bertsch-Pratt radii. We plot $R_s$, $R_o$, $R_l$ and the ratio $R_o/R_s$ (rows top to bottom) 
+    in centrality bins $0$--$10\%$, $10$--$20\%$ and $20$--$40\%$ (columns left to right) against transverse mass $m_T$ for the HQ, WB and S95 equations of state 
+    (blue, red and green lines). Shaded bands indicate two sigma errors from the covariance of the fit parameters \eqref{fitfunction}. Symbols with errors bars 
     are experimental data from PHENIX.  
   }
 \end{figure*}
@@ -333,9 +320,9 @@ fit to the parametric form
 \end{equation}
 by finding the best fit normalization $\mathcal{N}$, source strength $\lambda$ and Bertsch-Pratt radii $R_o$, $R_s$ and $R_l$ for a given transverse momentum $k_T$. 
 
-We calculate the Bertsch-Pratt radii for each equation of state using identical pions. The fit is perfomed using $5\cdot10^4$ hydrodynamic events in each centrality bin and an additional ten UrQMD oversamples per event. The oversamples are then concatenated into a single particle list to increase the number of particle pairs by a factor $10^2$.
+We calculate the Bertsch-Pratt radii for each equation of state using identical pions. The fit is perfomed using $5\cdot10^4$ minimum bias hydrodynamic events and an additional ten UrQMD oversamples per event. The oversamples are then concatenated into a single particle list to increase the number of particle pairs by a factor of $10^2$.
 
-In Fig.~\ref{fig:hbt}, we plot the Bertsch-Pratt radii for the HQCD, WB and S95 equations of state as functions of the transverse mass $m_T = \sqrt{m^2 + k_T^2}$ where $m$ is the pion mass. The horizontal rows show the radii $R_s$, $R_o$, $R_l$ and ratio $R_o/R_s$ (top to bottom), while the columns mark centrality classes $0$--$10\%$, $10$--$20\%$ and $20$--$40\%$ (left to right). The different colored lines annotated in the legend indicate different equations of state and the bands estimate errors in the fit parameters of Eq. \eqref{fitfunction}. The symbols are experimental data from PHENIX.
+In Fig.~\ref{fig:hbt}, we plot the Bertsch-Pratt radii for the HQ, WB and S95 equations of state as functions of the transverse mass $m_T = \sqrt{m^2 + k_T^2}$ where $m$ is the pion mass. The horizontal rows show the radii $R_s$, $R_o$, $R_l$ and ratio $R_o/R_s$ (top to bottom), while the columns mark centrality classes $0$--$10\%$, $10$--$20\%$ and $20$--$40\%$ (left to right). The different colored lines annotated in the legend indicate different equations of state and the bands estimate errors in the fit parameters of Eq. \eqref{fitfunction}. The symbols are experimental data from PHENIX.
 
 We see that the Bertsch-Pratt radii predicted by the hybrid model provide a good description of the data across all centralities, except for at low $p_T$ where the ratio $R_o/R_s$ slightly undershoots the data. However, in contrast to spectra and flows we see no discernible difference in the Bertsch-Pratt radii predicted by the three different equations of state. This suggests
 that HBT measurements are at most weakly sensitive to small perturbations in the lattice EoS. These results agree with a new sensitivity study which quantified the differential change in simulated observables as a function of perturbed model inputs, e.g. the shape of the EoS speed of sound curve \cite{Sangaline:2015isa}. 
@@ -347,8 +334,8 @@ that HBT measurements are at most weakly sensitive to small perturbations in the
   \includegraphics[width=\columnwidth]{./fig/splines}
   \caption{
     \label{fig:splines}
-    Temperature scaled QCD interaction measure for 100 random samples of the HotQCD error estimate (thin grey lines) plotted alongside the HRG EoS (dashed black) and 
-    best fit HotQCD (long-dashed blue) parameterization from Fig.~\ref{fig:trace_final}.
+    QCD interaction measure for 100 random samples of the HotQCD error estimate (thin grey lines) plotted alongside the hadron resonance gas EoS (dashed black) and 
+    best fit HotQCD (long-dashed blue) parameterization. Both the HQ and HQ sample EoS curves are matched to the HRG EoS at 155 MeV as in Fig.~\ref{fig:trace_final}.
   }
 \end{figure}
 
@@ -365,35 +352,34 @@ The entire procedure was repeated 20,001 times to sample the function space of $
 
 Here we investigate the effect of these HotQCD lattice errors by measuring the spectra and flows for a subset of 100 randomly sampled EoS curves determined according to equation \eqref{splines}.
 The piecewise interpolation procedure described in section \ref{eos} is applied to each spline to smoothly match the HotQCD lattice interaction measures with the HRG result at low temperature. 
-The resulting interaction measures are shown in Fig.~\ref{fig:splines} alongside the best fit matched HotQCD parameterization which naturally falls in the middle of the sampled curves.  
+The resulting interaction measures are shown in Fig.~\ref{fig:splines} alongside the HRG-matched best fit HotQCD parameterization which naturally falls in the middle of the sampled curves.  
 
 The energy density, entropy density, pressure and temperature are then calculated from each interaction measure according to \eqref{conversion} to generate 100 different EoS tables. 
-Above 400~MeV, the higher derivatives of the interaction measures become unreliable and we extrapolate the EoS table using a simple power law. 
-We note, however, that this modification has negligible impact on the hydrodynamic evolution at RHIC where the system is predominantly below 400~MeV.
+Above 400~MeV, the higher derivatives of the interaction measures become unreliable and we extrapolate the EoS table using a simple power law, e.g. the energy density as a function of temperature is extended using $e(T) = a T^b$ where the coefficients $a$ and $b$ are tuned to fit the lattice EoS at 400 MeV. We note, however, that this modification has negligible impact on the hydrodynamic evolution at RHIC where the spacetime volume of the system is predominantly below 400~MeV.
 
-In the previous sections, we compared observables calculated from different EoS both as functions of transverse momentum and centrality, as well as for different particle species. Figures~\ref{fig:spectra}--\ref{fig:hbt} indicate that changes in the EoS affect pions, kaons and protons in a similar fashion. Meanwhile, the $p_T$ dependence of these quantities exhibits a few general trends--changing the stiffness of the EoS changes the slope of the spectra while it shifts the differential flow curves vertically up and down. These generic features suggest that simpler quantities, such as mean $p_T$ and integrated flow, may offer equal resolving power to species dependent and differential quantities with the added benefit of increased statistics and reduced model uncertainty.
+In the previous sections, we compared observables calculated from different EoS both as functions of transverse momentum and centrality, as well as for different particle species. Figures~\ref{fig:spectra}--\ref{fig:hbt} indicate that changes in the EoS affect pions, kaons and protons in a similar fashion. Meanwhile, the $p_T$ dependence of these quantities exhibits a few general trends. Changing the stiffness of the EoS changes the slope of the spectra while it shifts the differential flow curves vertically up and down. These generic features suggest that simpler quantities such as mean $p_T$ and integrated flow may offer equal resolving power to species dependent and differential quantities with the added benefit of increased statistics and reduced model uncertainty.
 
 \begin{figure}
   \includegraphics[width=\columnwidth]{./fig/eos_compare}
   \caption{
     \label{fig:eos_compare}
     From top to bottom: calculations of mean $p_T$, elliptic flow cumulant $v_2\{2\}$, triangular flow cumulant $v_3\{2\}$ and maximum value of the interaction measure 
-    $I(T) = (e - 3 p)/T^4$ for 200 GeV Au+Au collisions in centrality bin 20--30\%. The calculation is performed for 100 EoS curves randomly sampled from the errors in the HQCD 
-    continuum extrapolation (blue circles) as well as for the  HQCD (blue squares), WB (red triangles) and S95 (green stars) EoS curves described in section \ref{eos}. 
-    Gray shaded bands show the two-sigma confidence interval for the HQCD samples and percents indicate the relative increase (decrease) of a given observable for each EoS 
-    relative to the HQCD result. The HQCD EoS samples are labeled in order of increasing mean $p_T$. The kinematic cuts are $p_T < 3$ GeV with $|\eta| < 0.5$ for mean $p_T$ 
-    and $|\eta| < 1$ for flows. Vertical error bars on the measurements represent two-sigma statistical error from finite particle fluctuations.
+    $I(T) = (e - 3 p)/T^4$ for $\sqrt{s_{NN}}=200$ GeV Au+Au collisions in centrality bin 20--30\%. The calculation is performed for 100 EoS curves randomly sampled from the 
+    errors in the HotQCD continuum extrapolation (blue circles) as well as for the HQ, WB and S95 EoS curves shown in Fig.~\ref{fig:trace_final} (blue squares, red triangles 
+    and green stars). Gray shaded bands show the two-sigma confidence interval for the HQ samples and percents indicate the relative increase (decrease) of a given observable for each EoS 
+    relative to the HQ result (blue square). HQ EoS samples are numbered in increasing order by the peak value of the interaction measure. The kinematic cuts are $p_T < 3$ GeV with 
+    $|\eta| < 0.5$ for mean $p_T$ and $|\eta| < 1$ for flows. Vertical error bars on the measurements represent two-sigma statistical error from finite particle fluctuations.
   }
 \end{figure}
 
 With this in mind, we quantify the effect of the HotQCD errors by calculating the mean $p_T$ and integrated two-particle cumulants $v_2\{2\}$ and $v_3\{2\}$ for all charged particles in the 20--30\% centrality bin. Unlike the $p_T$-differential flows in Figs.~\ref{fig:v2} and \ref{fig:v3}, these integrated cumulants are calculated from the UrQMD particle output and account for flow developed in the hadronic phase of the collision. 
 
-The results for each HotQCD EoS sample (numbered 1--100 in order of increasing mean $p_T$) are shown in Fig.~\ref{fig:eos_compare} along with the corresponding results for the HQCD, WB and S95 EoS curves described in section \ref{eos}. The grey band plotted on top of the HQCD samples marks the two-sigma confidence interval describing 95\% of the variance in the HQCD samples while the percentages next to the data points describe the increase (decrease) of each EoS relative to the HQCD EoS result (blue square). For comparison, the bottom panel of Fig.~\ref{fig:eos_compare} displays the maximum value of the interaction measure for each EoS.
+The mean $p_T$ and flow cumulants for the sampled HotQCD EoS curves--numbered in increasing order by the maximum value of their respective interaction measures--are displayed Fig.~\ref{fig:eos_compare} alongside results for the HQ, WB and S95 EoS described in section \ref{eos}. The grey band plotted on top of the HQ samples marks the two-sigma confidence interval describing 95\% of the variance in the HQ samples while the percentages next to the data points describe the increase (decrease) of each EoS relative to the HQ EoS result (blue square). For comparison, the bottom panel of Fig.~\ref{fig:eos_compare} displays the maximum value of the interaction measure for each EoS.
 
 Several key features are immediately apparent from the figure. We see a clear separation of the different EoS curves which is strongly correlated with the maximum value of the interaction measure (bottom panel). Softer EoS curves have a larger peak in the trace anomaly and hence drive less radial, elliptic and triangular flow as evidenced by the smaller values of 
 mean $p_T$, $v_2$ and $v_3$.
 
-Errors in the HotQCD continuum extrapolation, represented by the spread in the HQCD EoS samples (blue circles), account for small (order 1\%) differences in mean $p_T$, $v_2$ and $v_3$ which are similar in magnitude to differences between the Wuppertal-Buddapest stout fermion (red triangles) and HotQCD HISQ/tree actions (blue squares). On the other hand, the pronounced peak in the S95 interaction measure leads to a much larger differences in mean $p_T$ and flows. For example, the value of $v_3\{2\}$ calculated using the S95 EoS is 12.6\% smaller than the same calculation performed with the HQCD EoS.
+Errors in the HotQCD continuum extrapolation, represented by the spread in the HQ EoS samples (blue circles), account for small (order 1\%) differences in mean $p_T$, $v_2$ and $v_3$ which are similar in magnitude to differences between the Wuppertal-Buddapest stout fermion (red triangles) and HotQCD HISQ/tree actions (blue squares). On the other hand, the pronounced peak in the S95 interaction measure leads to much larger differences in mean $p_T$ and flows. For example, the value of $v_3\{2\}$ calculated using the S95 EoS is 12.6\% smaller than the same calculation performed with the HQ EoS.
 
 \section{Conclusion and Outlook}
 \label{conclusion}
@@ -411,7 +397,7 @@ errors in the HotQCD continuum extrapolation lead to small $\sim\!1$--3\% differ
 The primary result of this work is summarized in Fig.~\ref{fig:eos_compare}.  We have quantified for the first time impact of variations in the equation of state on soft particle observables in a heavy ion collisions.  By comparing different calculations and sampling from within the error distribution for a single calculation we have studied the impact of systematic and statistical errors on final state measurements.  We observe that these errors lead to differences of less than 1\% for particle spectra, and 2--3\% for $v_2$ and $v_3$.  These differences are comparable to current experimental systematic errors~\cite{Adamczyk:2013jh,Adare:2011uo} and until significant error reductions are obtained and required to constrain other model input parameters, further refinements of the equation of state at zero baryon density are unlikely to be needed.  However, continued use of the s95p-v1 equation of state in hydrodynamic modeling is discouraged.
 
 \begin{acknowledgments}
-% We wish to thank Jonah Bernard for many helpful discussions.
+We wish to thank Jonah Bernard for many helpful discussions.
 This work was performed with support from the U.S. Department of Energy NNSA Stockpile Stewardship Graduate Fellowship under grant no.~DE-FC52-08NA28752 and from Lawrence Livermore National Laboratory under Contract DE-AC52-07NA27344.
 \end{acknowledgments}
 
