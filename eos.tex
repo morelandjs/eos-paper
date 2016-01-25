@@ -5,7 +5,7 @@
 \usepackage{amsmath}
 \usepackage{mathtools}
 \usepackage{paralist}
-\graphicspath{{fig/}}
+%\graphicspath{{fig/}}
 
 %packages for editing
 \usepackage{xcolor}
@@ -37,7 +37,7 @@ Hydrodynamic calculations of ultra-relativistic heavy ion collisions are perform
 
 \section{Introduction}
 
-Quantum Chromodynamics (QCD) predicts that at sufficiently high temperature or density, nuclear matter exists in a state of deconfined state of quarks and gluons known as a quark-gluon plasma (QGP). 
+Quantum Chromodynamics (QCD) predicts that at sufficiently high temperature or density, nuclear matter exists in a deconfined state of quarks and gluons known as a quark-gluon plasma (QGP). 
 This state of matter filled the early universe several microseconds after the big bang and is now recreated and studied in the laboratory by colliding heavy ions at relativistic energies at the Relativistic Heavy Ion Collider (RHIC) and the Large Hadron Collider (LHC).
 
 Quantitative model to data comparison, using simulations based on relativistic hydrodynamics, is the optimal means to extract properties of QGP produced by relativistic heavy-ion collisions which expands and freezes into hadrons too quickly for direct observation. 
@@ -340,8 +340,7 @@ We see that the Bertsch-Pratt radii predicted by the hybrid model provide a good
   }
 \end{figure}
 
-In addition to the best fit parameterization shown in Fig.~\ref{fig:trace}~, we perform a sensitivity study using equations of state drawn from the HotQCD error distributions.  These curves were calculated in several steps \cite{Bazavov:2014pvz}.
-The HotQCD trace anomaly was first calculated at various temperatures in the interval $130 < T < 400$ MeV using grids with temporal extent $N_\tau = 8,10$ and $12$.
+In addition to the best fit parameterization shown in Fig.~\ref{fig:trace}~, we perform a sensitivity study using equations of state drawn from the HotQCD error distributions.  These curves were calculated in reference \cite{Bazavov:2014pvz} in several steps. The HotQCD trace anomaly was first calculated at various temperatures in the interval $130 < T < 400$ MeV using grids with temporal extent $N_\tau = 8,10$ and $12$.
 For each temperature and temporal extent, several thousand lattice configurations were generated, creating a set of ``data points'' with a mean and variance determined from the Monte Carlo ensemble. 
 A set of data points was then resampled from the ensemble's mean and variance, and the collection of resampled points, one for each value of the temperature $T$ and grid size $N_\tau$, were fit with the ansatz,
 \begin{equation}
